@@ -1,0 +1,2 @@
+
+PASS: additive clicks, toggle off, two separate fields, similar records produce 3 rows x 2 fields

@@ -1,0 +1,4 @@
+
+PASS: main lazy list 4 -> 12, inner lazy list 3 -> 9, returned to top, then detected and highlighted; 4409ms
+PASS: select parent, outer container -> all 100 children, all 100 highlighted, popup cleanup
+PASS: cancellation under 1 second and time-limit result flagged

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>本地测试站 · 第1页</title>
+<style>
+  body { font-family: "Microsoft YaHei", sans-serif; margin: 0; }
+  .navbar { display: flex; gap: 18px; padding: 12px 20px; background: #2c3e50; }
+  .navbar a { color: #ecf0f1; text-decoration: none; font-size: 14px; }
+  h1 { margin: 16px 20px; font-size: 22px; }
+  .carousel { display: flex; gap: 10px; overflow-x: auto; padding: 10px 20px; background: #f5f6fa; }
+  .card { min-width: 180px; height: 70px; background: #dfe4ea; border-radius: 8px; display: flex; align-items: center; justify-content: center; color: #57606f; }
+  .list { max-width: 760px; margin: 20px auto; }
+  .item { display: flex; gap: 12px; padding: 14px; border: 1px solid #e0e0e0; border-radius: 10px; margin-bottom: 12px; background: #fff; }
+  .item img { width: 64px; height: 64px; border-radius: 8px; background: #ced6e0; }
+  .item h3 { margin: 0 0 6px; font-size: 16px; }
+  .item h3 a { color: #2f3542; text-decoration: none; }
+  .item .desc { color: #747d8c; font-size: 13px; margin-bottom: 6px; }
+  .item .price { color: #e17055; font-weight: bold; }
+  .pager { display: flex; gap: 10px; justify-content: center; padding: 20px 0 40px; }
+  .pager a { padding: 8px 18px; background: #2f6fd6; color: #fff; border-radius: 6px; text-decoration: none; }
+  .status { text-align: center; color: #a4b0be; font-size: 12px; padding: 10px; }
+</style>
+</head>
+<body>
+  <nav class="navbar">
+    <a href="#">首页</a><a href="#">分类</a><a href="#">排行</a><a href="#">关于</a><a href="#">帮助</a>
+  </nav>
+  <h1>商品列表（向下滚动自动加载，共 40 条）</h1>
+  <div class="carousel">
+    <div class="card">轮播 1</div><div class="card">轮播 2</div><div class="card">轮播 3</div>
+    <div class="card">轮播 4</div><div class="card">轮播 5</div><div class="card">轮播 6</div><div class="card">轮播 7</div>
+  </div>
+  <div class="list" id="list"></div>
+  <div class="status" id="status">已加载 8 条</div>
+  <div class="pager"><a href="sample2.html" id="nextpage">下一页 ›</a></div>
+<script>
+  const names = ['智能保温杯','无线降噪耳机','机械键盘','人体工学椅','便携榨汁机','桌面加湿器','运动手环','4K运动相机',
+    '电动牙刷','空气炸锅','破壁料理机','智能门锁','扫地机器人','筋膜枪','蓝牙音箱','护眼台灯','电热饭盒','挂烫机',
+    '颈椎按摩仪','儿童电话手表','行车记录仪','电子阅读器','咖啡机','除湿机'];
+  let seq = 0;
+  function addItem() {
+    seq++;
+    const name = names[seq % names.length] + ' ' + (seq > names.length ? 'Pro' + Math.ceil(seq / names.length) : '');
+    const price = (Math.round(Math.random() * 90000) / 100 + 19.9).toFixed(2);
+    const div = document.createElement('div');
+    div.className = 'item product';
+    div.innerHTML = '<img alt="pic"><div class="info"><h3><a href="#">' + name + '</a></h3>' +
+      '<div class="desc">第' + seq + '号商品，品质保证，现货速发，七天无理由退换。</div>' +
+      '<span class="price">¥' + price + '</span></div>';
+    document.getElementById('list').appendChild(div);
+    document.getElementById('status').textContent = '已加载 ' + seq + ' 条';
+  }
+  for (let i = 0; i < 8; i++) addItem();
+  let loading = false;
+  window.addEventListener('scroll', () => {
+    if (loading || seq >= 40) return;
+    if (window.innerHeight + window.scrollY >= document.body.offsetHeight - 300) {
+      loading = true;
+      setTimeout(() => { for (let i = 0; i < 4; i++) addItem(); loading = false; }, 400);
+    }
+  });
+</script>
+</body>
+</html>

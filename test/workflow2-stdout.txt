@@ -1,0 +1,5 @@
+
+PASS: popup hover/click execute immediately, generated loop clicks all four selected items
+PASS: node copy/delete/undo/drag/order, distinct task copies, archive/restore, disk reload, traversal rejection, execution order and stop/edit lock
+PASS: detection, XPath list, relative fields, preview validation, saved options, two-page extraction and CSV headers
+Test exports: C:\Users\huanghe\AppData\Local\Temp\v6-workflow-TWO3rs

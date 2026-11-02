@@ -1,0 +1,2 @@
+
+PASS: default selection, combined input, search navigation keeps selection, pick list, record pagination, save/load, replay exact 6 records over 2 pages

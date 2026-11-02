@@ -1,0 +1,3 @@
+
+PASS: edit widths unchanged, drag swaps all result rows, context delete, export reflects one remaining column
+PASS: default selection, combined input, search navigation keeps selection, pick list, record pagination, save/load, replay exact 6 records over 2 pages

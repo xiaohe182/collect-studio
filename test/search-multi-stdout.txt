@@ -1,0 +1,3 @@
+
+PASS: sidebar recognition/action controls removed, native page progress and cancellation preserve config; context copy/paste/undo
+PASS: distinct product/category recognition; floating candidate switching changes highlights/preview; generate selected candidate; guided pagination/scroll/load-more picking; exact 6 selected rows collected

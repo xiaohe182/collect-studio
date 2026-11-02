@@ -1,0 +1,25 @@
+{
+  "runs": [
+    {
+      "run": 1,
+      "rows": 10000,
+      "ms": 2784,
+      "mainRssMB": 117
+    },
+    {
+      "run": 2,
+      "rows": 10000,
+      "ms": 2840,
+      "mainRssMB": 122
+    },
+    {
+      "run": 3,
+      "rows": 10000,
+      "ms": 2837,
+      "mainRssMB": 125
+    }
+  ],
+  "output": "C:\\Users\\huanghe\\AppData\\Local\\Temp\\v6-stress-hRSXUM",
+  "exportsMs": 298,
+  "modeSwitches": 100
+}

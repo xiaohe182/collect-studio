@@ -1,0 +1,5526 @@
+[
+  {
+    "id": "default-3f2943f5-c237-41ed-921f-4f41a79cc864",
+    "name": "产品资料 · 全字段分页采集",
+    "group": "默认贸易流程",
+    "url": "https://trade.tsbsoft.com/login",
+    "fields": [
+      {
+        "name": "产品图片",
+        "virtualColumn": "产品图片",
+        "type": "text",
+        "__on": true
+      },
+      {
+        "name": "产品编号",
+        "virtualColumn": "产品编号",
+        "type": "text",
+        "__on": true
+      },
+      {
+        "name": "辅助编号",
+        "virtualColumn": "辅助编号",
+        "type": "text",
+        "__on": true
+      },
+      {
+        "name": "产品名称",
+        "virtualColumn": "产品名称",
+        "type": "text",
+        "__on": true
+      },
+      {
+        "name": "英文名称",
+        "virtualColumn": "英文名称",
+        "type": "text",
+        "__on": true
+      },
+      {
+        "name": "出厂货号",
+        "virtualColumn": "出厂货号",
+        "type": "text",
+        "__on": true
+      },
+      {
+        "name": "产品类型",
+        "virtualColumn": "产品类型",
+        "type": "text",
+        "__on": true
+      },
+      {
+        "name": "出厂价",
+        "virtualColumn": "出厂价",
+        "type": "text",
+        "__on": true
+      },
+      {
+        "name": "进货价",
+        "virtualColumn": "进货价",
+        "type": "text",
+        "__on": true
+      },
+      {
+        "name": "自定义价格",
+        "virtualColumn": "自定义价格",
+        "type": "text",
+        "__on": true
+      },
+      {
+        "name": "第三方价格",
+        "virtualColumn": "第三方价格",
+        "type": "text",
+        "__on": true
+      },
+      {
+        "name": "采购折扣",
+        "virtualColumn": "采购折扣",
+        "type": "text",
+        "__on": true
+      },
+      {
+        "name": "标贴费",
+        "virtualColumn": "标贴费",
+        "type": "text",
+        "__on": true
+      },
+      {
+        "name": "起订量",
+        "virtualColumn": "起订量",
+        "type": "text",
+        "__on": true
+      },
+      {
+        "name": "产品状态",
+        "virtualColumn": "产品状态",
+        "type": "text",
+        "__on": true
+      },
+      {
+        "name": "分类编号",
+        "virtualColumn": "分类编号",
+        "type": "text",
+        "__on": true
+      },
+      {
+        "name": "分类名称",
+        "virtualColumn": "分类名称",
+        "type": "text",
+        "__on": true
+      },
+      {
+        "name": "中文包装",
+        "virtualColumn": "中文包装",
+        "type": "text",
+        "__on": true
+      },
+      {
+        "name": "英文包装",
+        "virtualColumn": "英文包装",
+        "type": "text",
+        "__on": true
+      },
+      {
+        "name": "中文材质",
+        "virtualColumn": "中文材质",
+        "type": "text",
+        "__on": true
+      },
+      {
+        "name": "英文材质",
+        "virtualColumn": "英文材质",
+        "type": "text",
+        "__on": true
+      },
+      {
+        "name": "产品单位",
+        "virtualColumn": "产品单位",
+        "type": "text",
+        "__on": true
+      },
+      {
+        "name": "英文单位",
+        "virtualColumn": "英文单位",
+        "type": "text",
+        "__on": true
+      },
+      {
+        "name": "产品颜色",
+        "virtualColumn": "产品颜色",
+        "type": "text",
+        "__on": true
+      },
+      {
+        "name": "英文颜色",
+        "virtualColumn": "英文颜色",
+        "type": "text",
+        "__on": true
+      },
+      {
+        "name": "产品认证",
+        "virtualColumn": "产品认证",
+        "type": "text",
+        "__on": true
+      },
+      {
+        "name": "产品品牌",
+        "virtualColumn": "产品品牌",
+        "type": "text",
+        "__on": true
+      },
+      {
+        "name": "工厂条码",
+        "virtualColumn": "工厂条码",
+        "type": "text",
+        "__on": true
+      },
+      {
+        "name": "公司条码",
+        "virtualColumn": "公司条码",
+        "type": "text",
+        "__on": true
+      },
+      {
+        "name": "暗码",
+        "virtualColumn": "暗码",
+        "type": "text",
+        "__on": true
+      },
+      {
+        "name": "产品规格",
+        "virtualColumn": "产品规格",
+        "type": "text",
+        "__on": true
+      },
+      {
+        "name": "包装规格",
+        "virtualColumn": "包装规格",
+        "type": "text",
+        "__on": true
+      },
+      {
+        "name": "内盒规格",
+        "virtualColumn": "内盒规格",
+        "type": "text",
+        "__on": true
+      },
+      {
+        "name": "外箱规格",
+        "virtualColumn": "外箱规格",
+        "type": "text",
+        "__on": true
+      },
+      {
+        "name": "体积/材积",
+        "virtualColumn": "体积/材积",
+        "type": "text",
+        "__on": true
+      },
+      {
+        "name": "外箱毛/净重",
+        "virtualColumn": "外箱毛/净重",
+        "type": "text",
+        "__on": true
+      },
+      {
+        "name": "产品毛/净重",
+        "virtualColumn": "产品毛/净重",
+        "type": "text",
+        "__on": true
+      },
+      {
+        "name": "内盒个数",
+        "virtualColumn": "内盒个数",
+        "type": "text",
+        "__on": true
+      },
+      {
+        "name": "外箱装量",
+        "virtualColumn": "外箱装量",
+        "type": "text",
+        "__on": true
+      },
+      {
+        "name": "厂商名称",
+        "virtualColumn": "厂商名称",
+        "type": "text",
+        "__on": true
+      },
+      {
+        "name": "厂商编号",
+        "virtualColumn": "厂商编号",
+        "type": "text",
+        "__on": true
+      },
+      {
+        "name": "联系人",
+        "virtualColumn": "联系人",
+        "type": "text",
+        "__on": true
+      },
+      {
+        "name": "联系电话",
+        "virtualColumn": "联系电话",
+        "type": "text",
+        "__on": true
+      },
+      {
+        "name": "联系手机",
+        "virtualColumn": "联系手机",
+        "type": "text",
+        "__on": true
+      },
+      {
+        "name": "QQ",
+        "virtualColumn": "QQ",
+        "type": "text",
+        "__on": true
+      },
+      {
+        "name": "摊位号",
+        "virtualColumn": "摊位号",
+        "type": "text",
+        "__on": true
+      },
+      {
+        "name": "热销",
+        "virtualColumn": "热销",
+        "type": "text",
+        "__on": true
+      },
+      {
+        "name": "在展产品数",
+        "virtualColumn": "在展产品数",
+        "type": "text",
+        "__on": true
+      },
+      {
+        "name": "停产",
+        "virtualColumn": "停产",
+        "type": "text",
+        "__on": true
+      },
+      {
+        "name": "GCC",
+        "virtualColumn": "GCC",
+        "type": "text",
+        "__on": true
+      },
+      {
+        "name": "实样",
+        "virtualColumn": "实样",
+        "type": "text",
+        "__on": true
+      },
+      {
+        "name": "侵权",
+        "virtualColumn": "侵权",
+        "type": "text",
+        "__on": true
+      },
+      {
+        "name": "是否有视频",
+        "virtualColumn": "是否有视频",
+        "type": "text",
+        "__on": true
+      },
+      {
+        "name": "是否有图",
+        "virtualColumn": "是否有图",
+        "type": "text",
+        "__on": true
+      },
+      {
+        "name": "中文备注",
+        "virtualColumn": "中文备注",
+        "type": "text",
+        "__on": true
+      },
+      {
+        "name": "英文备注",
+        "virtualColumn": "英文备注",
+        "type": "text",
+        "__on": true
+      },
+      {
+        "name": "注意事项",
+        "virtualColumn": "注意事项",
+        "type": "text",
+        "__on": true
+      },
+      {
+        "name": "功能说明",
+        "virtualColumn": "功能说明",
+        "type": "text",
+        "__on": true
+      },
+      {
+        "name": "客户备注",
+        "virtualColumn": "客户备注",
+        "type": "text",
+        "__on": true
+      },
+      {
+        "name": "登记人",
+        "virtualColumn": "登记人",
+        "type": "text",
+        "__on": true
+      },
+      {
+        "name": "登记时间",
+        "virtualColumn": "登记时间",
+        "type": "text",
+        "__on": true
+      },
+      {
+        "name": "图片修改人",
+        "virtualColumn": "图片修改人",
+        "type": "text",
+        "__on": true
+      },
+      {
+        "name": "图片修改时间",
+        "virtualColumn": "图片修改时间",
+        "type": "text",
+        "__on": true
+      },
+      {
+        "name": "修改人",
+        "virtualColumn": "修改人",
+        "type": "text",
+        "__on": true
+      },
+      {
+        "name": "修改时间",
+        "virtualColumn": "修改时间",
+        "type": "text",
+        "__on": true
+      },
+      {
+        "name": "下架时间",
+        "virtualColumn": "下架时间",
+        "type": "text",
+        "__on": true
+      }
+    ],
+    "list": {
+      "type": "xpath",
+      "selector": "/html[1]/body[1]/div[1]/div[1]/div[3]/div[1]/section[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]//tr[@rowid]",
+      "virtualGrid": true
+    },
+    "nextSel": {
+      "type": "xpath",
+      "selector": "/html[1]/body[1]/div[1]/div[1]/div[3]/div[1]/section[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/button[2][not(@disabled) and not(contains(@class,\"is--disabled\"))]"
+    },
+    "opts": {
+      "scrollLoad": true,
+      "autoNext": true,
+      "fitTable": true,
+      "maxPages": 3,
+      "maxScrollSec": 180,
+      "loadTimeoutSec": 60,
+      "beforeWaitSec": 0,
+      "nextWaitSec": 0.5,
+      "scrollWait": 150
+    },
+    "flow": [
+      {
+        "id": "default-3f2943f5-c237-41ed-921f-4f41a79cc864-node-1",
+        "type": "open",
+        "name": "打开网页",
+        "enabled": true,
+        "params": {
+          "before": {}
+        }
+      },
+      {
+        "id": "default-3f2943f5-c237-41ed-921f-4f41a79cc864-node-2",
+        "type": "condition",
+        "name": "判断是否在登录状态",
+        "enabled": true,
+        "params": {
+          "before": {}
+        },
+        "children": [
+          {
+            "id": "default-3f2943f5-c237-41ed-921f-4f41a79cc864-node-3",
+            "type": "click",
+            "name": "点击元素",
+            "enabled": true,
+            "params": {
+              "before": {},
+              "selector": "//span[normalize-space(.)='黄河大哥']",
+              "mode": "xpath",
+              "relative": false
+            }
+          },
+          {
+            "id": "default-3f2943f5-c237-41ed-921f-4f41a79cc864-node-4",
+            "type": "click",
+            "name": "点击元素",
+            "enabled": true,
+            "params": {
+              "before": {},
+              "selector": "//li[normalize-space(.)='退出系统']",
+              "mode": "xpath",
+              "relative": false
+            }
+          }
+        ]
+      },
+      {
+        "id": "default-3f2943f5-c237-41ed-921f-4f41a79cc864-node-5",
+        "type": "condition",
+        "name": "判断是否加载出登录卡片",
+        "enabled": true,
+        "params": {
+          "before": {
+            "enabled": true,
+            "mode": "fixed",
+            "seconds": 3
+          },
+          "selector": "/html[1]/body[1]/div[1]/div[1]/div[2]/div[1]/div[1]",
+          "mode": "xpath",
+          "relative": false
+        },
+        "children": [
+          {
+            "id": "default-3f2943f5-c237-41ed-921f-4f41a79cc864-node-6",
+            "type": "click",
+            "name": "点击元素",
+            "enabled": true,
+            "params": {
+              "before": {},
+              "selector": "//div[normalize-space(.)='账号登录']",
+              "mode": "xpath",
+              "relative": false
+            }
+          },
+          {
+            "id": "default-3f2943f5-c237-41ed-921f-4f41a79cc864-node-7",
+            "type": "input",
+            "name": "输入手机号",
+            "enabled": true,
+            "params": {
+              "selector": "//input[@placeholder='请输入11位手机号']",
+              "value": "18179745884",
+              "mode": "xpath",
+              "enter": false,
+              "before": {}
+            }
+          },
+          {
+            "id": "default-3f2943f5-c237-41ed-921f-4f41a79cc864-node-8",
+            "type": "input",
+            "name": "输入密码",
+            "enabled": true,
+            "params": {
+              "selector": "//input[@placeholder='请输入密码']",
+              "value": "123456",
+              "mode": "xpath",
+              "enter": false,
+              "before": {}
+            }
+          },
+          {
+            "id": "default-3f2943f5-c237-41ed-921f-4f41a79cc864-node-9",
+            "type": "click",
+            "name": "点击登录按钮",
+            "enabled": true,
+            "params": {
+              "selector": "//button[normalize-space(.)='登录']",
+              "mode": "xpath",
+              "relative": false,
+              "before": {}
+            }
+          }
+        ]
+      },
+      {
+        "id": "default-3f2943f5-c237-41ed-921f-4f41a79cc864-node-10",
+        "type": "condition",
+        "name": "判断覆盖",
+        "enabled": true,
+        "params": {
+          "before": {
+            "enabled": true,
+            "waitElement": false,
+            "mode": "fixed",
+            "seconds": 3
+          },
+          "selector": "//button[normalize-space(.)='覆盖']",
+          "mode": "xpath",
+          "relative": false
+        },
+        "children": [
+          {
+            "id": "default-3f2943f5-c237-41ed-921f-4f41a79cc864-node-11",
+            "type": "click",
+            "name": "点击元素",
+            "enabled": true,
+            "params": {
+              "before": {},
+              "selector": "//button[normalize-space(.)='覆盖']",
+              "mode": "xpath",
+              "relative": false
+            }
+          }
+        ]
+      },
+      {
+        "id": "default-3f2943f5-c237-41ed-921f-4f41a79cc864-node-12",
+        "type": "condition",
+        "name": "判断产品资料是否加载",
+        "enabled": true,
+        "params": {
+          "before": {
+            "enabled": true,
+            "waitElement": false,
+            "mode": "fixed",
+            "seconds": 3
+          },
+          "selector": "//div[normalize-space(.)='产品管理']",
+          "mode": "xpath",
+          "relative": false
+        },
+        "children": [
+          {
+            "id": "default-3f2943f5-c237-41ed-921f-4f41a79cc864-node-13",
+            "type": "click",
+            "name": "点击元素",
+            "enabled": true,
+            "params": {
+              "before": {},
+              "selector": "//div[normalize-space(.)='产品管理']",
+              "mode": "xpath",
+              "relative": false
+            }
+          }
+        ]
+      },
+      {
+        "id": "default-3f2943f5-c237-41ed-921f-4f41a79cc864-node-14",
+        "type": "condition",
+        "name": "判断产品资料的菜单是否展开",
+        "enabled": true,
+        "params": {
+          "before": {},
+          "selector": "//li[normalize-space(.)='产品资料']",
+          "mode": "xpath",
+          "relative": false
+        },
+        "children": [
+          {
+            "id": "default-3f2943f5-c237-41ed-921f-4f41a79cc864-node-15",
+            "type": "click",
+            "name": "点击产品资料",
+            "enabled": true,
+            "params": {
+              "before": {},
+              "selector": "//span[normalize-space(.)='产品资料']",
+              "mode": "xpath",
+              "relative": false
+            }
+          }
+        ]
+      },
+      {
+        "id": "default-3f2943f5-c237-41ed-921f-4f41a79cc864-node-16",
+        "type": "condition",
+        "name": "判断产品资料页面是否加载完",
+        "enabled": true,
+        "params": {
+          "before": {
+            "enabled": true,
+            "mode": "fixed",
+            "seconds": 5
+          },
+          "selector": "/html[1]/body[1]/div[1]/div[1]/div[3]/div[1]/section[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]",
+          "mode": "xpath",
+          "relative": false
+        },
+        "children": [
+          {
+            "id": "default-3f2943f5-c237-41ed-921f-4f41a79cc864-node-17",
+            "type": "click",
+            "name": "点击全部",
+            "enabled": true,
+            "params": {
+              "before": {},
+              "selector": "/html[1]/body[1]/div[1]/div[1]/div[3]/div[1]/section[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[6]",
+              "mode": "xpath",
+              "relative": false
+            }
+          }
+        ]
+      },
+      {
+        "id": "default-3f2943f5-c237-41ed-921f-4f41a79cc864-node-18",
+        "type": "click",
+        "name": "第一页",
+        "enabled": true,
+        "params": {
+          "selector": "//button[normalize-space(.)='1']",
+          "mode": "xpath",
+          "relative": false,
+          "before": {
+            "enabled": true,
+            "waitElement": false,
+            "mode": "fixed",
+            "seconds": 3
+          }
+        }
+      },
+      {
+        "id": "default-3f2943f5-c237-41ed-921f-4f41a79cc864-node-19",
+        "type": "pages",
+        "name": "循环翻页",
+        "enabled": true,
+        "params": {
+          "limitEnabled": false,
+          "mode": "xpath",
+          "selector": "/html[1]/body[1]/div[1]/div[1]/div[3]/div[1]/section[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/button[2][not(@disabled) and not(contains(@class,\"is--disabled\"))]",
+          "before": {},
+          "inFrame": false,
+          "frameXPath": ""
+        },
+        "children": [
+          {
+            "id": "default-3f2943f5-c237-41ed-921f-4f41a79cc864-node-20",
+            "type": "list",
+            "name": "循环列表",
+            "enabled": true,
+            "params": {
+              "before": {
+                "enabled": true
+              },
+              "list": {
+                "type": "xpath",
+                "selector": "/html[1]/body[1]/div[1]/div[1]/div[3]/div[1]/section[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]//tr[@rowid]",
+                "virtualGrid": true
+              },
+              "timeout": 30
+            },
+            "children": [
+              {
+                "id": "default-3f2943f5-c237-41ed-921f-4f41a79cc864-node-21",
+                "type": "extract",
+                "name": "提取表格字段",
+                "enabled": true,
+                "params": {
+                  "fields": [
+                    {
+                      "name": "产品图片",
+                      "virtualColumn": "产品图片",
+                      "type": "text",
+                      "__on": true
+                    },
+                    {
+                      "name": "产品编号",
+                      "virtualColumn": "产品编号",
+                      "type": "text",
+                      "__on": true
+                    },
+                    {
+                      "name": "辅助编号",
+                      "virtualColumn": "辅助编号",
+                      "type": "text",
+                      "__on": true
+                    },
+                    {
+                      "name": "产品名称",
+                      "virtualColumn": "产品名称",
+                      "type": "text",
+                      "__on": true
+                    },
+                    {
+                      "name": "英文名称",
+                      "virtualColumn": "英文名称",
+                      "type": "text",
+                      "__on": true
+                    },
+                    {
+                      "name": "出厂货号",
+                      "virtualColumn": "出厂货号",
+                      "type": "text",
+                      "__on": true
+                    },
+                    {
+                      "name": "产品类型",
+                      "virtualColumn": "产品类型",
+                      "type": "text",
+                      "__on": true
+                    },
+                    {
+                      "name": "出厂价",
+                      "virtualColumn": "出厂价",
+                      "type": "text",
+                      "__on": true
+                    },
+                    {
+                      "name": "进货价",
+                      "virtualColumn": "进货价",
+                      "type": "text",
+                      "__on": true
+                    },
+                    {
+                      "name": "自定义价格",
+                      "virtualColumn": "自定义价格",
+                      "type": "text",
+                      "__on": true
+                    },
+                    {
+                      "name": "第三方价格",
+                      "virtualColumn": "第三方价格",
+                      "type": "text",
+                      "__on": true
+                    },
+                    {
+                      "name": "采购折扣",
+                      "virtualColumn": "采购折扣",
+                      "type": "text",
+                      "__on": true
+                    },
+                    {
+                      "name": "标贴费",
+                      "virtualColumn": "标贴费",
+                      "type": "text",
+                      "__on": true
+                    },
+                    {
+                      "name": "起订量",
+                      "virtualColumn": "起订量",
+                      "type": "text",
+                      "__on": true
+                    },
+                    {
+                      "name": "产品状态",
+                      "virtualColumn": "产品状态",
+                      "type": "text",
+                      "__on": true
+                    },
+                    {
+                      "name": "分类编号",
+                      "virtualColumn": "分类编号",
+                      "type": "text",
+                      "__on": true
+                    },
+                    {
+                      "name": "分类名称",
+                      "virtualColumn": "分类名称",
+                      "type": "text",
+                      "__on": true
+                    },
+                    {
+                      "name": "中文包装",
+                      "virtualColumn": "中文包装",
+                      "type": "text",
+                      "__on": true
+                    },
+                    {
+                      "name": "英文包装",
+                      "virtualColumn": "英文包装",
+                      "type": "text",
+                      "__on": true
+                    },
+                    {
+                      "name": "中文材质",
+                      "virtualColumn": "中文材质",
+                      "type": "text",
+                      "__on": true
+                    },
+                    {
+                      "name": "英文材质",
+                      "virtualColumn": "英文材质",
+                      "type": "text",
+                      "__on": true
+                    },
+                    {
+                      "name": "产品单位",
+                      "virtualColumn": "产品单位",
+                      "type": "text",
+                      "__on": true
+                    },
+                    {
+                      "name": "英文单位",
+                      "virtualColumn": "英文单位",
+                      "type": "text",
+                      "__on": true
+                    },
+                    {
+                      "name": "产品颜色",
+                      "virtualColumn": "产品颜色",
+                      "type": "text",
+                      "__on": true
+                    },
+                    {
+                      "name": "英文颜色",
+                      "virtualColumn": "英文颜色",
+                      "type": "text",
+                      "__on": true
+                    },
+                    {
+                      "name": "产品认证",
+                      "virtualColumn": "产品认证",
+                      "type": "text",
+                      "__on": true
+                    },
+                    {
+                      "name": "产品品牌",
+                      "virtualColumn": "产品品牌",
+                      "type": "text",
+                      "__on": true
+                    },
+                    {
+                      "name": "工厂条码",
+                      "virtualColumn": "工厂条码",
+                      "type": "text",
+                      "__on": true
+                    },
+                    {
+                      "name": "公司条码",
+                      "virtualColumn": "公司条码",
+                      "type": "text",
+                      "__on": true
+                    },
+                    {
+                      "name": "暗码",
+                      "virtualColumn": "暗码",
+                      "type": "text",
+                      "__on": true
+                    },
+                    {
+                      "name": "产品规格",
+                      "virtualColumn": "产品规格",
+                      "type": "text",
+                      "__on": true
+                    },
+                    {
+                      "name": "包装规格",
+                      "virtualColumn": "包装规格",
+                      "type": "text",
+                      "__on": true
+                    },
+                    {
+                      "name": "内盒规格",
+                      "virtualColumn": "内盒规格",
+                      "type": "text",
+                      "__on": true
+                    },
+                    {
+                      "name": "外箱规格",
+                      "virtualColumn": "外箱规格",
+                      "type": "text",
+                      "__on": true
+                    },
+                    {
+                      "name": "体积/材积",
+                      "virtualColumn": "体积/材积",
+                      "type": "text",
+                      "__on": true
+                    },
+                    {
+                      "name": "外箱毛/净重",
+                      "virtualColumn": "外箱毛/净重",
+                      "type": "text",
+                      "__on": true
+                    },
+                    {
+                      "name": "产品毛/净重",
+                      "virtualColumn": "产品毛/净重",
+                      "type": "text",
+                      "__on": true
+                    },
+                    {
+                      "name": "内盒个数",
+                      "virtualColumn": "内盒个数",
+                      "type": "text",
+                      "__on": true
+                    },
+                    {
+                      "name": "外箱装量",
+                      "virtualColumn": "外箱装量",
+                      "type": "text",
+                      "__on": true
+                    },
+                    {
+                      "name": "厂商名称",
+                      "virtualColumn": "厂商名称",
+                      "type": "text",
+                      "__on": true
+                    },
+                    {
+                      "name": "厂商编号",
+                      "virtualColumn": "厂商编号",
+                      "type": "text",
+                      "__on": true
+                    },
+                    {
+                      "name": "联系人",
+                      "virtualColumn": "联系人",
+                      "type": "text",
+                      "__on": true
+                    },
+                    {
+                      "name": "联系电话",
+                      "virtualColumn": "联系电话",
+                      "type": "text",
+                      "__on": true
+                    },
+                    {
+                      "name": "联系手机",
+                      "virtualColumn": "联系手机",
+                      "type": "text",
+                      "__on": true
+                    },
+                    {
+                      "name": "QQ",
+                      "virtualColumn": "QQ",
+                      "type": "text",
+                      "__on": true
+                    },
+                    {
+                      "name": "摊位号",
+                      "virtualColumn": "摊位号",
+                      "type": "text",
+                      "__on": true
+                    },
+                    {
+                      "name": "热销",
+                      "virtualColumn": "热销",
+                      "type": "text",
+                      "__on": true
+                    },
+                    {
+                      "name": "在展产品数",
+                      "virtualColumn": "在展产品数",
+                      "type": "text",
+                      "__on": true
+                    },
+                    {
+                      "name": "停产",
+                      "virtualColumn": "停产",
+                      "type": "text",
+                      "__on": true
+                    },
+                    {
+                      "name": "GCC",
+                      "virtualColumn": "GCC",
+                      "type": "text",
+                      "__on": true
+                    },
+                    {
+                      "name": "实样",
+                      "virtualColumn": "实样",
+                      "type": "text",
+                      "__on": true
+                    },
+                    {
+                      "name": "侵权",
+                      "virtualColumn": "侵权",
+                      "type": "text",
+                      "__on": true
+                    },
+                    {
+                      "name": "是否有视频",
+                      "virtualColumn": "是否有视频",
+                      "type": "text",
+                      "__on": true
+                    },
+                    {
+                      "name": "是否有图",
+                      "virtualColumn": "是否有图",
+                      "type": "text",
+                      "__on": true
+                    },
+                    {
+                      "name": "中文备注",
+                      "virtualColumn": "中文备注",
+                      "type": "text",
+                      "__on": true
+                    },
+                    {
+                      "name": "英文备注",
+                      "virtualColumn": "英文备注",
+                      "type": "text",
+                      "__on": true
+                    },
+                    {
+                      "name": "注意事项",
+                      "virtualColumn": "注意事项",
+                      "type": "text",
+                      "__on": true
+                    },
+                    {
+                      "name": "功能说明",
+                      "virtualColumn": "功能说明",
+                      "type": "text",
+                      "__on": true
+                    },
+                    {
+                      "name": "客户备注",
+                      "virtualColumn": "客户备注",
+                      "type": "text",
+                      "__on": true
+                    },
+                    {
+                      "name": "登记人",
+                      "virtualColumn": "登记人",
+                      "type": "text",
+                      "__on": true
+                    },
+                    {
+                      "name": "登记时间",
+                      "virtualColumn": "登记时间",
+                      "type": "text",
+                      "__on": true
+                    },
+                    {
+                      "name": "图片修改人",
+                      "virtualColumn": "图片修改人",
+                      "type": "text",
+                      "__on": true
+                    },
+                    {
+                      "name": "图片修改时间",
+                      "virtualColumn": "图片修改时间",
+                      "type": "text",
+                      "__on": true
+                    },
+                    {
+                      "name": "修改人",
+                      "virtualColumn": "修改人",
+                      "type": "text",
+                      "__on": true
+                    },
+                    {
+                      "name": "修改时间",
+                      "virtualColumn": "修改时间",
+                      "type": "text",
+                      "__on": true
+                    },
+                    {
+                      "name": "下架时间",
+                      "virtualColumn": "下架时间",
+                      "type": "text",
+                      "__on": true
+                    }
+                  ],
+                  "dedupe": true,
+                  "before": {}
+                }
+              }
+            ]
+          },
+          {
+            "id": "default-3f2943f5-c237-41ed-921f-4f41a79cc864-node-22",
+            "type": "next",
+            "name": "点击翻页",
+            "enabled": true,
+            "params": {
+              "mode": "xpath",
+              "selector": "/html[1]/body[1]/div[1]/div[1]/div[3]/div[1]/section[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/button[2][not(@disabled) and not(contains(@class,\"is--disabled\"))]"
+            }
+          }
+        ]
+      }
+    ],
+    "templateSource": "贸易产品测试",
+    "templateVersion": 2
+  },
+  {
+    "id": "default-615bb657-5d20-4649-b014-a0d8d1f566fa",
+    "name": "采购订货 · 全部采购单分页采集",
+    "group": "默认贸易流程",
+    "url": "https://trade.tsbsoft.com/login",
+    "fields": [
+      {
+        "name": "采购编号",
+        "virtualColumn": "采购编号",
+        "type": "text"
+      },
+      {
+        "name": "厂商编号",
+        "virtualColumn": "厂商编号",
+        "type": "text"
+      },
+      {
+        "name": "厂商名称",
+        "virtualColumn": "厂商名称",
+        "type": "text"
+      },
+      {
+        "name": "采购单号",
+        "virtualColumn": "采购单号",
+        "type": "text"
+      },
+      {
+        "name": "订货编号",
+        "virtualColumn": "订货编号",
+        "type": "text"
+      },
+      {
+        "name": "采购类型",
+        "virtualColumn": "采购类型",
+        "type": "text"
+      },
+      {
+        "name": "采购状态",
+        "virtualColumn": "采购状态",
+        "type": "text"
+      },
+      {
+        "name": "发单状态",
+        "virtualColumn": "发单状态",
+        "type": "text"
+      },
+      {
+        "name": "拒绝领单原因",
+        "virtualColumn": "拒绝领单原因",
+        "type": "text"
+      },
+      {
+        "name": "客户编号",
+        "virtualColumn": "客户编号",
+        "type": "text"
+      },
+      {
+        "name": "客户名称",
+        "virtualColumn": "客户名称",
+        "type": "text"
+      },
+      {
+        "name": "总箱数",
+        "virtualColumn": "总箱数",
+        "type": "text"
+      },
+      {
+        "name": "订单总金额",
+        "virtualColumn": "订单总金额",
+        "type": "text"
+      },
+      {
+        "name": "收货状态",
+        "virtualColumn": "收货状态",
+        "type": "text"
+      },
+      {
+        "name": "收货箱数",
+        "virtualColumn": "收货箱数",
+        "type": "text"
+      },
+      {
+        "name": "入库状态",
+        "virtualColumn": "入库状态",
+        "type": "text"
+      },
+      {
+        "name": "入库箱数",
+        "virtualColumn": "入库箱数",
+        "type": "text"
+      },
+      {
+        "name": "结算状态",
+        "virtualColumn": "结算状态",
+        "type": "text"
+      },
+      {
+        "name": "结算箱数",
+        "virtualColumn": "结算箱数",
+        "type": "text"
+      },
+      {
+        "name": "结算总金额",
+        "virtualColumn": "结算总金额",
+        "type": "text"
+      },
+      {
+        "name": "采购总款数",
+        "virtualColumn": "采购总款数",
+        "type": "text"
+      },
+      {
+        "name": "预付总金额",
+        "virtualColumn": "预付总金额",
+        "type": "text"
+      },
+      {
+        "name": "合同编号",
+        "virtualColumn": "合同编号",
+        "type": "text"
+      },
+      {
+        "name": "币种",
+        "virtualColumn": "币种",
+        "type": "text"
+      },
+      {
+        "name": "汇率",
+        "virtualColumn": "汇率",
+        "type": "text"
+      },
+      {
+        "name": "付款方式",
+        "virtualColumn": "付款方式",
+        "type": "text"
+      },
+      {
+        "name": "付款天数",
+        "virtualColumn": "付款天数",
+        "type": "text"
+      },
+      {
+        "name": "贴纸状态",
+        "virtualColumn": "贴纸状态",
+        "type": "text"
+      },
+      {
+        "name": "客版状态",
+        "virtualColumn": "客版状态",
+        "type": "text"
+      },
+      {
+        "name": "总体积",
+        "virtualColumn": "总体积",
+        "type": "text"
+      },
+      {
+        "name": "总材积",
+        "virtualColumn": "总材积",
+        "type": "text"
+      },
+      {
+        "name": "唛头名称",
+        "virtualColumn": "唛头名称",
+        "type": "text"
+      },
+      {
+        "name": "总毛重",
+        "virtualColumn": "总毛重",
+        "type": "text"
+      },
+      {
+        "name": "总净重",
+        "virtualColumn": "总净重",
+        "type": "text"
+      },
+      {
+        "name": "摘要",
+        "virtualColumn": "摘要",
+        "type": "text"
+      },
+      {
+        "name": "客户要求",
+        "virtualColumn": "客户要求",
+        "type": "text"
+      },
+      {
+        "name": "注意事项",
+        "virtualColumn": "注意事项",
+        "type": "text"
+      },
+      {
+        "name": "备注",
+        "virtualColumn": "备注",
+        "type": "text"
+      },
+      {
+        "name": "跟单人",
+        "virtualColumn": "跟单人",
+        "type": "text"
+      },
+      {
+        "name": "采购员",
+        "virtualColumn": "采购员",
+        "type": "text"
+      },
+      {
+        "name": "录单人",
+        "virtualColumn": "录单人",
+        "type": "text"
+      },
+      {
+        "name": "采购日期",
+        "virtualColumn": "采购日期",
+        "type": "text"
+      },
+      {
+        "name": "录单时间",
+        "virtualColumn": "录单时间",
+        "type": "text"
+      },
+      {
+        "name": "交货日期",
+        "virtualColumn": "交货日期",
+        "type": "text"
+      },
+      {
+        "name": "更新时间",
+        "virtualColumn": "更新时间",
+        "type": "text"
+      },
+      {
+        "name": "领单时间",
+        "virtualColumn": "领单时间",
+        "type": "text"
+      }
+    ],
+    "list": {
+      "type": "xpath",
+      "selector": "(//div[contains(@class,\"vxe-table--main-wrapper\")])[1]//tr[@rowid]",
+      "virtualGrid": true
+    },
+    "nextSel": {
+      "type": "xpath",
+      "selector": "(//button[contains(@class,\"vxe-pager--next-btn\")])[1][not(@disabled) and not(contains(@class,\"is--disabled\"))]"
+    },
+    "opts": {
+      "scrollLoad": true,
+      "autoNext": true,
+      "fitTable": false,
+      "maxPages": 5,
+      "maxScrollSec": 180,
+      "loadTimeoutSec": 60,
+      "beforeWaitSec": 0,
+      "nextWaitSec": 1.2,
+      "scrollWait": 150
+    },
+    "flow": [
+      {
+        "id": "default-615bb657-5d20-4649-b014-a0d8d1f566fa-node-1",
+        "type": "open",
+        "name": "打开网页",
+        "enabled": true,
+        "params": {
+          "onError": "continue",
+          "retries": 2,
+          "timeout": 10,
+          "before": {
+            "enabled": false,
+            "waitElement": true,
+            "xpath": "/html[1]/body[1]/div[1]/div[1]/div[2]/div[1]/div[1]",
+            "timeout": 10
+          }
+        }
+      },
+      {
+        "id": "default-615bb657-5d20-4649-b014-a0d8d1f566fa-node-2",
+        "type": "click",
+        "name": "账号登录TAB",
+        "enabled": true,
+        "params": {
+          "selector": "//div[normalize-space(.)='账号登录']",
+          "mode": "xpath",
+          "relative": false,
+          "retries": 2,
+          "onError": "stop",
+          "before": {
+            "enabled": true,
+            "waitElement": true,
+            "xpath": "/html[1]/body[1]/div[1]/div[1]/div[2]/div[1]/div[1]",
+            "timeout": 2,
+            "mode": "fixed",
+            "seconds": 2
+          },
+          "timeout": 2
+        }
+      },
+      {
+        "id": "default-615bb657-5d20-4649-b014-a0d8d1f566fa-node-3",
+        "type": "input",
+        "name": "输入手机号码",
+        "enabled": true,
+        "params": {
+          "selector": "//input[@placeholder='请输入11位手机号']",
+          "value": "18179745884",
+          "mode": "xpath",
+          "enter": false,
+          "onError": "stop",
+          "retries": 2,
+          "before": {}
+        }
+      },
+      {
+        "id": "default-615bb657-5d20-4649-b014-a0d8d1f566fa-node-4",
+        "type": "input",
+        "name": "输入密码并回车",
+        "enabled": true,
+        "params": {
+          "selector": "//input[@placeholder='请输入密码']",
+          "value": "123456",
+          "mode": "xpath",
+          "enter": true,
+          "retries": 3,
+          "before": {}
+        }
+      },
+      {
+        "id": "default-615bb657-5d20-4649-b014-a0d8d1f566fa-node-5",
+        "type": "condition",
+        "name": "判断条件",
+        "enabled": true,
+        "params": {
+          "before": {},
+          "selector": "/html[1]/body[1]/div[4]/div[1]/div[1]",
+          "mode": "xpath",
+          "relative": false
+        },
+        "children": [
+          {
+            "id": "default-615bb657-5d20-4649-b014-a0d8d1f566fa-node-6",
+            "type": "click",
+            "name": "点击元素",
+            "enabled": true,
+            "params": {
+              "optional": true,
+              "before": {},
+              "selector": "//button[normalize-space(.)='覆盖']",
+              "mode": "xpath",
+              "relative": false
+            }
+          }
+        ]
+      },
+      {
+        "id": "default-615bb657-5d20-4649-b014-a0d8d1f566fa-node-7",
+        "type": "click",
+        "name": "点击元素",
+        "enabled": true,
+        "params": {
+          "timeout": 10,
+          "before": {},
+          "selector": "//span[normalize-space(.)='采购管理']",
+          "mode": "xpath",
+          "relative": false,
+          "retries": 3
+        }
+      },
+      {
+        "id": "default-615bb657-5d20-4649-b014-a0d8d1f566fa-node-8",
+        "type": "condition",
+        "name": "判断条件",
+        "enabled": true,
+        "params": {
+          "timeout": 2,
+          "before": {},
+          "selector": "//li[normalize-space(.)='采购订货']",
+          "mode": "xpath",
+          "relative": false
+        },
+        "children": [
+          {
+            "id": "default-615bb657-5d20-4649-b014-a0d8d1f566fa-node-9",
+            "type": "click",
+            "name": "点击元素",
+            "enabled": true,
+            "params": {
+              "timeout": 2,
+              "before": {},
+              "selector": "//span[normalize-space(.)='采购订货']",
+              "mode": "xpath",
+              "relative": false
+            }
+          }
+        ]
+      },
+      {
+        "id": "default-615bb657-5d20-4649-b014-a0d8d1f566fa-node-10",
+        "type": "click",
+        "name": "选择全部采购单",
+        "enabled": true,
+        "params": {
+          "mode": "xpath",
+          "selector": "//*[@role=\"tab\" and normalize-space(.)=\"全部采购单\"]",
+          "timeout": 15
+        }
+      },
+      {
+        "id": "default-615bb657-5d20-4649-b014-a0d8d1f566fa-node-11",
+        "type": "wait",
+        "name": "等待采购列表刷新",
+        "enabled": true,
+        "params": {
+          "seconds": 1.5
+        }
+      },
+      {
+        "id": "default-615bb657-5d20-4649-b014-a0d8d1f566fa-node-12",
+        "type": "pages",
+        "name": "循环分页采集采购订货",
+        "enabled": true,
+        "params": {
+          "mode": "xpath",
+          "selector": "(//button[contains(@class,\"vxe-pager--next-btn\")])[1][not(@disabled) and not(contains(@class,\"is--disabled\"))]",
+          "limitEnabled": false
+        },
+        "children": [
+          {
+            "id": "default-615bb657-5d20-4649-b014-a0d8d1f566fa-node-13",
+            "type": "list",
+            "name": "采购列表（横纵向虚拟表格）",
+            "enabled": true,
+            "params": {
+              "list": {
+                "type": "xpath",
+                "selector": "(//div[contains(@class,\"vxe-table--main-wrapper\")])[1]//tr[@rowid]",
+                "virtualGrid": true
+              },
+              "timeout": 30
+            },
+            "children": [
+              {
+                "id": "default-615bb657-5d20-4649-b014-a0d8d1f566fa-node-14",
+                "type": "extract",
+                "name": "提取采购字段",
+                "enabled": true,
+                "params": {
+                  "fields": [
+                    {
+                      "name": "采购编号",
+                      "virtualColumn": "采购编号",
+                      "type": "text"
+                    },
+                    {
+                      "name": "厂商编号",
+                      "virtualColumn": "厂商编号",
+                      "type": "text"
+                    },
+                    {
+                      "name": "厂商名称",
+                      "virtualColumn": "厂商名称",
+                      "type": "text"
+                    },
+                    {
+                      "name": "采购单号",
+                      "virtualColumn": "采购单号",
+                      "type": "text"
+                    },
+                    {
+                      "name": "订货编号",
+                      "virtualColumn": "订货编号",
+                      "type": "text"
+                    },
+                    {
+                      "name": "采购类型",
+                      "virtualColumn": "采购类型",
+                      "type": "text"
+                    },
+                    {
+                      "name": "采购状态",
+                      "virtualColumn": "采购状态",
+                      "type": "text"
+                    },
+                    {
+                      "name": "发单状态",
+                      "virtualColumn": "发单状态",
+                      "type": "text"
+                    },
+                    {
+                      "name": "拒绝领单原因",
+                      "virtualColumn": "拒绝领单原因",
+                      "type": "text"
+                    },
+                    {
+                      "name": "客户编号",
+                      "virtualColumn": "客户编号",
+                      "type": "text"
+                    },
+                    {
+                      "name": "客户名称",
+                      "virtualColumn": "客户名称",
+                      "type": "text"
+                    },
+                    {
+                      "name": "总箱数",
+                      "virtualColumn": "总箱数",
+                      "type": "text"
+                    },
+                    {
+                      "name": "订单总金额",
+                      "virtualColumn": "订单总金额",
+                      "type": "text"
+                    },
+                    {
+                      "name": "收货状态",
+                      "virtualColumn": "收货状态",
+                      "type": "text"
+                    },
+                    {
+                      "name": "收货箱数",
+                      "virtualColumn": "收货箱数",
+                      "type": "text"
+                    },
+                    {
+                      "name": "入库状态",
+                      "virtualColumn": "入库状态",
+                      "type": "text"
+                    },
+                    {
+                      "name": "入库箱数",
+                      "virtualColumn": "入库箱数",
+                      "type": "text"
+                    },
+                    {
+                      "name": "结算状态",
+                      "virtualColumn": "结算状态",
+                      "type": "text"
+                    },
+                    {
+                      "name": "结算箱数",
+                      "virtualColumn": "结算箱数",
+                      "type": "text"
+                    },
+                    {
+                      "name": "结算总金额",
+                      "virtualColumn": "结算总金额",
+                      "type": "text"
+                    },
+                    {
+                      "name": "采购总款数",
+                      "virtualColumn": "采购总款数",
+                      "type": "text"
+                    },
+                    {
+                      "name": "预付总金额",
+                      "virtualColumn": "预付总金额",
+                      "type": "text"
+                    },
+                    {
+                      "name": "合同编号",
+                      "virtualColumn": "合同编号",
+                      "type": "text"
+                    },
+                    {
+                      "name": "币种",
+                      "virtualColumn": "币种",
+                      "type": "text"
+                    },
+                    {
+                      "name": "汇率",
+                      "virtualColumn": "汇率",
+                      "type": "text"
+                    },
+                    {
+                      "name": "付款方式",
+                      "virtualColumn": "付款方式",
+                      "type": "text"
+                    },
+                    {
+                      "name": "付款天数",
+                      "virtualColumn": "付款天数",
+                      "type": "text"
+                    },
+                    {
+                      "name": "贴纸状态",
+                      "virtualColumn": "贴纸状态",
+                      "type": "text"
+                    },
+                    {
+                      "name": "客版状态",
+                      "virtualColumn": "客版状态",
+                      "type": "text"
+                    },
+                    {
+                      "name": "总体积",
+                      "virtualColumn": "总体积",
+                      "type": "text"
+                    },
+                    {
+                      "name": "总材积",
+                      "virtualColumn": "总材积",
+                      "type": "text"
+                    },
+                    {
+                      "name": "唛头名称",
+                      "virtualColumn": "唛头名称",
+                      "type": "text"
+                    },
+                    {
+                      "name": "总毛重",
+                      "virtualColumn": "总毛重",
+                      "type": "text"
+                    },
+                    {
+                      "name": "总净重",
+                      "virtualColumn": "总净重",
+                      "type": "text"
+                    },
+                    {
+                      "name": "摘要",
+                      "virtualColumn": "摘要",
+                      "type": "text"
+                    },
+                    {
+                      "name": "客户要求",
+                      "virtualColumn": "客户要求",
+                      "type": "text"
+                    },
+                    {
+                      "name": "注意事项",
+                      "virtualColumn": "注意事项",
+                      "type": "text"
+                    },
+                    {
+                      "name": "备注",
+                      "virtualColumn": "备注",
+                      "type": "text"
+                    },
+                    {
+                      "name": "跟单人",
+                      "virtualColumn": "跟单人",
+                      "type": "text"
+                    },
+                    {
+                      "name": "采购员",
+                      "virtualColumn": "采购员",
+                      "type": "text"
+                    },
+                    {
+                      "name": "录单人",
+                      "virtualColumn": "录单人",
+                      "type": "text"
+                    },
+                    {
+                      "name": "采购日期",
+                      "virtualColumn": "采购日期",
+                      "type": "text"
+                    },
+                    {
+                      "name": "录单时间",
+                      "virtualColumn": "录单时间",
+                      "type": "text"
+                    },
+                    {
+                      "name": "交货日期",
+                      "virtualColumn": "交货日期",
+                      "type": "text"
+                    },
+                    {
+                      "name": "更新时间",
+                      "virtualColumn": "更新时间",
+                      "type": "text"
+                    },
+                    {
+                      "name": "领单时间",
+                      "virtualColumn": "领单时间",
+                      "type": "text"
+                    }
+                  ],
+                  "dedupe": true
+                }
+              }
+            ]
+          },
+          {
+            "id": "default-615bb657-5d20-4649-b014-a0d8d1f566fa-node-15",
+            "type": "next",
+            "name": "下一页",
+            "enabled": true,
+            "params": {
+              "mode": "xpath",
+              "selector": "(//button[contains(@class,\"vxe-pager--next-btn\")])[1][not(@disabled) and not(contains(@class,\"is--disabled\"))]"
+            }
+          }
+        ]
+      }
+    ],
+    "templateSource": "贸易",
+    "templateVersion": 2
+  },
+  {
+    "id": "default-a69c014c-b197-4d47-9478-a145125e58bb",
+    "name": "宏升样品 · 2000条每页全字段采集",
+    "group": "默认贸易流程",
+    "url": "http://192.168.2.200/#/user/login?redirect=%2F",
+    "viewport": {
+      "width": 1560,
+      "height": 936
+    },
+    "fields": [
+      {
+        "name": "样品名称",
+        "tableColumn": "colid:col_64",
+        "type": "text",
+        "index": 0,
+        "__on": true
+      },
+      {
+        "name": "中文材质",
+        "tableColumn": "colid:col_65",
+        "type": "text",
+        "index": 1,
+        "__on": true
+      },
+      {
+        "name": "公司编号",
+        "tableColumn": "colid:col_66",
+        "type": "text",
+        "index": 2,
+        "__on": true
+      },
+      {
+        "name": "推荐产品",
+        "tableColumn": "colid:col_67",
+        "type": "img",
+        "index": 3,
+        "__on": true
+      },
+      {
+        "name": "外箱数量",
+        "tableColumn": "colid:col_68",
+        "type": "text",
+        "index": 4,
+        "__on": true
+      },
+      {
+        "name": "内盒个数",
+        "tableColumn": "colid:col_69",
+        "type": "text",
+        "index": 5,
+        "__on": true
+      },
+      {
+        "name": "外箱毛重",
+        "tableColumn": "colid:col_70",
+        "type": "text",
+        "index": 6,
+        "__on": true
+      },
+      {
+        "name": "外箱净重",
+        "tableColumn": "colid:col_71",
+        "type": "text",
+        "index": 7,
+        "__on": true
+      },
+      {
+        "name": "外箱体积",
+        "tableColumn": "colid:col_72",
+        "type": "text",
+        "index": 7,
+        "__on": true
+      },
+      {
+        "name": "外箱材积",
+        "tableColumn": "colid:col_73",
+        "type": "text",
+        "index": 8,
+        "__on": true
+      },
+      {
+        "name": "样品长度",
+        "tableColumn": "colid:col_74",
+        "type": "text",
+        "index": 9,
+        "__on": true
+      },
+      {
+        "name": "样品宽度",
+        "tableColumn": "colid:col_75",
+        "type": "text",
+        "index": 10,
+        "__on": true
+      },
+      {
+        "name": "样品高度",
+        "tableColumn": "colid:col_76",
+        "type": "text",
+        "index": 11,
+        "__on": true
+      },
+      {
+        "name": "Id",
+        "tableColumn": "colid:col_77",
+        "type": "text",
+        "index": 7,
+        "__on": true
+      },
+      {
+        "name": "图片",
+        "tableColumn": "colid:col_78",
+        "type": "img",
+        "index": 8,
+        "__on": true
+      },
+      {
+        "name": "厂商编号",
+        "tableColumn": "colid:col_79",
+        "type": "text",
+        "index": 9,
+        "__on": true
+      },
+      {
+        "name": "种类编号",
+        "tableColumn": "colid:col_80",
+        "type": "text",
+        "index": 10,
+        "__on": true
+      },
+      {
+        "name": "种类名称",
+        "tableColumn": "colid:col_81",
+        "type": "text",
+        "index": 11,
+        "__on": true
+      },
+      {
+        "name": "种类英文名称",
+        "tableColumn": "colid:col_82",
+        "type": "text",
+        "index": 7,
+        "__on": true
+      },
+      {
+        "name": "英文名称",
+        "tableColumn": "colid:col_83",
+        "type": "text",
+        "index": 8,
+        "__on": true
+      },
+      {
+        "name": "样品单位",
+        "tableColumn": "colid:col_84",
+        "type": "text",
+        "index": 9,
+        "__on": true
+      },
+      {
+        "name": "英文单位",
+        "tableColumn": "colid:col_85",
+        "type": "text",
+        "index": 10,
+        "__on": true
+      },
+      {
+        "name": "出厂货号",
+        "tableColumn": "colid:col_86",
+        "type": "text",
+        "index": 11,
+        "__on": true
+      },
+      {
+        "name": "包装编号",
+        "tableColumn": "colid:col_87",
+        "type": "text",
+        "index": 7,
+        "__on": true
+      },
+      {
+        "name": "中文包装",
+        "tableColumn": "colid:col_88",
+        "type": "text",
+        "index": 8,
+        "__on": true
+      },
+      {
+        "name": "英文包装",
+        "tableColumn": "colid:col_89",
+        "type": "text",
+        "index": 9,
+        "__on": true
+      },
+      {
+        "name": "外箱长度",
+        "tableColumn": "colid:col_90",
+        "type": "text",
+        "index": 10,
+        "__on": true
+      },
+      {
+        "name": "款数",
+        "tableColumn": "colid:col_91",
+        "type": "text",
+        "index": 6,
+        "__on": true
+      },
+      {
+        "name": "外箱宽度",
+        "tableColumn": "colid:col_92",
+        "type": "text",
+        "index": 7,
+        "__on": true
+      },
+      {
+        "name": "外箱高度",
+        "tableColumn": "colid:col_93",
+        "type": "text",
+        "index": 8,
+        "__on": true
+      },
+      {
+        "name": "装箱单位",
+        "tableColumn": "colid:col_94",
+        "type": "text",
+        "index": 9,
+        "__on": true
+      },
+      {
+        "name": "颜色名称",
+        "tableColumn": "colid:col_95",
+        "type": "text",
+        "index": 10,
+        "__on": true
+      },
+      {
+        "name": "颜色英文",
+        "tableColumn": "colid:col_96",
+        "type": "text",
+        "index": 7,
+        "__on": true
+      },
+      {
+        "name": "产品认证",
+        "tableColumn": "colid:col_97",
+        "type": "text",
+        "index": 8,
+        "__on": true
+      },
+      {
+        "name": "中文备注",
+        "tableColumn": "colid:col_98",
+        "type": "text",
+        "index": 9,
+        "__on": true
+      },
+      {
+        "name": "英文备注",
+        "tableColumn": "colid:col_99",
+        "type": "text",
+        "index": 10,
+        "__on": true
+      },
+      {
+        "name": "颜色数量",
+        "tableColumn": "colid:col_100",
+        "type": "text",
+        "index": 11,
+        "__on": true
+      },
+      {
+        "name": "摊位编号",
+        "tableColumn": "colid:col_101",
+        "type": "text",
+        "index": 7,
+        "__on": true
+      },
+      {
+        "name": "认证数量",
+        "tableColumn": "colid:col_102",
+        "type": "text",
+        "index": 8,
+        "__on": true
+      },
+      {
+        "name": "其他",
+        "tableColumn": "colid:col_103",
+        "type": "text",
+        "index": 9,
+        "__on": true
+      },
+      {
+        "name": "注意事项",
+        "tableColumn": "colid:col_104",
+        "type": "text",
+        "index": 10,
+        "__on": true
+      },
+      {
+        "name": "样品品牌",
+        "tableColumn": "colid:col_105",
+        "type": "text",
+        "index": 6,
+        "__on": true
+      },
+      {
+        "name": "包装长度",
+        "tableColumn": "colid:col_106",
+        "type": "text",
+        "index": 7,
+        "__on": true
+      },
+      {
+        "name": "包装宽度",
+        "tableColumn": "colid:col_107",
+        "type": "text",
+        "index": 8,
+        "__on": true
+      },
+      {
+        "name": "包装高度",
+        "tableColumn": "colid:col_108",
+        "type": "text",
+        "index": 9,
+        "__on": true
+      },
+      {
+        "name": "产品毛重",
+        "tableColumn": "colid:col_109",
+        "type": "text",
+        "index": 10,
+        "__on": true
+      },
+      {
+        "name": "产品净重",
+        "tableColumn": "colid:col_110",
+        "type": "text",
+        "index": 7,
+        "__on": true
+      },
+      {
+        "name": "停产",
+        "tableColumn": "colid:col_111",
+        "type": "text",
+        "index": 8,
+        "__on": true
+      },
+      {
+        "name": "电池",
+        "tableColumn": "colid:col_112",
+        "type": "text",
+        "index": 9,
+        "__on": true
+      },
+      {
+        "name": "关键词",
+        "tableColumn": "colid:col_114",
+        "type": "text",
+        "index": 10,
+        "__on": true
+      },
+      {
+        "name": "厂商备注",
+        "tableColumn": "colid:col_129",
+        "type": "text",
+        "index": 11,
+        "__on": true
+      },
+      {
+        "name": "加点价",
+        "tableColumn": "colid:col_131",
+        "type": "text",
+        "index": 7,
+        "__on": true
+      },
+      {
+        "name": "出厂价折扣",
+        "tableColumn": "colid:col_146",
+        "type": "text",
+        "index": 8,
+        "__on": true
+      },
+      {
+        "name": "热销",
+        "tableColumn": "colid:col_148",
+        "type": "text",
+        "index": 9,
+        "__on": true
+      },
+      {
+        "name": "辅助编号",
+        "tableColumn": "colid:col_152",
+        "type": "text",
+        "index": 10,
+        "__on": true
+      },
+      {
+        "name": "采购折扣",
+        "tableColumn": "colid:col_154",
+        "type": "text",
+        "index": 11,
+        "__on": true
+      },
+      {
+        "name": "成本价公式标识",
+        "tableColumn": "colid:col_155",
+        "type": "text",
+        "index": 7,
+        "__on": true
+      },
+      {
+        "name": "实样",
+        "tableColumn": "colid:col_156",
+        "type": "text",
+        "index": 8,
+        "__on": true
+      },
+      {
+        "name": "俄文品名",
+        "tableColumn": "colid:col_157",
+        "type": "text",
+        "index": 9,
+        "__on": true
+      },
+      {
+        "name": "俄文包装",
+        "tableColumn": "colid:col_158",
+        "type": "text",
+        "index": 10,
+        "__on": true
+      },
+      {
+        "name": "侵权",
+        "tableColumn": "colid:col_159",
+        "type": "text",
+        "index": 11,
+        "__on": true
+      },
+      {
+        "name": "起订量",
+        "tableColumn": "colid:col_160",
+        "type": "text",
+        "index": 7,
+        "__on": true
+      },
+      {
+        "name": "价格备注",
+        "tableColumn": "colid:col_167",
+        "type": "text",
+        "index": 8,
+        "__on": true
+      },
+      {
+        "name": "配箱数",
+        "tableColumn": "colid:col_168",
+        "type": "text",
+        "index": 9,
+        "__on": true
+      },
+      {
+        "name": "款式",
+        "tableColumn": "colid:col_169",
+        "type": "text",
+        "index": 10,
+        "__on": true
+      },
+      {
+        "name": "标签",
+        "tableColumn": "colid:col_170",
+        "type": "text",
+        "index": 11,
+        "__on": true
+      },
+      {
+        "name": "产品条码",
+        "tableColumn": "colid:col_171",
+        "type": "text",
+        "index": 7,
+        "__on": true
+      },
+      {
+        "name": "展示盒条码",
+        "tableColumn": "colid:col_172",
+        "type": "text",
+        "index": 8,
+        "__on": true
+      },
+      {
+        "name": "内箱条码",
+        "tableColumn": "colid:col_173",
+        "type": "text",
+        "index": 9,
+        "__on": true
+      },
+      {
+        "name": "外箱条码",
+        "tableColumn": "colid:col_174",
+        "type": "text",
+        "index": 10,
+        "__on": true
+      },
+      {
+        "name": "海关编码",
+        "tableColumn": "colid:col_175",
+        "type": "text",
+        "index": 6,
+        "__on": true
+      },
+      {
+        "name": "报关中文",
+        "tableColumn": "colid:col_176",
+        "type": "text",
+        "index": 7,
+        "__on": true
+      },
+      {
+        "name": "报关英文",
+        "tableColumn": "colid:col_177",
+        "type": "text",
+        "index": 8,
+        "__on": true
+      },
+      {
+        "name": "英文材质",
+        "tableColumn": "colid:col_178",
+        "type": "text",
+        "index": 9,
+        "__on": true
+      },
+      {
+        "name": "客户货号",
+        "tableColumn": "colid:col_179",
+        "type": "text",
+        "index": 10,
+        "__on": true
+      },
+      {
+        "name": "是否有视频",
+        "tableColumn": "colid:col_180",
+        "type": "text",
+        "index": 7,
+        "__on": true
+      },
+      {
+        "name": "业务员",
+        "tableColumn": "colid:col_182",
+        "type": "text",
+        "index": 8,
+        "__on": true
+      },
+      {
+        "name": "运费",
+        "tableColumn": "colid:col_185",
+        "type": "text",
+        "index": 9,
+        "__on": true
+      },
+      {
+        "name": "标贴费",
+        "tableColumn": "colid:col_186",
+        "type": "text",
+        "index": 10,
+        "__on": true
+      },
+      {
+        "name": "登记人",
+        "tableColumn": "colid:col_188",
+        "type": "text",
+        "index": 6,
+        "__on": true
+      },
+      {
+        "name": "修改人",
+        "tableColumn": "colid:col_189",
+        "type": "text",
+        "index": 7,
+        "__on": true
+      },
+      {
+        "name": "登记时间",
+        "tableColumn": "colid:col_190",
+        "type": "text",
+        "index": 8,
+        "__on": true
+      },
+      {
+        "name": "更新时间",
+        "tableColumn": "colid:col_191",
+        "type": "text",
+        "index": 9,
+        "__on": true
+      },
+      {
+        "name": "进货价",
+        "tableColumn": "colid:col_192",
+        "type": "text",
+        "index": 10,
+        "__on": true
+      },
+      {
+        "name": "出厂价",
+        "tableColumn": "colid:col_193",
+        "type": "text",
+        "index": 7,
+        "__on": true
+      },
+      {
+        "name": "13位条形码",
+        "tableColumn": "colid:col_194",
+        "type": "text",
+        "index": 8,
+        "__on": true
+      },
+      {
+        "name": "GCC",
+        "tableColumn": "colid:col_195",
+        "type": "text",
+        "index": 9,
+        "__on": true
+      },
+      {
+        "name": "厂商名称",
+        "tableColumn": "colid:col_196",
+        "type": "text",
+        "index": 10,
+        "__on": true
+      },
+      {
+        "name": "联系人",
+        "tableColumn": "colid:col_197",
+        "type": "text",
+        "index": 11,
+        "__on": true
+      },
+      {
+        "name": "电话号码",
+        "tableColumn": "colid:col_198",
+        "type": "text",
+        "index": 7,
+        "__on": true
+      },
+      {
+        "name": "手机号码",
+        "tableColumn": "colid:col_199",
+        "type": "text",
+        "index": 8,
+        "__on": true
+      },
+      {
+        "name": "成本价",
+        "tableColumn": "colid:col_200",
+        "type": "text",
+        "index": 9,
+        "__on": true
+      },
+      {
+        "name": "传真",
+        "tableColumn": "colid:col_201",
+        "type": "text",
+        "index": 10,
+        "__on": true
+      },
+      {
+        "name": "厂商专柜号",
+        "tableColumn": "colid:col_202",
+        "type": "text",
+        "index": 11,
+        "__on": true
+      },
+      {
+        "name": "辅助编码",
+        "tableColumn": "colid:col_203",
+        "type": "text",
+        "index": 7,
+        "__on": true
+      },
+      {
+        "name": "采购员",
+        "tableColumn": "colid:col_204",
+        "type": "text",
+        "index": 8,
+        "__on": true
+      },
+      {
+        "name": "出入证",
+        "tableColumn": "colid:col_205",
+        "type": "text",
+        "index": 9,
+        "__on": true
+      },
+      {
+        "name": "图片添加人",
+        "tableColumn": "colid:col_206",
+        "type": "text",
+        "index": 10,
+        "__on": true
+      },
+      {
+        "name": "图片修改人",
+        "tableColumn": "colid:col_207",
+        "type": "text",
+        "index": 11,
+        "__on": true
+      },
+      {
+        "name": "专柜号",
+        "tableColumn": "colid:col_208",
+        "type": "text",
+        "index": 12,
+        "__on": true
+      },
+      {
+        "name": "第三价格",
+        "tableColumn": "colid:col_209",
+        "type": "text",
+        "index": 13,
+        "__on": true
+      },
+      {
+        "name": "付款方式",
+        "tableColumn": "colid:col_210",
+        "type": "text",
+        "index": 9,
+        "__on": true
+      },
+      {
+        "name": "展示盒装数",
+        "tableColumn": "colid:col_211",
+        "type": "text",
+        "index": 10,
+        "__on": true
+      },
+      {
+        "name": "工艺/表面处理",
+        "tableColumn": "colid:col_212",
+        "type": "text",
+        "index": 11,
+        "__on": true
+      },
+      {
+        "name": "工艺/表面处理英文",
+        "tableColumn": "colid:col_213",
+        "type": "text",
+        "index": 12,
+        "__on": true
+      },
+      {
+        "name": "是否下架",
+        "tableColumn": "colid:col_214",
+        "type": "text",
+        "index": 13,
+        "__on": true
+      },
+      {
+        "name": "客户条码",
+        "tableColumn": "colid:col_215",
+        "type": "text",
+        "index": 7,
+        "__on": true
+      },
+      {
+        "name": "适用年龄",
+        "tableColumn": "colid:col_216",
+        "type": "text",
+        "index": 8,
+        "__on": true
+      },
+      {
+        "name": "QQ",
+        "tableColumn": "colid:col_217",
+        "type": "text",
+        "index": 9,
+        "__on": true
+      }
+    ],
+    "list": {
+      "type": "xpath",
+      "selector": "/html[1]/body[1]/div[1]/section[1]/section[1]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]//*[self::tr or @role=\"row\"][not(.//th or .//*[@role=\"columnheader\"])][td or *[@role=\"cell\" or @role=\"gridcell\"]]",
+      "genericGrid": true,
+      "tableRoot": "/html[1]/body[1]/div[1]/section[1]/section[1]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]",
+      "headersPath": "/html[1]/body[1]/div[1]/section[1]/section[1]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]//*[self::th or @role=\"columnheader\"]",
+      "virtualGrid": false
+    },
+    "nextSel": {
+      "type": "xpath",
+      "selector": "/html[1]/body[1]/div[1]/section[1]/section[1]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[3]/div[2]/div[1]/div[1]/button[2][not(@disabled) and not(@aria-disabled=\"true\")]"
+    },
+    "opts": {
+      "scrollLoad": true,
+      "autoNext": true,
+      "fitTable": true,
+      "maxPages": 50,
+      "maxScrollSec": 180,
+      "loadTimeoutSec": 60,
+      "beforeWaitSec": 1,
+      "nextWaitSec": 2,
+      "scrollWait": 150
+    },
+    "flow": [
+      {
+        "id": "default-a69c014c-b197-4d47-9478-a145125e58bb-node-1",
+        "type": "open",
+        "name": "打开网页",
+        "enabled": true,
+        "params": {
+          "before": {
+            "enabled": false
+          }
+        }
+      },
+      {
+        "id": "default-a69c014c-b197-4d47-9478-a145125e58bb-node-2",
+        "type": "click",
+        "name": "短信登录",
+        "enabled": true,
+        "params": {
+          "selector": "//div[normalize-space(.)='短信登录']",
+          "mode": "xpath",
+          "relative": false,
+          "before": {}
+        }
+      },
+      {
+        "id": "default-a69c014c-b197-4d47-9478-a145125e58bb-node-3",
+        "type": "input",
+        "name": "手机号",
+        "enabled": true,
+        "params": {
+          "selector": "//input[@placeholder='请输入手机号']",
+          "value": "16681463020",
+          "mode": "xpath",
+          "enter": false,
+          "before": {}
+        }
+      },
+      {
+        "id": "default-a69c014c-b197-4d47-9478-a145125e58bb-node-4",
+        "type": "input",
+        "name": "密码",
+        "enabled": true,
+        "params": {
+          "selector": "//input[@placeholder='请输入验证码']",
+          "value": "123456",
+          "mode": "xpath",
+          "enter": false,
+          "before": {}
+        }
+      },
+      {
+        "id": "default-a69c014c-b197-4d47-9478-a145125e58bb-node-5",
+        "type": "click",
+        "name": "登录",
+        "enabled": true,
+        "params": {
+          "selector": "//button[normalize-space(.)='确 定']",
+          "mode": "xpath",
+          "relative": false,
+          "before": {}
+        }
+      },
+      {
+        "id": "default-a69c014c-b197-4d47-9478-a145125e58bb-node-6",
+        "type": "condition",
+        "name": "判断是否登录上",
+        "enabled": true,
+        "params": {
+          "before": {
+            "enabled": true,
+            "seconds": 5
+          },
+          "selector": "/html[1]/body[1]/div[1]/section[1]/aside[1]/div[1]/div[1]/a[1]/img[1]",
+          "mode": "xpath",
+          "relative": false
+        },
+        "children": [
+          {
+            "id": "default-a69c014c-b197-4d47-9478-a145125e58bb-node-7",
+            "type": "click",
+            "name": "选择外贸",
+            "enabled": true,
+            "params": {
+              "before": {},
+              "selector": "/html[1]/body[1]/div[1]/section[1]/section[1]/div[1]/header[1]/div[1]/ul[1]/li[5]/div[1]/span[1]",
+              "mode": "xpath",
+              "relative": false
+            }
+          },
+          {
+            "id": "default-a69c014c-b197-4d47-9478-a145125e58bb-node-8",
+            "type": "click",
+            "name": "选择基础资料",
+            "enabled": true,
+            "params": {
+              "selector": "//div[normalize-space(.)='基础资料']",
+              "mode": "xpath",
+              "relative": false,
+              "before": {
+                "enabled": true,
+                "seconds": 3,
+                "waitElement": true,
+                "xpath": "//div[normalize-space(.)='基础资料']"
+              }
+            }
+          }
+        ]
+      },
+      {
+        "id": "default-a69c014c-b197-4d47-9478-a145125e58bb-node-9",
+        "type": "click",
+        "name": "样品资料",
+        "enabled": true,
+        "params": {
+          "selector": "//a[normalize-space(.)='样品资料']",
+          "mode": "xpath",
+          "relative": false,
+          "retries": 5,
+          "timeout": 10,
+          "before": {}
+        }
+      },
+      {
+        "id": "default-a69c014c-b197-4d47-9478-a145125e58bb-node-10",
+        "type": "click",
+        "name": "分页器",
+        "enabled": true,
+        "params": {
+          "selector": "//input[@placeholder='请选择']",
+          "mode": "xpath",
+          "relative": false,
+          "before": {}
+        }
+      },
+      {
+        "id": "default-a69c014c-b197-4d47-9478-a145125e58bb-node-11",
+        "type": "click",
+        "name": "选择2000/页",
+        "enabled": true,
+        "params": {
+          "selector": "//div[normalize-space(.)='2000条/页']",
+          "mode": "xpath",
+          "relative": false,
+          "before": {},
+          "timeout": 10
+        }
+      },
+      {
+        "id": "default-a69c014c-b197-4d47-9478-a145125e58bb-node-12",
+        "type": "pages",
+        "name": "循环翻页",
+        "enabled": true,
+        "params": {
+          "limitEnabled": false,
+          "mode": "xpath",
+          "selector": "/html[1]/body[1]/div[1]/section[1]/section[1]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[3]/div[2]/div[1]/div[1]/button[2][not(@disabled) and not(@aria-disabled=\"true\")]"
+        },
+        "children": [
+          {
+            "id": "default-a69c014c-b197-4d47-9478-a145125e58bb-node-13",
+            "type": "list",
+            "name": "循环",
+            "enabled": true,
+            "params": {
+              "before": {},
+              "list": {
+                "type": "xpath",
+                "selector": "/html[1]/body[1]/div[1]/section[1]/section[1]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]//*[self::tr or @role=\"row\"][not(.//th or .//*[@role=\"columnheader\"])][td or *[@role=\"cell\" or @role=\"gridcell\"]]",
+                "genericGrid": true,
+                "tableRoot": "/html[1]/body[1]/div[1]/section[1]/section[1]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]",
+                "headersPath": "/html[1]/body[1]/div[1]/section[1]/section[1]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]//*[self::th or @role=\"columnheader\"]",
+                "virtualGrid": false
+              },
+              "timeout": 30
+            },
+            "children": [
+              {
+                "id": "default-a69c014c-b197-4d47-9478-a145125e58bb-node-14",
+                "type": "extract",
+                "name": "提取表格字段",
+                "enabled": true,
+                "params": {
+                  "fields": [
+                    {
+                      "name": "样品名称",
+                      "tableColumn": "colid:col_64",
+                      "type": "text",
+                      "index": 0,
+                      "__on": true
+                    },
+                    {
+                      "name": "中文材质",
+                      "tableColumn": "colid:col_65",
+                      "type": "text",
+                      "index": 1,
+                      "__on": true
+                    },
+                    {
+                      "name": "公司编号",
+                      "tableColumn": "colid:col_66",
+                      "type": "text",
+                      "index": 2,
+                      "__on": true
+                    },
+                    {
+                      "name": "推荐产品",
+                      "tableColumn": "colid:col_67",
+                      "type": "img",
+                      "index": 3,
+                      "__on": true
+                    },
+                    {
+                      "name": "外箱数量",
+                      "tableColumn": "colid:col_68",
+                      "type": "text",
+                      "index": 4,
+                      "__on": true
+                    },
+                    {
+                      "name": "内盒个数",
+                      "tableColumn": "colid:col_69",
+                      "type": "text",
+                      "index": 5,
+                      "__on": true
+                    },
+                    {
+                      "name": "外箱毛重",
+                      "tableColumn": "colid:col_70",
+                      "type": "text",
+                      "index": 6,
+                      "__on": true
+                    },
+                    {
+                      "name": "外箱净重",
+                      "tableColumn": "colid:col_71",
+                      "type": "text",
+                      "index": 7,
+                      "__on": true
+                    },
+                    {
+                      "name": "外箱体积",
+                      "tableColumn": "colid:col_72",
+                      "type": "text",
+                      "index": 7,
+                      "__on": true
+                    },
+                    {
+                      "name": "外箱材积",
+                      "tableColumn": "colid:col_73",
+                      "type": "text",
+                      "index": 8,
+                      "__on": true
+                    },
+                    {
+                      "name": "样品长度",
+                      "tableColumn": "colid:col_74",
+                      "type": "text",
+                      "index": 9,
+                      "__on": true
+                    },
+                    {
+                      "name": "样品宽度",
+                      "tableColumn": "colid:col_75",
+                      "type": "text",
+                      "index": 10,
+                      "__on": true
+                    },
+                    {
+                      "name": "样品高度",
+                      "tableColumn": "colid:col_76",
+                      "type": "text",
+                      "index": 11,
+                      "__on": true
+                    },
+                    {
+                      "name": "Id",
+                      "tableColumn": "colid:col_77",
+                      "type": "text",
+                      "index": 7,
+                      "__on": true
+                    },
+                    {
+                      "name": "图片",
+                      "tableColumn": "colid:col_78",
+                      "type": "img",
+                      "index": 8,
+                      "__on": true
+                    },
+                    {
+                      "name": "厂商编号",
+                      "tableColumn": "colid:col_79",
+                      "type": "text",
+                      "index": 9,
+                      "__on": true
+                    },
+                    {
+                      "name": "种类编号",
+                      "tableColumn": "colid:col_80",
+                      "type": "text",
+                      "index": 10,
+                      "__on": true
+                    },
+                    {
+                      "name": "种类名称",
+                      "tableColumn": "colid:col_81",
+                      "type": "text",
+                      "index": 11,
+                      "__on": true
+                    },
+                    {
+                      "name": "种类英文名称",
+                      "tableColumn": "colid:col_82",
+                      "type": "text",
+                      "index": 7,
+                      "__on": true
+                    },
+                    {
+                      "name": "英文名称",
+                      "tableColumn": "colid:col_83",
+                      "type": "text",
+                      "index": 8,
+                      "__on": true
+                    },
+                    {
+                      "name": "样品单位",
+                      "tableColumn": "colid:col_84",
+                      "type": "text",
+                      "index": 9,
+                      "__on": true
+                    },
+                    {
+                      "name": "英文单位",
+                      "tableColumn": "colid:col_85",
+                      "type": "text",
+                      "index": 10,
+                      "__on": true
+                    },
+                    {
+                      "name": "出厂货号",
+                      "tableColumn": "colid:col_86",
+                      "type": "text",
+                      "index": 11,
+                      "__on": true
+                    },
+                    {
+                      "name": "包装编号",
+                      "tableColumn": "colid:col_87",
+                      "type": "text",
+                      "index": 7,
+                      "__on": true
+                    },
+                    {
+                      "name": "中文包装",
+                      "tableColumn": "colid:col_88",
+                      "type": "text",
+                      "index": 8,
+                      "__on": true
+                    },
+                    {
+                      "name": "英文包装",
+                      "tableColumn": "colid:col_89",
+                      "type": "text",
+                      "index": 9,
+                      "__on": true
+                    },
+                    {
+                      "name": "外箱长度",
+                      "tableColumn": "colid:col_90",
+                      "type": "text",
+                      "index": 10,
+                      "__on": true
+                    },
+                    {
+                      "name": "款数",
+                      "tableColumn": "colid:col_91",
+                      "type": "text",
+                      "index": 6,
+                      "__on": true
+                    },
+                    {
+                      "name": "外箱宽度",
+                      "tableColumn": "colid:col_92",
+                      "type": "text",
+                      "index": 7,
+                      "__on": true
+                    },
+                    {
+                      "name": "外箱高度",
+                      "tableColumn": "colid:col_93",
+                      "type": "text",
+                      "index": 8,
+                      "__on": true
+                    },
+                    {
+                      "name": "装箱单位",
+                      "tableColumn": "colid:col_94",
+                      "type": "text",
+                      "index": 9,
+                      "__on": true
+                    },
+                    {
+                      "name": "颜色名称",
+                      "tableColumn": "colid:col_95",
+                      "type": "text",
+                      "index": 10,
+                      "__on": true
+                    },
+                    {
+                      "name": "颜色英文",
+                      "tableColumn": "colid:col_96",
+                      "type": "text",
+                      "index": 7,
+                      "__on": true
+                    },
+                    {
+                      "name": "产品认证",
+                      "tableColumn": "colid:col_97",
+                      "type": "text",
+                      "index": 8,
+                      "__on": true
+                    },
+                    {
+                      "name": "中文备注",
+                      "tableColumn": "colid:col_98",
+                      "type": "text",
+                      "index": 9,
+                      "__on": true
+                    },
+                    {
+                      "name": "英文备注",
+                      "tableColumn": "colid:col_99",
+                      "type": "text",
+                      "index": 10,
+                      "__on": true
+                    },
+                    {
+                      "name": "颜色数量",
+                      "tableColumn": "colid:col_100",
+                      "type": "text",
+                      "index": 11,
+                      "__on": true
+                    },
+                    {
+                      "name": "摊位编号",
+                      "tableColumn": "colid:col_101",
+                      "type": "text",
+                      "index": 7,
+                      "__on": true
+                    },
+                    {
+                      "name": "认证数量",
+                      "tableColumn": "colid:col_102",
+                      "type": "text",
+                      "index": 8,
+                      "__on": true
+                    },
+                    {
+                      "name": "其他",
+                      "tableColumn": "colid:col_103",
+                      "type": "text",
+                      "index": 9,
+                      "__on": true
+                    },
+                    {
+                      "name": "注意事项",
+                      "tableColumn": "colid:col_104",
+                      "type": "text",
+                      "index": 10,
+                      "__on": true
+                    },
+                    {
+                      "name": "样品品牌",
+                      "tableColumn": "colid:col_105",
+                      "type": "text",
+                      "index": 6,
+                      "__on": true
+                    },
+                    {
+                      "name": "包装长度",
+                      "tableColumn": "colid:col_106",
+                      "type": "text",
+                      "index": 7,
+                      "__on": true
+                    },
+                    {
+                      "name": "包装宽度",
+                      "tableColumn": "colid:col_107",
+                      "type": "text",
+                      "index": 8,
+                      "__on": true
+                    },
+                    {
+                      "name": "包装高度",
+                      "tableColumn": "colid:col_108",
+                      "type": "text",
+                      "index": 9,
+                      "__on": true
+                    },
+                    {
+                      "name": "产品毛重",
+                      "tableColumn": "colid:col_109",
+                      "type": "text",
+                      "index": 10,
+                      "__on": true
+                    },
+                    {
+                      "name": "产品净重",
+                      "tableColumn": "colid:col_110",
+                      "type": "text",
+                      "index": 7,
+                      "__on": true
+                    },
+                    {
+                      "name": "停产",
+                      "tableColumn": "colid:col_111",
+                      "type": "text",
+                      "index": 8,
+                      "__on": true
+                    },
+                    {
+                      "name": "电池",
+                      "tableColumn": "colid:col_112",
+                      "type": "text",
+                      "index": 9,
+                      "__on": true
+                    },
+                    {
+                      "name": "关键词",
+                      "tableColumn": "colid:col_114",
+                      "type": "text",
+                      "index": 10,
+                      "__on": true
+                    },
+                    {
+                      "name": "厂商备注",
+                      "tableColumn": "colid:col_129",
+                      "type": "text",
+                      "index": 11,
+                      "__on": true
+                    },
+                    {
+                      "name": "加点价",
+                      "tableColumn": "colid:col_131",
+                      "type": "text",
+                      "index": 7,
+                      "__on": true
+                    },
+                    {
+                      "name": "出厂价折扣",
+                      "tableColumn": "colid:col_146",
+                      "type": "text",
+                      "index": 8,
+                      "__on": true
+                    },
+                    {
+                      "name": "热销",
+                      "tableColumn": "colid:col_148",
+                      "type": "text",
+                      "index": 9,
+                      "__on": true
+                    },
+                    {
+                      "name": "辅助编号",
+                      "tableColumn": "colid:col_152",
+                      "type": "text",
+                      "index": 10,
+                      "__on": true
+                    },
+                    {
+                      "name": "采购折扣",
+                      "tableColumn": "colid:col_154",
+                      "type": "text",
+                      "index": 11,
+                      "__on": true
+                    },
+                    {
+                      "name": "成本价公式标识",
+                      "tableColumn": "colid:col_155",
+                      "type": "text",
+                      "index": 7,
+                      "__on": true
+                    },
+                    {
+                      "name": "实样",
+                      "tableColumn": "colid:col_156",
+                      "type": "text",
+                      "index": 8,
+                      "__on": true
+                    },
+                    {
+                      "name": "俄文品名",
+                      "tableColumn": "colid:col_157",
+                      "type": "text",
+                      "index": 9,
+                      "__on": true
+                    },
+                    {
+                      "name": "俄文包装",
+                      "tableColumn": "colid:col_158",
+                      "type": "text",
+                      "index": 10,
+                      "__on": true
+                    },
+                    {
+                      "name": "侵权",
+                      "tableColumn": "colid:col_159",
+                      "type": "text",
+                      "index": 11,
+                      "__on": true
+                    },
+                    {
+                      "name": "起订量",
+                      "tableColumn": "colid:col_160",
+                      "type": "text",
+                      "index": 7,
+                      "__on": true
+                    },
+                    {
+                      "name": "价格备注",
+                      "tableColumn": "colid:col_167",
+                      "type": "text",
+                      "index": 8,
+                      "__on": true
+                    },
+                    {
+                      "name": "配箱数",
+                      "tableColumn": "colid:col_168",
+                      "type": "text",
+                      "index": 9,
+                      "__on": true
+                    },
+                    {
+                      "name": "款式",
+                      "tableColumn": "colid:col_169",
+                      "type": "text",
+                      "index": 10,
+                      "__on": true
+                    },
+                    {
+                      "name": "标签",
+                      "tableColumn": "colid:col_170",
+                      "type": "text",
+                      "index": 11,
+                      "__on": true
+                    },
+                    {
+                      "name": "产品条码",
+                      "tableColumn": "colid:col_171",
+                      "type": "text",
+                      "index": 7,
+                      "__on": true
+                    },
+                    {
+                      "name": "展示盒条码",
+                      "tableColumn": "colid:col_172",
+                      "type": "text",
+                      "index": 8,
+                      "__on": true
+                    },
+                    {
+                      "name": "内箱条码",
+                      "tableColumn": "colid:col_173",
+                      "type": "text",
+                      "index": 9,
+                      "__on": true
+                    },
+                    {
+                      "name": "外箱条码",
+                      "tableColumn": "colid:col_174",
+                      "type": "text",
+                      "index": 10,
+                      "__on": true
+                    },
+                    {
+                      "name": "海关编码",
+                      "tableColumn": "colid:col_175",
+                      "type": "text",
+                      "index": 6,
+                      "__on": true
+                    },
+                    {
+                      "name": "报关中文",
+                      "tableColumn": "colid:col_176",
+                      "type": "text",
+                      "index": 7,
+                      "__on": true
+                    },
+                    {
+                      "name": "报关英文",
+                      "tableColumn": "colid:col_177",
+                      "type": "text",
+                      "index": 8,
+                      "__on": true
+                    },
+                    {
+                      "name": "英文材质",
+                      "tableColumn": "colid:col_178",
+                      "type": "text",
+                      "index": 9,
+                      "__on": true
+                    },
+                    {
+                      "name": "客户货号",
+                      "tableColumn": "colid:col_179",
+                      "type": "text",
+                      "index": 10,
+                      "__on": true
+                    },
+                    {
+                      "name": "是否有视频",
+                      "tableColumn": "colid:col_180",
+                      "type": "text",
+                      "index": 7,
+                      "__on": true
+                    },
+                    {
+                      "name": "业务员",
+                      "tableColumn": "colid:col_182",
+                      "type": "text",
+                      "index": 8,
+                      "__on": true
+                    },
+                    {
+                      "name": "运费",
+                      "tableColumn": "colid:col_185",
+                      "type": "text",
+                      "index": 9,
+                      "__on": true
+                    },
+                    {
+                      "name": "标贴费",
+                      "tableColumn": "colid:col_186",
+                      "type": "text",
+                      "index": 10,
+                      "__on": true
+                    },
+                    {
+                      "name": "登记人",
+                      "tableColumn": "colid:col_188",
+                      "type": "text",
+                      "index": 6,
+                      "__on": true
+                    },
+                    {
+                      "name": "修改人",
+                      "tableColumn": "colid:col_189",
+                      "type": "text",
+                      "index": 7,
+                      "__on": true
+                    },
+                    {
+                      "name": "登记时间",
+                      "tableColumn": "colid:col_190",
+                      "type": "text",
+                      "index": 8,
+                      "__on": true
+                    },
+                    {
+                      "name": "更新时间",
+                      "tableColumn": "colid:col_191",
+                      "type": "text",
+                      "index": 9,
+                      "__on": true
+                    },
+                    {
+                      "name": "进货价",
+                      "tableColumn": "colid:col_192",
+                      "type": "text",
+                      "index": 10,
+                      "__on": true
+                    },
+                    {
+                      "name": "出厂价",
+                      "tableColumn": "colid:col_193",
+                      "type": "text",
+                      "index": 7,
+                      "__on": true
+                    },
+                    {
+                      "name": "13位条形码",
+                      "tableColumn": "colid:col_194",
+                      "type": "text",
+                      "index": 8,
+                      "__on": true
+                    },
+                    {
+                      "name": "GCC",
+                      "tableColumn": "colid:col_195",
+                      "type": "text",
+                      "index": 9,
+                      "__on": true
+                    },
+                    {
+                      "name": "厂商名称",
+                      "tableColumn": "colid:col_196",
+                      "type": "text",
+                      "index": 10,
+                      "__on": true
+                    },
+                    {
+                      "name": "联系人",
+                      "tableColumn": "colid:col_197",
+                      "type": "text",
+                      "index": 11,
+                      "__on": true
+                    },
+                    {
+                      "name": "电话号码",
+                      "tableColumn": "colid:col_198",
+                      "type": "text",
+                      "index": 7,
+                      "__on": true
+                    },
+                    {
+                      "name": "手机号码",
+                      "tableColumn": "colid:col_199",
+                      "type": "text",
+                      "index": 8,
+                      "__on": true
+                    },
+                    {
+                      "name": "成本价",
+                      "tableColumn": "colid:col_200",
+                      "type": "text",
+                      "index": 9,
+                      "__on": true
+                    },
+                    {
+                      "name": "传真",
+                      "tableColumn": "colid:col_201",
+                      "type": "text",
+                      "index": 10,
+                      "__on": true
+                    },
+                    {
+                      "name": "厂商专柜号",
+                      "tableColumn": "colid:col_202",
+                      "type": "text",
+                      "index": 11,
+                      "__on": true
+                    },
+                    {
+                      "name": "辅助编码",
+                      "tableColumn": "colid:col_203",
+                      "type": "text",
+                      "index": 7,
+                      "__on": true
+                    },
+                    {
+                      "name": "采购员",
+                      "tableColumn": "colid:col_204",
+                      "type": "text",
+                      "index": 8,
+                      "__on": true
+                    },
+                    {
+                      "name": "出入证",
+                      "tableColumn": "colid:col_205",
+                      "type": "text",
+                      "index": 9,
+                      "__on": true
+                    },
+                    {
+                      "name": "图片添加人",
+                      "tableColumn": "colid:col_206",
+                      "type": "text",
+                      "index": 10,
+                      "__on": true
+                    },
+                    {
+                      "name": "图片修改人",
+                      "tableColumn": "colid:col_207",
+                      "type": "text",
+                      "index": 11,
+                      "__on": true
+                    },
+                    {
+                      "name": "专柜号",
+                      "tableColumn": "colid:col_208",
+                      "type": "text",
+                      "index": 12,
+                      "__on": true
+                    },
+                    {
+                      "name": "第三价格",
+                      "tableColumn": "colid:col_209",
+                      "type": "text",
+                      "index": 13,
+                      "__on": true
+                    },
+                    {
+                      "name": "付款方式",
+                      "tableColumn": "colid:col_210",
+                      "type": "text",
+                      "index": 9,
+                      "__on": true
+                    },
+                    {
+                      "name": "展示盒装数",
+                      "tableColumn": "colid:col_211",
+                      "type": "text",
+                      "index": 10,
+                      "__on": true
+                    },
+                    {
+                      "name": "工艺/表面处理",
+                      "tableColumn": "colid:col_212",
+                      "type": "text",
+                      "index": 11,
+                      "__on": true
+                    },
+                    {
+                      "name": "工艺/表面处理英文",
+                      "tableColumn": "colid:col_213",
+                      "type": "text",
+                      "index": 12,
+                      "__on": true
+                    },
+                    {
+                      "name": "是否下架",
+                      "tableColumn": "colid:col_214",
+                      "type": "text",
+                      "index": 13,
+                      "__on": true
+                    },
+                    {
+                      "name": "客户条码",
+                      "tableColumn": "colid:col_215",
+                      "type": "text",
+                      "index": 7,
+                      "__on": true
+                    },
+                    {
+                      "name": "适用年龄",
+                      "tableColumn": "colid:col_216",
+                      "type": "text",
+                      "index": 8,
+                      "__on": true
+                    },
+                    {
+                      "name": "QQ",
+                      "tableColumn": "colid:col_217",
+                      "type": "text",
+                      "index": 9,
+                      "__on": true
+                    }
+                  ],
+                  "dedupe": false,
+                  "before": {}
+                }
+              }
+            ]
+          },
+          {
+            "id": "default-a69c014c-b197-4d47-9478-a145125e58bb-node-15",
+            "type": "next",
+            "name": "点击翻页",
+            "enabled": true,
+            "params": {
+              "mode": "xpath",
+              "selector": "/html[1]/body[1]/div[1]/section[1]/section[1]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[3]/div[2]/div[1]/div[1]/button[2][not(@disabled) and not(@aria-disabled=\"true\")]"
+            }
+          }
+        ]
+      }
+    ],
+    "templateSource": "宏升产品测试",
+    "templateVersion": 2
+  },
+  {
+    "id": "default-e148ccd7-aabc-401d-9a48-bbb2452d300f",
+    "name": "贸易登录 · 自动登录与覆盖确认",
+    "group": "默认贸易流程",
+    "url": "https://trade.tsbsoft.com/tsHome",
+    "fields": [],
+    "list": null,
+    "nextSel": null,
+    "opts": {
+      "scrollLoad": true,
+      "autoNext": true,
+      "maxPages": 5,
+      "maxScrollSec": 180,
+      "loadTimeoutSec": 60,
+      "beforeWaitSec": 0,
+      "nextWaitSec": 1.2,
+      "scrollWait": 150
+    },
+    "flow": [
+      {
+        "id": "default-e148ccd7-aabc-401d-9a48-bbb2452d300f-node-1",
+        "type": "open",
+        "name": "打开网页",
+        "enabled": true,
+        "params": {}
+      },
+      {
+        "id": "default-e148ccd7-aabc-401d-9a48-bbb2452d300f-node-2",
+        "type": "click",
+        "name": "点击元素",
+        "enabled": true,
+        "params": {
+          "selector": "//div[normalize-space(.)='账号登录']",
+          "mode": "xpath",
+          "relative": false
+        }
+      },
+      {
+        "id": "default-e148ccd7-aabc-401d-9a48-bbb2452d300f-node-3",
+        "type": "input",
+        "name": "输入文本",
+        "enabled": true,
+        "params": {
+          "selector": "//input[@placeholder='请输入11位手机号']",
+          "value": "18179745884",
+          "mode": "xpath",
+          "enter": false
+        }
+      },
+      {
+        "id": "default-e148ccd7-aabc-401d-9a48-bbb2452d300f-node-4",
+        "type": "input",
+        "name": "输入文本",
+        "enabled": true,
+        "params": {
+          "selector": "//input[@placeholder='请输入密码']",
+          "value": "123456",
+          "mode": "xpath",
+          "enter": false
+        }
+      },
+      {
+        "id": "default-e148ccd7-aabc-401d-9a48-bbb2452d300f-node-5",
+        "type": "click",
+        "name": "点击元素",
+        "enabled": true,
+        "params": {
+          "selector": "//button[normalize-space(.)='登录']",
+          "mode": "xpath",
+          "relative": false
+        }
+      },
+      {
+        "id": "default-e148ccd7-aabc-401d-9a48-bbb2452d300f-node-6",
+        "type": "condition",
+        "name": "判断覆盖弹窗",
+        "enabled": true,
+        "params": {
+          "selector": "//div[contains(concat(\" \", normalize-space(@class), \" \"), \" el-message-box \")]//button[normalize-space(.)=\"覆盖\"]",
+          "mode": "xpath",
+          "operator": "exists",
+          "timeout": 3
+        },
+        "children": [
+          {
+            "id": "default-e148ccd7-aabc-401d-9a48-bbb2452d300f-node-7",
+            "type": "click",
+            "name": "点击覆盖",
+            "enabled": true,
+            "params": {
+              "selector": "//div[contains(concat(\" \", normalize-space(@class), \" \"), \" el-message-box \")]//button[normalize-space(.)=\"覆盖\"]",
+              "mode": "xpath",
+              "relative": false,
+              "timeout": 3
+            }
+          }
+        ]
+      }
+    ],
+    "templateSource": "最新测试",
+    "templateVersion": 2
+  },
+  {
+    "id": "default-3f2943f5-c237-41ed-921f-4f41a79cc864-preview",
+    "name": "产品资料 · 5页试采与字段检查",
+    "group": "默认贸易流程",
+    "url": "https://trade.tsbsoft.com/login",
+    "fields": [
+      {
+        "name": "产品图片",
+        "virtualColumn": "产品图片",
+        "type": "text",
+        "__on": true
+      },
+      {
+        "name": "产品编号",
+        "virtualColumn": "产品编号",
+        "type": "text",
+        "__on": true
+      },
+      {
+        "name": "辅助编号",
+        "virtualColumn": "辅助编号",
+        "type": "text",
+        "__on": true
+      },
+      {
+        "name": "产品名称",
+        "virtualColumn": "产品名称",
+        "type": "text",
+        "__on": true
+      },
+      {
+        "name": "英文名称",
+        "virtualColumn": "英文名称",
+        "type": "text",
+        "__on": true
+      },
+      {
+        "name": "出厂货号",
+        "virtualColumn": "出厂货号",
+        "type": "text",
+        "__on": true
+      },
+      {
+        "name": "产品类型",
+        "virtualColumn": "产品类型",
+        "type": "text",
+        "__on": true
+      },
+      {
+        "name": "出厂价",
+        "virtualColumn": "出厂价",
+        "type": "text",
+        "__on": true
+      },
+      {
+        "name": "进货价",
+        "virtualColumn": "进货价",
+        "type": "text",
+        "__on": true
+      },
+      {
+        "name": "自定义价格",
+        "virtualColumn": "自定义价格",
+        "type": "text",
+        "__on": true
+      },
+      {
+        "name": "第三方价格",
+        "virtualColumn": "第三方价格",
+        "type": "text",
+        "__on": true
+      },
+      {
+        "name": "采购折扣",
+        "virtualColumn": "采购折扣",
+        "type": "text",
+        "__on": true
+      },
+      {
+        "name": "标贴费",
+        "virtualColumn": "标贴费",
+        "type": "text",
+        "__on": true
+      },
+      {
+        "name": "起订量",
+        "virtualColumn": "起订量",
+        "type": "text",
+        "__on": true
+      },
+      {
+        "name": "产品状态",
+        "virtualColumn": "产品状态",
+        "type": "text",
+        "__on": true
+      },
+      {
+        "name": "分类编号",
+        "virtualColumn": "分类编号",
+        "type": "text",
+        "__on": true
+      },
+      {
+        "name": "分类名称",
+        "virtualColumn": "分类名称",
+        "type": "text",
+        "__on": true
+      },
+      {
+        "name": "中文包装",
+        "virtualColumn": "中文包装",
+        "type": "text",
+        "__on": true
+      },
+      {
+        "name": "英文包装",
+        "virtualColumn": "英文包装",
+        "type": "text",
+        "__on": true
+      },
+      {
+        "name": "中文材质",
+        "virtualColumn": "中文材质",
+        "type": "text",
+        "__on": true
+      },
+      {
+        "name": "英文材质",
+        "virtualColumn": "英文材质",
+        "type": "text",
+        "__on": true
+      },
+      {
+        "name": "产品单位",
+        "virtualColumn": "产品单位",
+        "type": "text",
+        "__on": true
+      },
+      {
+        "name": "英文单位",
+        "virtualColumn": "英文单位",
+        "type": "text",
+        "__on": true
+      },
+      {
+        "name": "产品颜色",
+        "virtualColumn": "产品颜色",
+        "type": "text",
+        "__on": true
+      },
+      {
+        "name": "英文颜色",
+        "virtualColumn": "英文颜色",
+        "type": "text",
+        "__on": true
+      },
+      {
+        "name": "产品认证",
+        "virtualColumn": "产品认证",
+        "type": "text",
+        "__on": true
+      },
+      {
+        "name": "产品品牌",
+        "virtualColumn": "产品品牌",
+        "type": "text",
+        "__on": true
+      },
+      {
+        "name": "工厂条码",
+        "virtualColumn": "工厂条码",
+        "type": "text",
+        "__on": true
+      },
+      {
+        "name": "公司条码",
+        "virtualColumn": "公司条码",
+        "type": "text",
+        "__on": true
+      },
+      {
+        "name": "暗码",
+        "virtualColumn": "暗码",
+        "type": "text",
+        "__on": true
+      },
+      {
+        "name": "产品规格",
+        "virtualColumn": "产品规格",
+        "type": "text",
+        "__on": true
+      },
+      {
+        "name": "包装规格",
+        "virtualColumn": "包装规格",
+        "type": "text",
+        "__on": true
+      },
+      {
+        "name": "内盒规格",
+        "virtualColumn": "内盒规格",
+        "type": "text",
+        "__on": true
+      },
+      {
+        "name": "外箱规格",
+        "virtualColumn": "外箱规格",
+        "type": "text",
+        "__on": true
+      },
+      {
+        "name": "体积/材积",
+        "virtualColumn": "体积/材积",
+        "type": "text",
+        "__on": true
+      },
+      {
+        "name": "外箱毛/净重",
+        "virtualColumn": "外箱毛/净重",
+        "type": "text",
+        "__on": true
+      },
+      {
+        "name": "产品毛/净重",
+        "virtualColumn": "产品毛/净重",
+        "type": "text",
+        "__on": true
+      },
+      {
+        "name": "内盒个数",
+        "virtualColumn": "内盒个数",
+        "type": "text",
+        "__on": true
+      },
+      {
+        "name": "外箱装量",
+        "virtualColumn": "外箱装量",
+        "type": "text",
+        "__on": true
+      },
+      {
+        "name": "厂商名称",
+        "virtualColumn": "厂商名称",
+        "type": "text",
+        "__on": true
+      },
+      {
+        "name": "厂商编号",
+        "virtualColumn": "厂商编号",
+        "type": "text",
+        "__on": true
+      },
+      {
+        "name": "联系人",
+        "virtualColumn": "联系人",
+        "type": "text",
+        "__on": true
+      },
+      {
+        "name": "联系电话",
+        "virtualColumn": "联系电话",
+        "type": "text",
+        "__on": true
+      },
+      {
+        "name": "联系手机",
+        "virtualColumn": "联系手机",
+        "type": "text",
+        "__on": true
+      },
+      {
+        "name": "QQ",
+        "virtualColumn": "QQ",
+        "type": "text",
+        "__on": true
+      },
+      {
+        "name": "摊位号",
+        "virtualColumn": "摊位号",
+        "type": "text",
+        "__on": true
+      },
+      {
+        "name": "热销",
+        "virtualColumn": "热销",
+        "type": "text",
+        "__on": true
+      },
+      {
+        "name": "在展产品数",
+        "virtualColumn": "在展产品数",
+        "type": "text",
+        "__on": true
+      },
+      {
+        "name": "停产",
+        "virtualColumn": "停产",
+        "type": "text",
+        "__on": true
+      },
+      {
+        "name": "GCC",
+        "virtualColumn": "GCC",
+        "type": "text",
+        "__on": true
+      },
+      {
+        "name": "实样",
+        "virtualColumn": "实样",
+        "type": "text",
+        "__on": true
+      },
+      {
+        "name": "侵权",
+        "virtualColumn": "侵权",
+        "type": "text",
+        "__on": true
+      },
+      {
+        "name": "是否有视频",
+        "virtualColumn": "是否有视频",
+        "type": "text",
+        "__on": true
+      },
+      {
+        "name": "是否有图",
+        "virtualColumn": "是否有图",
+        "type": "text",
+        "__on": true
+      },
+      {
+        "name": "中文备注",
+        "virtualColumn": "中文备注",
+        "type": "text",
+        "__on": true
+      },
+      {
+        "name": "英文备注",
+        "virtualColumn": "英文备注",
+        "type": "text",
+        "__on": true
+      },
+      {
+        "name": "注意事项",
+        "virtualColumn": "注意事项",
+        "type": "text",
+        "__on": true
+      },
+      {
+        "name": "功能说明",
+        "virtualColumn": "功能说明",
+        "type": "text",
+        "__on": true
+      },
+      {
+        "name": "客户备注",
+        "virtualColumn": "客户备注",
+        "type": "text",
+        "__on": true
+      },
+      {
+        "name": "登记人",
+        "virtualColumn": "登记人",
+        "type": "text",
+        "__on": true
+      },
+      {
+        "name": "登记时间",
+        "virtualColumn": "登记时间",
+        "type": "text",
+        "__on": true
+      },
+      {
+        "name": "图片修改人",
+        "virtualColumn": "图片修改人",
+        "type": "text",
+        "__on": true
+      },
+      {
+        "name": "图片修改时间",
+        "virtualColumn": "图片修改时间",
+        "type": "text",
+        "__on": true
+      },
+      {
+        "name": "修改人",
+        "virtualColumn": "修改人",
+        "type": "text",
+        "__on": true
+      },
+      {
+        "name": "修改时间",
+        "virtualColumn": "修改时间",
+        "type": "text",
+        "__on": true
+      },
+      {
+        "name": "下架时间",
+        "virtualColumn": "下架时间",
+        "type": "text",
+        "__on": true
+      }
+    ],
+    "list": {
+      "type": "xpath",
+      "selector": "/html[1]/body[1]/div[1]/div[1]/div[3]/div[1]/section[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]//tr[@rowid]",
+      "virtualGrid": true
+    },
+    "nextSel": {
+      "type": "xpath",
+      "selector": "/html[1]/body[1]/div[1]/div[1]/div[3]/div[1]/section[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/button[2][not(@disabled) and not(contains(@class,\"is--disabled\"))]"
+    },
+    "opts": {
+      "scrollLoad": true,
+      "autoNext": true,
+      "fitTable": true,
+      "maxPages": 5,
+      "maxScrollSec": 180,
+      "loadTimeoutSec": 60,
+      "beforeWaitSec": 0,
+      "nextWaitSec": 0.5,
+      "scrollWait": 150
+    },
+    "flow": [
+      {
+        "id": "default-3f2943f5-c237-41ed-921f-4f41a79cc864-preview-node-1",
+        "type": "open",
+        "name": "打开网页",
+        "enabled": true,
+        "params": {
+          "before": {}
+        }
+      },
+      {
+        "id": "default-3f2943f5-c237-41ed-921f-4f41a79cc864-preview-node-2",
+        "type": "condition",
+        "name": "判断是否在登录状态",
+        "enabled": true,
+        "params": {
+          "before": {}
+        },
+        "children": [
+          {
+            "id": "default-3f2943f5-c237-41ed-921f-4f41a79cc864-preview-node-3",
+            "type": "click",
+            "name": "点击元素",
+            "enabled": true,
+            "params": {
+              "before": {},
+              "selector": "//span[normalize-space(.)='黄河大哥']",
+              "mode": "xpath",
+              "relative": false
+            }
+          },
+          {
+            "id": "default-3f2943f5-c237-41ed-921f-4f41a79cc864-preview-node-4",
+            "type": "click",
+            "name": "点击元素",
+            "enabled": true,
+            "params": {
+              "before": {},
+              "selector": "//li[normalize-space(.)='退出系统']",
+              "mode": "xpath",
+              "relative": false
+            }
+          }
+        ]
+      },
+      {
+        "id": "default-3f2943f5-c237-41ed-921f-4f41a79cc864-preview-node-5",
+        "type": "condition",
+        "name": "判断是否加载出登录卡片",
+        "enabled": true,
+        "params": {
+          "before": {
+            "enabled": true,
+            "mode": "fixed",
+            "seconds": 3
+          },
+          "selector": "/html[1]/body[1]/div[1]/div[1]/div[2]/div[1]/div[1]",
+          "mode": "xpath",
+          "relative": false
+        },
+        "children": [
+          {
+            "id": "default-3f2943f5-c237-41ed-921f-4f41a79cc864-preview-node-6",
+            "type": "click",
+            "name": "点击元素",
+            "enabled": true,
+            "params": {
+              "before": {},
+              "selector": "//div[normalize-space(.)='账号登录']",
+              "mode": "xpath",
+              "relative": false
+            }
+          },
+          {
+            "id": "default-3f2943f5-c237-41ed-921f-4f41a79cc864-preview-node-7",
+            "type": "input",
+            "name": "输入手机号",
+            "enabled": true,
+            "params": {
+              "selector": "//input[@placeholder='请输入11位手机号']",
+              "value": "18179745884",
+              "mode": "xpath",
+              "enter": false,
+              "before": {}
+            }
+          },
+          {
+            "id": "default-3f2943f5-c237-41ed-921f-4f41a79cc864-preview-node-8",
+            "type": "input",
+            "name": "输入密码",
+            "enabled": true,
+            "params": {
+              "selector": "//input[@placeholder='请输入密码']",
+              "value": "123456",
+              "mode": "xpath",
+              "enter": false,
+              "before": {}
+            }
+          },
+          {
+            "id": "default-3f2943f5-c237-41ed-921f-4f41a79cc864-preview-node-9",
+            "type": "click",
+            "name": "点击登录按钮",
+            "enabled": true,
+            "params": {
+              "selector": "//button[normalize-space(.)='登录']",
+              "mode": "xpath",
+              "relative": false,
+              "before": {}
+            }
+          }
+        ]
+      },
+      {
+        "id": "default-3f2943f5-c237-41ed-921f-4f41a79cc864-preview-node-10",
+        "type": "condition",
+        "name": "判断覆盖",
+        "enabled": true,
+        "params": {
+          "before": {
+            "enabled": true,
+            "waitElement": false,
+            "mode": "fixed",
+            "seconds": 3
+          },
+          "selector": "//button[normalize-space(.)='覆盖']",
+          "mode": "xpath",
+          "relative": false
+        },
+        "children": [
+          {
+            "id": "default-3f2943f5-c237-41ed-921f-4f41a79cc864-preview-node-11",
+            "type": "click",
+            "name": "点击元素",
+            "enabled": true,
+            "params": {
+              "before": {},
+              "selector": "//button[normalize-space(.)='覆盖']",
+              "mode": "xpath",
+              "relative": false
+            }
+          }
+        ]
+      },
+      {
+        "id": "default-3f2943f5-c237-41ed-921f-4f41a79cc864-preview-node-12",
+        "type": "condition",
+        "name": "判断产品资料是否加载",
+        "enabled": true,
+        "params": {
+          "before": {
+            "enabled": true,
+            "waitElement": false,
+            "mode": "fixed",
+            "seconds": 3
+          },
+          "selector": "//div[normalize-space(.)='产品管理']",
+          "mode": "xpath",
+          "relative": false
+        },
+        "children": [
+          {
+            "id": "default-3f2943f5-c237-41ed-921f-4f41a79cc864-preview-node-13",
+            "type": "click",
+            "name": "点击元素",
+            "enabled": true,
+            "params": {
+              "before": {},
+              "selector": "//div[normalize-space(.)='产品管理']",
+              "mode": "xpath",
+              "relative": false
+            }
+          }
+        ]
+      },
+      {
+        "id": "default-3f2943f5-c237-41ed-921f-4f41a79cc864-preview-node-14",
+        "type": "condition",
+        "name": "判断产品资料的菜单是否展开",
+        "enabled": true,
+        "params": {
+          "before": {},
+          "selector": "//li[normalize-space(.)='产品资料']",
+          "mode": "xpath",
+          "relative": false
+        },
+        "children": [
+          {
+            "id": "default-3f2943f5-c237-41ed-921f-4f41a79cc864-preview-node-15",
+            "type": "click",
+            "name": "点击产品资料",
+            "enabled": true,
+            "params": {
+              "before": {},
+              "selector": "//span[normalize-space(.)='产品资料']",
+              "mode": "xpath",
+              "relative": false
+            }
+          }
+        ]
+      },
+      {
+        "id": "default-3f2943f5-c237-41ed-921f-4f41a79cc864-preview-node-16",
+        "type": "condition",
+        "name": "判断产品资料页面是否加载完",
+        "enabled": true,
+        "params": {
+          "before": {
+            "enabled": true,
+            "mode": "fixed",
+            "seconds": 5
+          },
+          "selector": "/html[1]/body[1]/div[1]/div[1]/div[3]/div[1]/section[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]",
+          "mode": "xpath",
+          "relative": false
+        },
+        "children": [
+          {
+            "id": "default-3f2943f5-c237-41ed-921f-4f41a79cc864-preview-node-17",
+            "type": "click",
+            "name": "点击全部",
+            "enabled": true,
+            "params": {
+              "before": {},
+              "selector": "/html[1]/body[1]/div[1]/div[1]/div[3]/div[1]/section[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[6]",
+              "mode": "xpath",
+              "relative": false
+            }
+          }
+        ]
+      },
+      {
+        "id": "default-3f2943f5-c237-41ed-921f-4f41a79cc864-preview-node-18",
+        "type": "click",
+        "name": "第一页",
+        "enabled": true,
+        "params": {
+          "selector": "//button[normalize-space(.)='1']",
+          "mode": "xpath",
+          "relative": false,
+          "before": {
+            "enabled": true,
+            "waitElement": false,
+            "mode": "fixed",
+            "seconds": 3
+          }
+        }
+      },
+      {
+        "id": "default-3f2943f5-c237-41ed-921f-4f41a79cc864-preview-node-19",
+        "type": "pages",
+        "name": "循环翻页",
+        "enabled": true,
+        "params": {
+          "limitEnabled": true,
+          "mode": "xpath",
+          "selector": "/html[1]/body[1]/div[1]/div[1]/div[3]/div[1]/section[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/button[2][not(@disabled) and not(contains(@class,\"is--disabled\"))]",
+          "before": {},
+          "inFrame": false,
+          "frameXPath": "",
+          "count": 5
+        },
+        "children": [
+          {
+            "id": "default-3f2943f5-c237-41ed-921f-4f41a79cc864-preview-node-20",
+            "type": "list",
+            "name": "循环列表",
+            "enabled": true,
+            "params": {
+              "before": {
+                "enabled": true
+              },
+              "list": {
+                "type": "xpath",
+                "selector": "/html[1]/body[1]/div[1]/div[1]/div[3]/div[1]/section[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]//tr[@rowid]",
+                "virtualGrid": true
+              },
+              "timeout": 30
+            },
+            "children": [
+              {
+                "id": "default-3f2943f5-c237-41ed-921f-4f41a79cc864-preview-node-21",
+                "type": "extract",
+                "name": "提取表格字段",
+                "enabled": true,
+                "params": {
+                  "fields": [
+                    {
+                      "name": "产品图片",
+                      "virtualColumn": "产品图片",
+                      "type": "text",
+                      "__on": true
+                    },
+                    {
+                      "name": "产品编号",
+                      "virtualColumn": "产品编号",
+                      "type": "text",
+                      "__on": true
+                    },
+                    {
+                      "name": "辅助编号",
+                      "virtualColumn": "辅助编号",
+                      "type": "text",
+                      "__on": true
+                    },
+                    {
+                      "name": "产品名称",
+                      "virtualColumn": "产品名称",
+                      "type": "text",
+                      "__on": true
+                    },
+                    {
+                      "name": "英文名称",
+                      "virtualColumn": "英文名称",
+                      "type": "text",
+                      "__on": true
+                    },
+                    {
+                      "name": "出厂货号",
+                      "virtualColumn": "出厂货号",
+                      "type": "text",
+                      "__on": true
+                    },
+                    {
+                      "name": "产品类型",
+                      "virtualColumn": "产品类型",
+                      "type": "text",
+                      "__on": true
+                    },
+                    {
+                      "name": "出厂价",
+                      "virtualColumn": "出厂价",
+                      "type": "text",
+                      "__on": true
+                    },
+                    {
+                      "name": "进货价",
+                      "virtualColumn": "进货价",
+                      "type": "text",
+                      "__on": true
+                    },
+                    {
+                      "name": "自定义价格",
+                      "virtualColumn": "自定义价格",
+                      "type": "text",
+                      "__on": true
+                    },
+                    {
+                      "name": "第三方价格",
+                      "virtualColumn": "第三方价格",
+                      "type": "text",
+                      "__on": true
+                    },
+                    {
+                      "name": "采购折扣",
+                      "virtualColumn": "采购折扣",
+                      "type": "text",
+                      "__on": true
+                    },
+                    {
+                      "name": "标贴费",
+                      "virtualColumn": "标贴费",
+                      "type": "text",
+                      "__on": true
+                    },
+                    {
+                      "name": "起订量",
+                      "virtualColumn": "起订量",
+                      "type": "text",
+                      "__on": true
+                    },
+                    {
+                      "name": "产品状态",
+                      "virtualColumn": "产品状态",
+                      "type": "text",
+                      "__on": true
+                    },
+                    {
+                      "name": "分类编号",
+                      "virtualColumn": "分类编号",
+                      "type": "text",
+                      "__on": true
+                    },
+                    {
+                      "name": "分类名称",
+                      "virtualColumn": "分类名称",
+                      "type": "text",
+                      "__on": true
+                    },
+                    {
+                      "name": "中文包装",
+                      "virtualColumn": "中文包装",
+                      "type": "text",
+                      "__on": true
+                    },
+                    {
+                      "name": "英文包装",
+                      "virtualColumn": "英文包装",
+                      "type": "text",
+                      "__on": true
+                    },
+                    {
+                      "name": "中文材质",
+                      "virtualColumn": "中文材质",
+                      "type": "text",
+                      "__on": true
+                    },
+                    {
+                      "name": "英文材质",
+                      "virtualColumn": "英文材质",
+                      "type": "text",
+                      "__on": true
+                    },
+                    {
+                      "name": "产品单位",
+                      "virtualColumn": "产品单位",
+                      "type": "text",
+                      "__on": true
+                    },
+                    {
+                      "name": "英文单位",
+                      "virtualColumn": "英文单位",
+                      "type": "text",
+                      "__on": true
+                    },
+                    {
+                      "name": "产品颜色",
+                      "virtualColumn": "产品颜色",
+                      "type": "text",
+                      "__on": true
+                    },
+                    {
+                      "name": "英文颜色",
+                      "virtualColumn": "英文颜色",
+                      "type": "text",
+                      "__on": true
+                    },
+                    {
+                      "name": "产品认证",
+                      "virtualColumn": "产品认证",
+                      "type": "text",
+                      "__on": true
+                    },
+                    {
+                      "name": "产品品牌",
+                      "virtualColumn": "产品品牌",
+                      "type": "text",
+                      "__on": true
+                    },
+                    {
+                      "name": "工厂条码",
+                      "virtualColumn": "工厂条码",
+                      "type": "text",
+                      "__on": true
+                    },
+                    {
+                      "name": "公司条码",
+                      "virtualColumn": "公司条码",
+                      "type": "text",
+                      "__on": true
+                    },
+                    {
+                      "name": "暗码",
+                      "virtualColumn": "暗码",
+                      "type": "text",
+                      "__on": true
+                    },
+                    {
+                      "name": "产品规格",
+                      "virtualColumn": "产品规格",
+                      "type": "text",
+                      "__on": true
+                    },
+                    {
+                      "name": "包装规格",
+                      "virtualColumn": "包装规格",
+                      "type": "text",
+                      "__on": true
+                    },
+                    {
+                      "name": "内盒规格",
+                      "virtualColumn": "内盒规格",
+                      "type": "text",
+                      "__on": true
+                    },
+                    {
+                      "name": "外箱规格",
+                      "virtualColumn": "外箱规格",
+                      "type": "text",
+                      "__on": true
+                    },
+                    {
+                      "name": "体积/材积",
+                      "virtualColumn": "体积/材积",
+                      "type": "text",
+                      "__on": true
+                    },
+                    {
+                      "name": "外箱毛/净重",
+                      "virtualColumn": "外箱毛/净重",
+                      "type": "text",
+                      "__on": true
+                    },
+                    {
+                      "name": "产品毛/净重",
+                      "virtualColumn": "产品毛/净重",
+                      "type": "text",
+                      "__on": true
+                    },
+                    {
+                      "name": "内盒个数",
+                      "virtualColumn": "内盒个数",
+                      "type": "text",
+                      "__on": true
+                    },
+                    {
+                      "name": "外箱装量",
+                      "virtualColumn": "外箱装量",
+                      "type": "text",
+                      "__on": true
+                    },
+                    {
+                      "name": "厂商名称",
+                      "virtualColumn": "厂商名称",
+                      "type": "text",
+                      "__on": true
+                    },
+                    {
+                      "name": "厂商编号",
+                      "virtualColumn": "厂商编号",
+                      "type": "text",
+                      "__on": true
+                    },
+                    {
+                      "name": "联系人",
+                      "virtualColumn": "联系人",
+                      "type": "text",
+                      "__on": true
+                    },
+                    {
+                      "name": "联系电话",
+                      "virtualColumn": "联系电话",
+                      "type": "text",
+                      "__on": true
+                    },
+                    {
+                      "name": "联系手机",
+                      "virtualColumn": "联系手机",
+                      "type": "text",
+                      "__on": true
+                    },
+                    {
+                      "name": "QQ",
+                      "virtualColumn": "QQ",
+                      "type": "text",
+                      "__on": true
+                    },
+                    {
+                      "name": "摊位号",
+                      "virtualColumn": "摊位号",
+                      "type": "text",
+                      "__on": true
+                    },
+                    {
+                      "name": "热销",
+                      "virtualColumn": "热销",
+                      "type": "text",
+                      "__on": true
+                    },
+                    {
+                      "name": "在展产品数",
+                      "virtualColumn": "在展产品数",
+                      "type": "text",
+                      "__on": true
+                    },
+                    {
+                      "name": "停产",
+                      "virtualColumn": "停产",
+                      "type": "text",
+                      "__on": true
+                    },
+                    {
+                      "name": "GCC",
+                      "virtualColumn": "GCC",
+                      "type": "text",
+                      "__on": true
+                    },
+                    {
+                      "name": "实样",
+                      "virtualColumn": "实样",
+                      "type": "text",
+                      "__on": true
+                    },
+                    {
+                      "name": "侵权",
+                      "virtualColumn": "侵权",
+                      "type": "text",
+                      "__on": true
+                    },
+                    {
+                      "name": "是否有视频",
+                      "virtualColumn": "是否有视频",
+                      "type": "text",
+                      "__on": true
+                    },
+                    {
+                      "name": "是否有图",
+                      "virtualColumn": "是否有图",
+                      "type": "text",
+                      "__on": true
+                    },
+                    {
+                      "name": "中文备注",
+                      "virtualColumn": "中文备注",
+                      "type": "text",
+                      "__on": true
+                    },
+                    {
+                      "name": "英文备注",
+                      "virtualColumn": "英文备注",
+                      "type": "text",
+                      "__on": true
+                    },
+                    {
+                      "name": "注意事项",
+                      "virtualColumn": "注意事项",
+                      "type": "text",
+                      "__on": true
+                    },
+                    {
+                      "name": "功能说明",
+                      "virtualColumn": "功能说明",
+                      "type": "text",
+                      "__on": true
+                    },
+                    {
+                      "name": "客户备注",
+                      "virtualColumn": "客户备注",
+                      "type": "text",
+                      "__on": true
+                    },
+                    {
+                      "name": "登记人",
+                      "virtualColumn": "登记人",
+                      "type": "text",
+                      "__on": true
+                    },
+                    {
+                      "name": "登记时间",
+                      "virtualColumn": "登记时间",
+                      "type": "text",
+                      "__on": true
+                    },
+                    {
+                      "name": "图片修改人",
+                      "virtualColumn": "图片修改人",
+                      "type": "text",
+                      "__on": true
+                    },
+                    {
+                      "name": "图片修改时间",
+                      "virtualColumn": "图片修改时间",
+                      "type": "text",
+                      "__on": true
+                    },
+                    {
+                      "name": "修改人",
+                      "virtualColumn": "修改人",
+                      "type": "text",
+                      "__on": true
+                    },
+                    {
+                      "name": "修改时间",
+                      "virtualColumn": "修改时间",
+                      "type": "text",
+                      "__on": true
+                    },
+                    {
+                      "name": "下架时间",
+                      "virtualColumn": "下架时间",
+                      "type": "text",
+                      "__on": true
+                    }
+                  ],
+                  "dedupe": true,
+                  "before": {}
+                }
+              }
+            ]
+          },
+          {
+            "id": "default-3f2943f5-c237-41ed-921f-4f41a79cc864-preview-node-22",
+            "type": "next",
+            "name": "点击翻页",
+            "enabled": true,
+            "params": {
+              "mode": "xpath",
+              "selector": "/html[1]/body[1]/div[1]/div[1]/div[3]/div[1]/section[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/button[2][not(@disabled) and not(contains(@class,\"is--disabled\"))]"
+            }
+          }
+        ]
+      }
+    ],
+    "templateSource": "贸易产品测试",
+    "templateVersion": 2
+  },
+  {
+    "id": "default-615bb657-5d20-4649-b014-a0d8d1f566fa-preview",
+    "name": "采购订货 · 5页试采与字段检查",
+    "group": "默认贸易流程",
+    "url": "https://trade.tsbsoft.com/login",
+    "fields": [
+      {
+        "name": "采购编号",
+        "virtualColumn": "采购编号",
+        "type": "text"
+      },
+      {
+        "name": "厂商编号",
+        "virtualColumn": "厂商编号",
+        "type": "text"
+      },
+      {
+        "name": "厂商名称",
+        "virtualColumn": "厂商名称",
+        "type": "text"
+      },
+      {
+        "name": "采购单号",
+        "virtualColumn": "采购单号",
+        "type": "text"
+      },
+      {
+        "name": "订货编号",
+        "virtualColumn": "订货编号",
+        "type": "text"
+      },
+      {
+        "name": "采购类型",
+        "virtualColumn": "采购类型",
+        "type": "text"
+      },
+      {
+        "name": "采购状态",
+        "virtualColumn": "采购状态",
+        "type": "text"
+      },
+      {
+        "name": "发单状态",
+        "virtualColumn": "发单状态",
+        "type": "text"
+      },
+      {
+        "name": "拒绝领单原因",
+        "virtualColumn": "拒绝领单原因",
+        "type": "text"
+      },
+      {
+        "name": "客户编号",
+        "virtualColumn": "客户编号",
+        "type": "text"
+      },
+      {
+        "name": "客户名称",
+        "virtualColumn": "客户名称",
+        "type": "text"
+      },
+      {
+        "name": "总箱数",
+        "virtualColumn": "总箱数",
+        "type": "text"
+      },
+      {
+        "name": "订单总金额",
+        "virtualColumn": "订单总金额",
+        "type": "text"
+      },
+      {
+        "name": "收货状态",
+        "virtualColumn": "收货状态",
+        "type": "text"
+      },
+      {
+        "name": "收货箱数",
+        "virtualColumn": "收货箱数",
+        "type": "text"
+      },
+      {
+        "name": "入库状态",
+        "virtualColumn": "入库状态",
+        "type": "text"
+      },
+      {
+        "name": "入库箱数",
+        "virtualColumn": "入库箱数",
+        "type": "text"
+      },
+      {
+        "name": "结算状态",
+        "virtualColumn": "结算状态",
+        "type": "text"
+      },
+      {
+        "name": "结算箱数",
+        "virtualColumn": "结算箱数",
+        "type": "text"
+      },
+      {
+        "name": "结算总金额",
+        "virtualColumn": "结算总金额",
+        "type": "text"
+      },
+      {
+        "name": "采购总款数",
+        "virtualColumn": "采购总款数",
+        "type": "text"
+      },
+      {
+        "name": "预付总金额",
+        "virtualColumn": "预付总金额",
+        "type": "text"
+      },
+      {
+        "name": "合同编号",
+        "virtualColumn": "合同编号",
+        "type": "text"
+      },
+      {
+        "name": "币种",
+        "virtualColumn": "币种",
+        "type": "text"
+      },
+      {
+        "name": "汇率",
+        "virtualColumn": "汇率",
+        "type": "text"
+      },
+      {
+        "name": "付款方式",
+        "virtualColumn": "付款方式",
+        "type": "text"
+      },
+      {
+        "name": "付款天数",
+        "virtualColumn": "付款天数",
+        "type": "text"
+      },
+      {
+        "name": "贴纸状态",
+        "virtualColumn": "贴纸状态",
+        "type": "text"
+      },
+      {
+        "name": "客版状态",
+        "virtualColumn": "客版状态",
+        "type": "text"
+      },
+      {
+        "name": "总体积",
+        "virtualColumn": "总体积",
+        "type": "text"
+      },
+      {
+        "name": "总材积",
+        "virtualColumn": "总材积",
+        "type": "text"
+      },
+      {
+        "name": "唛头名称",
+        "virtualColumn": "唛头名称",
+        "type": "text"
+      },
+      {
+        "name": "总毛重",
+        "virtualColumn": "总毛重",
+        "type": "text"
+      },
+      {
+        "name": "总净重",
+        "virtualColumn": "总净重",
+        "type": "text"
+      },
+      {
+        "name": "摘要",
+        "virtualColumn": "摘要",
+        "type": "text"
+      },
+      {
+        "name": "客户要求",
+        "virtualColumn": "客户要求",
+        "type": "text"
+      },
+      {
+        "name": "注意事项",
+        "virtualColumn": "注意事项",
+        "type": "text"
+      },
+      {
+        "name": "备注",
+        "virtualColumn": "备注",
+        "type": "text"
+      },
+      {
+        "name": "跟单人",
+        "virtualColumn": "跟单人",
+        "type": "text"
+      },
+      {
+        "name": "采购员",
+        "virtualColumn": "采购员",
+        "type": "text"
+      },
+      {
+        "name": "录单人",
+        "virtualColumn": "录单人",
+        "type": "text"
+      },
+      {
+        "name": "采购日期",
+        "virtualColumn": "采购日期",
+        "type": "text"
+      },
+      {
+        "name": "录单时间",
+        "virtualColumn": "录单时间",
+        "type": "text"
+      },
+      {
+        "name": "交货日期",
+        "virtualColumn": "交货日期",
+        "type": "text"
+      },
+      {
+        "name": "更新时间",
+        "virtualColumn": "更新时间",
+        "type": "text"
+      },
+      {
+        "name": "领单时间",
+        "virtualColumn": "领单时间",
+        "type": "text"
+      }
+    ],
+    "list": {
+      "type": "xpath",
+      "selector": "(//div[contains(@class,\"vxe-table--main-wrapper\")])[1]//tr[@rowid]",
+      "virtualGrid": true
+    },
+    "nextSel": {
+      "type": "xpath",
+      "selector": "(//button[contains(@class,\"vxe-pager--next-btn\")])[1][not(@disabled) and not(contains(@class,\"is--disabled\"))]"
+    },
+    "opts": {
+      "scrollLoad": true,
+      "autoNext": true,
+      "fitTable": false,
+      "maxPages": 5,
+      "maxScrollSec": 180,
+      "loadTimeoutSec": 60,
+      "beforeWaitSec": 0,
+      "nextWaitSec": 1.2,
+      "scrollWait": 150
+    },
+    "flow": [
+      {
+        "id": "default-615bb657-5d20-4649-b014-a0d8d1f566fa-preview-node-1",
+        "type": "open",
+        "name": "打开网页",
+        "enabled": true,
+        "params": {
+          "onError": "continue",
+          "retries": 2,
+          "timeout": 10,
+          "before": {
+            "enabled": false,
+            "waitElement": true,
+            "xpath": "/html[1]/body[1]/div[1]/div[1]/div[2]/div[1]/div[1]",
+            "timeout": 10
+          }
+        }
+      },
+      {
+        "id": "default-615bb657-5d20-4649-b014-a0d8d1f566fa-preview-node-2",
+        "type": "click",
+        "name": "账号登录TAB",
+        "enabled": true,
+        "params": {
+          "selector": "//div[normalize-space(.)='账号登录']",
+          "mode": "xpath",
+          "relative": false,
+          "retries": 2,
+          "onError": "stop",
+          "before": {
+            "enabled": true,
+            "waitElement": true,
+            "xpath": "/html[1]/body[1]/div[1]/div[1]/div[2]/div[1]/div[1]",
+            "timeout": 2,
+            "mode": "fixed",
+            "seconds": 2
+          },
+          "timeout": 2
+        }
+      },
+      {
+        "id": "default-615bb657-5d20-4649-b014-a0d8d1f566fa-preview-node-3",
+        "type": "input",
+        "name": "输入手机号码",
+        "enabled": true,
+        "params": {
+          "selector": "//input[@placeholder='请输入11位手机号']",
+          "value": "18179745884",
+          "mode": "xpath",
+          "enter": false,
+          "onError": "stop",
+          "retries": 2,
+          "before": {}
+        }
+      },
+      {
+        "id": "default-615bb657-5d20-4649-b014-a0d8d1f566fa-preview-node-4",
+        "type": "input",
+        "name": "输入密码并回车",
+        "enabled": true,
+        "params": {
+          "selector": "//input[@placeholder='请输入密码']",
+          "value": "123456",
+          "mode": "xpath",
+          "enter": true,
+          "retries": 3,
+          "before": {}
+        }
+      },
+      {
+        "id": "default-615bb657-5d20-4649-b014-a0d8d1f566fa-preview-node-5",
+        "type": "condition",
+        "name": "判断条件",
+        "enabled": true,
+        "params": {
+          "before": {},
+          "selector": "/html[1]/body[1]/div[4]/div[1]/div[1]",
+          "mode": "xpath",
+          "relative": false
+        },
+        "children": [
+          {
+            "id": "default-615bb657-5d20-4649-b014-a0d8d1f566fa-preview-node-6",
+            "type": "click",
+            "name": "点击元素",
+            "enabled": true,
+            "params": {
+              "optional": true,
+              "before": {},
+              "selector": "//button[normalize-space(.)='覆盖']",
+              "mode": "xpath",
+              "relative": false
+            }
+          }
+        ]
+      },
+      {
+        "id": "default-615bb657-5d20-4649-b014-a0d8d1f566fa-preview-node-7",
+        "type": "click",
+        "name": "点击元素",
+        "enabled": true,
+        "params": {
+          "timeout": 10,
+          "before": {},
+          "selector": "//span[normalize-space(.)='采购管理']",
+          "mode": "xpath",
+          "relative": false,
+          "retries": 3
+        }
+      },
+      {
+        "id": "default-615bb657-5d20-4649-b014-a0d8d1f566fa-preview-node-8",
+        "type": "condition",
+        "name": "判断条件",
+        "enabled": true,
+        "params": {
+          "timeout": 2,
+          "before": {},
+          "selector": "//li[normalize-space(.)='采购订货']",
+          "mode": "xpath",
+          "relative": false
+        },
+        "children": [
+          {
+            "id": "default-615bb657-5d20-4649-b014-a0d8d1f566fa-preview-node-9",
+            "type": "click",
+            "name": "点击元素",
+            "enabled": true,
+            "params": {
+              "timeout": 2,
+              "before": {},
+              "selector": "//span[normalize-space(.)='采购订货']",
+              "mode": "xpath",
+              "relative": false
+            }
+          }
+        ]
+      },
+      {
+        "id": "default-615bb657-5d20-4649-b014-a0d8d1f566fa-preview-node-10",
+        "type": "click",
+        "name": "选择全部采购单",
+        "enabled": true,
+        "params": {
+          "mode": "xpath",
+          "selector": "//*[@role=\"tab\" and normalize-space(.)=\"全部采购单\"]",
+          "timeout": 15
+        }
+      },
+      {
+        "id": "default-615bb657-5d20-4649-b014-a0d8d1f566fa-preview-node-11",
+        "type": "wait",
+        "name": "等待采购列表刷新",
+        "enabled": true,
+        "params": {
+          "seconds": 1.5
+        }
+      },
+      {
+        "id": "default-615bb657-5d20-4649-b014-a0d8d1f566fa-preview-node-12",
+        "type": "pages",
+        "name": "循环分页采集采购订货",
+        "enabled": true,
+        "params": {
+          "mode": "xpath",
+          "selector": "(//button[contains(@class,\"vxe-pager--next-btn\")])[1][not(@disabled) and not(contains(@class,\"is--disabled\"))]",
+          "limitEnabled": true,
+          "count": 5
+        },
+        "children": [
+          {
+            "id": "default-615bb657-5d20-4649-b014-a0d8d1f566fa-preview-node-13",
+            "type": "list",
+            "name": "采购列表（横纵向虚拟表格）",
+            "enabled": true,
+            "params": {
+              "list": {
+                "type": "xpath",
+                "selector": "(//div[contains(@class,\"vxe-table--main-wrapper\")])[1]//tr[@rowid]",
+                "virtualGrid": true
+              },
+              "timeout": 30
+            },
+            "children": [
+              {
+                "id": "default-615bb657-5d20-4649-b014-a0d8d1f566fa-preview-node-14",
+                "type": "extract",
+                "name": "提取采购字段",
+                "enabled": true,
+                "params": {
+                  "fields": [
+                    {
+                      "name": "采购编号",
+                      "virtualColumn": "采购编号",
+                      "type": "text"
+                    },
+                    {
+                      "name": "厂商编号",
+                      "virtualColumn": "厂商编号",
+                      "type": "text"
+                    },
+                    {
+                      "name": "厂商名称",
+                      "virtualColumn": "厂商名称",
+                      "type": "text"
+                    },
+                    {
+                      "name": "采购单号",
+                      "virtualColumn": "采购单号",
+                      "type": "text"
+                    },
+                    {
+                      "name": "订货编号",
+                      "virtualColumn": "订货编号",
+                      "type": "text"
+                    },
+                    {
+                      "name": "采购类型",
+                      "virtualColumn": "采购类型",
+                      "type": "text"
+                    },
+                    {
+                      "name": "采购状态",
+                      "virtualColumn": "采购状态",
+                      "type": "text"
+                    },
+                    {
+                      "name": "发单状态",
+                      "virtualColumn": "发单状态",
+                      "type": "text"
+                    },
+                    {
+                      "name": "拒绝领单原因",
+                      "virtualColumn": "拒绝领单原因",
+                      "type": "text"
+                    },
+                    {
+                      "name": "客户编号",
+                      "virtualColumn": "客户编号",
+                      "type": "text"
+                    },
+                    {
+                      "name": "客户名称",
+                      "virtualColumn": "客户名称",
+                      "type": "text"
+                    },
+                    {
+                      "name": "总箱数",
+                      "virtualColumn": "总箱数",
+                      "type": "text"
+                    },
+                    {
+                      "name": "订单总金额",
+                      "virtualColumn": "订单总金额",
+                      "type": "text"
+                    },
+                    {
+                      "name": "收货状态",
+                      "virtualColumn": "收货状态",
+                      "type": "text"
+                    },
+                    {
+                      "name": "收货箱数",
+                      "virtualColumn": "收货箱数",
+                      "type": "text"
+                    },
+                    {
+                      "name": "入库状态",
+                      "virtualColumn": "入库状态",
+                      "type": "text"
+                    },
+                    {
+                      "name": "入库箱数",
+                      "virtualColumn": "入库箱数",
+                      "type": "text"
+                    },
+                    {
+                      "name": "结算状态",
+                      "virtualColumn": "结算状态",
+                      "type": "text"
+                    },
+                    {
+                      "name": "结算箱数",
+                      "virtualColumn": "结算箱数",
+                      "type": "text"
+                    },
+                    {
+                      "name": "结算总金额",
+                      "virtualColumn": "结算总金额",
+                      "type": "text"
+                    },
+                    {
+                      "name": "采购总款数",
+                      "virtualColumn": "采购总款数",
+                      "type": "text"
+                    },
+                    {
+                      "name": "预付总金额",
+                      "virtualColumn": "预付总金额",
+                      "type": "text"
+                    },
+                    {
+                      "name": "合同编号",
+                      "virtualColumn": "合同编号",
+                      "type": "text"
+                    },
+                    {
+                      "name": "币种",
+                      "virtualColumn": "币种",
+                      "type": "text"
+                    },
+                    {
+                      "name": "汇率",
+                      "virtualColumn": "汇率",
+                      "type": "text"
+                    },
+                    {
+                      "name": "付款方式",
+                      "virtualColumn": "付款方式",
+                      "type": "text"
+                    },
+                    {
+                      "name": "付款天数",
+                      "virtualColumn": "付款天数",
+                      "type": "text"
+                    },
+                    {
+                      "name": "贴纸状态",
+                      "virtualColumn": "贴纸状态",
+                      "type": "text"
+                    },
+                    {
+                      "name": "客版状态",
+                      "virtualColumn": "客版状态",
+                      "type": "text"
+                    },
+                    {
+                      "name": "总体积",
+                      "virtualColumn": "总体积",
+                      "type": "text"
+                    },
+                    {
+                      "name": "总材积",
+                      "virtualColumn": "总材积",
+                      "type": "text"
+                    },
+                    {
+                      "name": "唛头名称",
+                      "virtualColumn": "唛头名称",
+                      "type": "text"
+                    },
+                    {
+                      "name": "总毛重",
+                      "virtualColumn": "总毛重",
+                      "type": "text"
+                    },
+                    {
+                      "name": "总净重",
+                      "virtualColumn": "总净重",
+                      "type": "text"
+                    },
+                    {
+                      "name": "摘要",
+                      "virtualColumn": "摘要",
+                      "type": "text"
+                    },
+                    {
+                      "name": "客户要求",
+                      "virtualColumn": "客户要求",
+                      "type": "text"
+                    },
+                    {
+                      "name": "注意事项",
+                      "virtualColumn": "注意事项",
+                      "type": "text"
+                    },
+                    {
+                      "name": "备注",
+                      "virtualColumn": "备注",
+                      "type": "text"
+                    },
+                    {
+                      "name": "跟单人",
+                      "virtualColumn": "跟单人",
+                      "type": "text"
+                    },
+                    {
+                      "name": "采购员",
+                      "virtualColumn": "采购员",
+                      "type": "text"
+                    },
+                    {
+                      "name": "录单人",
+                      "virtualColumn": "录单人",
+                      "type": "text"
+                    },
+                    {
+                      "name": "采购日期",
+                      "virtualColumn": "采购日期",
+                      "type": "text"
+                    },
+                    {
+                      "name": "录单时间",
+                      "virtualColumn": "录单时间",
+                      "type": "text"
+                    },
+                    {
+                      "name": "交货日期",
+                      "virtualColumn": "交货日期",
+                      "type": "text"
+                    },
+                    {
+                      "name": "更新时间",
+                      "virtualColumn": "更新时间",
+                      "type": "text"
+                    },
+                    {
+                      "name": "领单时间",
+                      "virtualColumn": "领单时间",
+                      "type": "text"
+                    }
+                  ],
+                  "dedupe": true
+                }
+              }
+            ]
+          },
+          {
+            "id": "default-615bb657-5d20-4649-b014-a0d8d1f566fa-preview-node-15",
+            "type": "next",
+            "name": "下一页",
+            "enabled": true,
+            "params": {
+              "mode": "xpath",
+              "selector": "(//button[contains(@class,\"vxe-pager--next-btn\")])[1][not(@disabled) and not(contains(@class,\"is--disabled\"))]"
+            }
+          }
+        ]
+      }
+    ],
+    "templateSource": "贸易",
+    "templateVersion": 2
+  }
+]

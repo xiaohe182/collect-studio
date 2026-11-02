@@ -1,0 +1,2 @@
+
+PASS: settings collapse expands workflow, filtered select-all, batch archive and restore with isolated tasks

@@ -1,0 +1,14 @@
+const {app,BrowserWindow}=require('electron'),assert=require('node:assert/strict'),fs=require('node:fs'),path=require('node:path'),os=require('node:os');
+const root=fs.mkdtempSync(path.join(os.tmpdir(),'v6-batch-'));app.setPath('userData',path.join(root,'profile'));
+const storage=require('../engine/storage'),Module=require('node:module'),isolated=new Module(path.join(root,'engine','storage.js'));isolated.filename=path.join(root,'engine','storage.js');isolated._compile(fs.readFileSync(path.join(__dirname,'../engine/storage.js'),'utf8'),isolated.filename);Object.assign(storage,isolated.exports);
+for(const name of ['玩具车A','玩具车B','电摩'])storage.saveTask({id:name==='电摩'?'c':name.endsWith('A')?'a':'b',name,url:'https://example.com'});
+require('../main');
+app.whenReady().then(async()=>{try{const win=BrowserWindow.getAllWindows()[0];await new Promise(r=>win.webContents.once('did-finish-load',r));const run=c=>win.webContents.executeJavaScript(`(async()=>{${c.includes(";")||c.includes("await ")?c:"return "+c}})()`);
+ await run("await $('btnTasks').onclick()");
+ assert.equal(await run("!!$('btnToggleSettings')"),false);assert.equal(await run("$('settingsPanel').hidden"),false);
+ await run(`$('taskSearch').value='玩具车';renderTasks();$('taskSelectAll').click()`);assert.equal(await run(`selectedTaskIds.size`),2);
+ await run(`$('btnBatchArchive').onclick()`);assert.equal(storage.listTasks().length,1);assert.equal(storage.listTasks(true).length,2);
+ await run(`$('showArchived').checked=true;await $('showArchived').onchange();$('taskSelectAll').click();await $('btnBatchArchive').onclick()`);
+ assert.equal(storage.listTasks().length,3);assert.equal(storage.listTasks(true).length,0);
+ console.log('PASS: settings remain visible without collapse button, filtered select-all, batch archive and restore with isolated tasks');app.exit(0);
+ }catch(e){console.error(e);app.exit(1);}});

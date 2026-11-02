@@ -1,0 +1,21 @@
+const {app,BrowserWindow}=require('electron'),assert=require('node:assert/strict'),fs=require('node:fs'),path=require('node:path'),os=require('node:os');
+const root=fs.mkdtempSync(path.join(os.tmpdir(),'v6-message-'));app.setPath('userData',path.join(root,'profile'));
+const storage=require('../engine/storage'),Module=require('node:module'),isolated=new Module(path.join(root,'engine','storage.js'));isolated.filename=path.join(root,'engine','storage.js');isolated._compile(fs.readFileSync(path.join(__dirname,'../engine/storage.js'),'utf8'),isolated.filename);Object.assign(storage,isolated.exports);require('../main');
+app.whenReady().then(async()=>{try{
+ const win=BrowserWindow.getAllWindows()[0];await new Promise(r=>win.webContents.once('did-finish-load',r));const run=c=>win.webContents.executeJavaScript(c);
+ await run(`openPanelDialog('resultsDialog')`);
+ await run(`scrapeUI({phase:'error',message:'等待列表加载超时：'+ '长选择器 / div'.repeat(500)})`);
+ await new Promise(r=>setTimeout(r,150));
+ assert.equal(await run(`$('messageDialog').open`),true);
+ assert.equal(await run(`$('progress').classList.contains('hidden') && !$('progressText').textContent`),true);
+ assert.equal(await run(`$('messageBody').scrollHeight > $('messageBody').clientHeight`),true);
+ await run(`$('btnMessageConfirm').click()`);
+ assert.equal(await run(`!$('messageDialog').open && $('resultsDialog').open`),true);
+ await run(`$('resultsDialog').close();toast('任务已保存')`);
+ assert.equal(await run(`!$('messageDialog').open && !$('notice').hidden && getComputedStyle($('notice')).pointerEvents==='none'`),true);
+ await run(`toast('保存失败：磁盘错误')`);await new Promise(r=>setTimeout(r,150));
+ assert.equal(await run(`$('messageDialog').open && $('notice').hidden`),true);
+ await run(`$('btnMessageClose').click()`);
+ assert.equal(await run(`!document.querySelector('dialog[open]')`),true);
+ console.log('PASS: long error scrolls in dismissible dialog; sidebar cleared; nested result dialog retained; success toast non-blocking; other errors use dialog');app.exit(0);
+}catch(e){console.error(e);app.exit(1);}});

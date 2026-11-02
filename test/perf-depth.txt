@@ -1,0 +1,2 @@
+
+PASS: covered price/image/text separately selectable, nested fields expanded, controls match sidebar tokens

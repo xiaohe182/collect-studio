@@ -1,0 +1,2 @@
+
+PASS: delayed initial and AJAX next-page lists, extract-only and multi-step loops, 4 exact rows, timeout, invalid selector, prompt stop

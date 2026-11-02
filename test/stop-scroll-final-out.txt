@@ -1,0 +1,2 @@
+
+PASS: stopped long scroll wait in 54ms; no rows emitted after stop

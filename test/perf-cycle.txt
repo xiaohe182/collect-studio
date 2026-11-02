@@ -1,0 +1,4 @@
+
+{"dispatchMs":1,"clickMs":27.199999999254942,"scans":0,"hits":2}
+PASS: 2000 cards, 300 pointer events, bounded per-frame hit testing
+PASS: 100 enable/disable cycles, one click handler, no remaining menu or selection

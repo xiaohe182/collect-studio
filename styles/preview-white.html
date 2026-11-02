@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>采集助手 V6 · 纯白风格方案</title>
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html, body { overflow: hidden; }
+body { width: 1440px; height: 900px; font-family: "Segoe UI", "Microsoft YaHei", sans-serif; }
+.app { width: 1440px; height: 900px; position: relative; }
+
+.tb { position: absolute; top:0; left:0; right:0; height:52px; display:flex; align-items:center; gap:10px; padding:0 14px; z-index:20; }
+.brand { display:flex; align-items:center; gap:9px; font-size:13.5px; font-weight:600; white-space:nowrap; }
+.brand .mark { width:22px; height:22px; display:grid; place-items:center; font-size:12px; font-weight:800; }
+.ticons { display:flex; gap:2px; }
+.ticon { width:30px; height:30px; border:none; background:transparent; display:grid; place-items:center; cursor:pointer; }
+.ticon svg { width:15px; height:15px; fill:none; stroke:currentColor; stroke-width:2; stroke-linecap:round; stroke-linejoin:round; }
+.url { flex:1; height:34px; padding:0 12px; outline:none; font-size:12.5px; }
+.gobtn { height:34px; padding:0 16px; border:none; font-size:12.5px; cursor:pointer; }
+.sp { flex:1 }
+.pill { height:32px; padding:0 14px; font-size:12px; cursor:pointer; display:inline-flex; align-items:center; gap:7px; background:none; }
+.pill .dot { width:6px; height:6px; border-radius:50%; }
+.stop { width:34px; height:34px; border:none; cursor:pointer; display:grid; place-items:center; background:none; }
+.stop svg { width:13px; height:13px; fill:currentColor; }
+.cta { height:36px; padding:0 20px; border:none; font-size:13px; font-weight:700; cursor:pointer; display:inline-flex; align-items:center; gap:8px; }
+.cta svg { width:13px; height:13px; fill:currentColor; }
+
+.side { position:absolute; top:52px; right:0; bottom:236px; width:324px; padding:0 16px; overflow:hidden; z-index:10; }
+.wf { padding:16px 0 12px; display:flex; flex-direction:column; gap:8px; align-items:center; }
+.step { display:flex; align-items:center; gap:9px; padding:6px 16px 6px 7px; font-size:12px; }
+.step i { width:21px; height:21px; display:grid; place-items:center; font-style:normal; font-size:11px; font-weight:700; }
+.step.ok i::before { content:"✓"; }
+.tabs { display:flex; gap:20px; padding:2px 0 0; }
+.tab { padding:8px 2px; font-size:13px; cursor:pointer; background:none; border:none; }
+.card { padding:13px; margin-top:12px; }
+.ct { font-size:12px; font-weight:700; margin-bottom:10px; display:flex; align-items:center; gap:8px; }
+.detect { width:100%; height:38px; border:none; font-size:13px; font-weight:600; cursor:pointer; display:flex; align-items:center; justify-content:center; gap:8px; }
+.detect svg { width:15px; height:15px; fill:none; stroke:currentColor; stroke-width:2; stroke-linecap:round; }
+.fld { display:flex; align-items:center; gap:8px; padding:6px 9px; font-size:12px; }
+.fld input { width:13px; height:13px; }
+.fld .fn { width:78px; font-weight:500; }
+.fld .ft { font-size:10px; padding:1px 7px; }
+.fld .fs { flex:1; font-size:11px; opacity:.55; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+
+.stage { position:absolute; top:52px; left:0; right:324px; bottom:236px; background:#fff; overflow:hidden; }
+.site { padding:20px 30px; }
+.site h1 { font-size:19px; margin-bottom:16px; color:#111; }
+.prod { display:flex; gap:14px; padding:12px; margin-bottom:12px; position:relative; background:#fff; }
+.prod .no { position:absolute; top:-2px; left:-2px; width:24px; height:20px; color:#fff; font:700 12px/20px Bahnschrift, sans-serif; text-align:center; }
+.prod .img { width:58px; height:58px; background:#ececec; }
+.prod h3 { font-size:14.5px; color:#111; margin-bottom:5px; }
+.prod .in { outline:1px solid #999; outline-offset:2px; }
+.prod .desc { font-size:12.5px; color:#8a8a8a; margin-bottom:6px; }
+.prod .pr { font-size:14px; font-weight:700; color:#111; }
+.tip { position:absolute; top:16px; right:16px; width:270px; overflow:hidden; }
+.tip .th { display:flex; align-items:center; gap:8px; padding:9px 12px; font-size:13px; font-weight:600; }
+.tip .th .x { margin-left:auto; opacity:.9; font-size:14px; }
+.tip .tb2 { padding:11px 13px; font-size:12.5px; line-height:1.75; }
+.tip .ti { display:flex; align-items:center; gap:9px; padding:10px 13px; font-size:12.5px; cursor:pointer; }
+.tip .ti small { margin-left:auto; opacity:.5; font-size:10.5px; }
+.tip .ti svg { width:15px; height:15px; fill:none; stroke-width:2; stroke-linecap:round; }
+
+.pv { position:absolute; left:0; right:0; bottom:0; height:236px; display:flex; flex-direction:column; }
+.pvh { display:flex; align-items:center; gap:10px; padding:9px 16px; }
+.pvh b { font-size:13px; }
+.count { font-size:11px; padding:2px 9px; font-family:Bahnschrift, sans-serif; }
+.pv table { border-collapse:collapse; width:100%; font-size:12.5px; }
+.pv th, .pv td { padding:6px 16px; text-align:left; }
+.pv thead tr { border-bottom:1px solid; }
+
+/* ═══ W1 纯白极简：无边框，靠留白与字重 ═══ */
+.vW1 { background:#fff; color:#1a1a1a; }
+.vW1 .tb { background:#fff; border-bottom:1px solid #ececec; }
+.vW1 .brand .mark { background:#111; color:#fff; border-radius:6px; }
+.vW1 .ticon { color:#a3a3a3; border-radius:6px; } .vW1 .ticon:hover { background:#f5f5f5; color:#111; }
+.vW1 .url { background:#f7f7f7; border:1px solid transparent; color:#1a1a1a; border-radius:8px; font-family:Bahnschrift, sans-serif; }
+.vW1 .gobtn { background:#f0f0f0; color:#111; border-radius:8px; font-weight:500; }
+.vW1 .pill { color:#8c8c8c; border-radius:8px; }
+.vW1 .pill .dot { background:#c8c8c8; }
+.vW1 .pill.on { color:#111; background:#f5f5f5; }
+.vW1 .pill.on .dot { background:#111; }
+.vW1 .stop { color:#b3b3b3; border-radius:8px; }
+.vW1 .cta { background:#111; color:#fff; border-radius:8px; }
+.vW1 .side { background:#fff; }
+.vW1 .step { color:#7a7a7a; }
+.vW1 .step i { background:#f5f5f5; color:#8c8c8c; border-radius:50%; }
+.vW1 .step.ok { color:#111; font-weight:600; }
+.vW1 .step.ok i { background:#111; color:#fff; }
+.vW1 .tabs { border-bottom:1px solid #f0f0f0; }
+.vW1 .tab { color:#a3a3a3; } .vW1 .tab.on { color:#111; font-weight:600; box-shadow:inset 0 -2px 0 #111; }
+.vW1 .card { border-top:1px solid #f0f0f0; border-radius:0; }
+.vW1 .ct { color:#111; } .vW1 .ct::before { width:0; height:0; }
+.vW1 .detect { background:#111; color:#fff; border-radius:8px; }
+.vW1 .fld { border-bottom:1px solid #f5f5f5; border-radius:0; color:#3d3d3d; }
+.vW1 .fld .ft { background:#f5f5f5; color:#8c8c8c; border-radius:4px; }
+.vW1 .stage .prod { border:1.5px solid #111; border-radius:10px; }
+.vW1 .stage .prod .no { background:#111; border-radius:8px 0 8px 0; }
+.vW1 .stage .prod .in { outline-color:#b8b8b8; }
+.vW1 .tip { background:#fff; border-radius:12px; box-shadow:0 10px 40px rgba(0,0,0,.14); }
+.vW1 .tip .th { background:#111; color:#fff; border-radius:12px 12px 0 0; }
+.vW1 .tip .tb2 { color:#6e6e6e; border-bottom:1px solid #f0f0f0; } .vW1 .tip .tb2 b { color:#111; }
+.vW1 .tip .ti { color:#1a1a1a; border-bottom:1px solid #f7f7f7; }
+.vW1 .tip .ti:last-child { border-bottom:none; }
+.vW1 .tip .ti svg { stroke:#111; }
+.vW1 .pv { background:#fff; border-color:#ececec; }
+.vW1 .count { background:#f5f5f5; color:#111; }
+.vW1 .pvh b { color:#111; }
+.vW1 .pvh .pill { border:1px solid #ececec; border-radius:6px; }
+.vW1 .pv th { color:#a3a3a3; border-bottom:1px solid #ececec; font-weight:500; }
+.vW1 .pv td { color:#1a1a1a; border-bottom:1px solid #f7f7f7; }
+
+/* ═══ W2 图纸线框：全 1px 灰线，工程图感，直角 ═══ */
+.vW2 { background:#fff; color:#1c1c1c; }
+.vW2 .tb { background:#fff; border-bottom:1px solid #111; }
+.vW2 .brand { font-weight:700; letter-spacing:.5px; }
+.vW2 .brand .mark { border:1.5px solid #111; color:#111; border-radius:0; }
+.vW2 .ticon { color:#8a8a8a; border-radius:0; } .vW2 .ticon:hover { background:#f2f2f2; color:#111; }
+.vW2 .url { background:#fff; border:1px solid #d4d4d4; color:#1c1c1c; border-radius:0; font-family:Consolas, monospace; }
+.vW2 .gobtn { background:#111; color:#fff; border-radius:0; }
+.vW2 .pill { border:1px solid #d4d4d4; color:#6e6e6e; border-radius:0; }
+.vW2 .pill .dot { background:#c0c0c0; border-radius:0; width:7px; height:7px; }
+.vW2 .pill.on { border-color:#111; color:#111; }
+.vW2 .pill.on .dot { background:#111; }
+.vW2 .stop { color:#8a8a8a; border-radius:0; }
+.vW2 .cta { background:#111; color:#fff; border-radius:0; letter-spacing:2px; }
+.vW2 .side { background:#fff; border-left:1px solid #e0e0e0; }
+.vW2 .step { border:1px solid #d4d4d4; color:#555; border-radius:0; }
+.vW2 .step i { border:1px solid #d4d4d4; color:#8a8a8a; border-radius:0; font-family:Bahnschrift, sans-serif; }
+.vW2 .step.ok { border-color:#111; color:#111; }
+.vW2 .step.ok i { background:#111; color:#fff; border-color:#111; }
+.vW2 .tabs { border-bottom:1px solid #e0e0e0; }
+.vW2 .tab { color:#8a8a8a; } .vW2 .tab.on { color:#111; font-weight:700; box-shadow:inset 0 -2px 0 #111; }
+.vW2 .card { border:1px solid #e0e0e0; border-radius:0; }
+.vW2 .ct { color:#111; letter-spacing:1px; font-size:11px; }
+.vW2 .ct::before { width:8px; height:8px; border:1.5px solid #111; border-radius:0; background:none; }
+.vW2 .detect { background:#fff; color:#111; border:1.5px solid #111; border-radius:0; }
+.vW2 .detect:hover { background:#111; color:#fff; }
+.vW2 .fld { border-bottom:1px solid #ececec; border-radius:0; color:#333; }
+.vW2 .fld .ft { border:1px solid #d4d4d4; color:#6e6e6e; border-radius:0; background:#fff; }
+.vW2 .stage .prod { border:1.5px solid #111; border-radius:0; }
+.vW2 .stage .prod .no { background:#111; border-radius:0; }
+.vW2 .stage .prod .in { outline-color:#8a8a8a; }
+.vW2 .tip { background:#fff; border:1.5px solid #111; border-radius:0; box-shadow:6px 6px 0 rgba(17,17,17,.08); }
+.vW2 .tip .th { background:#111; color:#fff; border-radius:0; letter-spacing:2px; }
+.vW2 .tip .tb2 { color:#555; border-bottom:1px solid #e0e0e0; } .vW2 .tip .tb2 b { color:#111; }
+.vW2 .tip .ti { color:#1c1c1c; border-bottom:1px solid #ececec; }
+.vW2 .tip .ti:last-child { border-bottom:none; }
+.vW2 .tip .ti svg { stroke:#111; }
+.vW2 .pv { background:#fff; border-color:#111; }
+.vW2 .count { border:1px solid #111; color:#111; border-radius:0; }
+.vW2 .pvh b { color:#111; letter-spacing:1px; }
+.vW2 .pvh .pill { height:26px; font-size:11px; border-radius:0; }
+.vW2 .pv th { color:#8a8a8a; border-bottom:1px solid #111; font-weight:500; }
+.vW2 .pv td { color:#333; border-bottom:1px solid #ececec; }
+
+/* ═══ W3 圆润柔和：浅灰卡片 + 大圆角 + 微阴影 ═══ */
+.vW3 { background:#fafafa; color:#1c1c1e; }
+.vW3 .tb { background:#fff; border-bottom:1px solid #ebebeb; box-shadow:0 1px 2px rgba(0,0,0,.03); }
+.vW3 .brand .mark { background:#1c1c1e; color:#fff; border-radius:9px; }
+.vW3 .ticon { color:#9b9ba1; border-radius:9px; } .vW3 .ticon:hover { background:#f2f2f3; color:#1c1c1e; }
+.vW3 .url { background:#f2f2f3; border:none; color:#1c1c1e; border-radius:10px; font-family:Bahnschrift, sans-serif; }
+.vW3 .gobtn { background:#fff; color:#1c1c1e; border:1px solid #e5e5e7; border-radius:10px; }
+.vW3 .pill { background:#fff; border:1px solid #e5e5e7; color:#8a8a90; border-radius:999px; }
+.vW3 .pill .dot { background:#d1d1d6; }
+.vW3 .pill.on { border-color:#1c1c1e; color:#1c1c1e; }
+.vW3 .pill.on .dot { background:#1c1c1e; }
+.vW3 .stop { background:#fff; border:1px solid #e5e5e7; color:#9b9ba1; border-radius:10px; }
+.vW3 .cta { background:#1c1c1e; color:#fff; border-radius:10px; box-shadow:0 3px 10px rgba(0,0,0,.14); }
+.vW3 .side { background:#fafafa; border-left:1px solid #ebebeb; }
+.vW3 .step { background:#fff; border:1px solid #e8e8ea; color:#6e6e73; border-radius:999px; box-shadow:0 1px 2px rgba(0,0,0,.04); }
+.vW3 .step i { background:#f2f2f3; color:#8a8a90; border-radius:50%; }
+.vW3 .step.ok { color:#1c1c1e; border-color:#d8d8dc; }
+.vW3 .step.ok i { background:#1c1c1e; color:#fff; }
+.vW3 .tabs { border-bottom:1px solid #ebebeb; }
+.vW3 .tab { color:#9b9ba1; } .vW3 .tab.on { color:#1c1c1e; font-weight:600; box-shadow:inset 0 -2px 0 #1c1c1e; }
+.vW3 .card { background:#fff; border:1px solid #e8e8ea; border-radius:14px; box-shadow:0 1px 3px rgba(0,0,0,.05); }
+.vW3 .ct { color:#1c1c1e; } .vW3 .ct::before { width:0; height:0; }
+.vW3 .detect { background:#1c1c1e; color:#fff; border-radius:10px; box-shadow:0 2px 8px rgba(0,0,0,.12); }
+.vW3 .fld { background:#fafafa; border:1px solid #f0f0f1; border-radius:9px; color:#3a3a3e; }
+.vW3 .fld .ft { background:#ececee; color:#6e6e73; border-radius:5px; }
+.vW3 .stage .prod { border:1.5px solid #1c1c1e; border-radius:14px; box-shadow:0 4px 14px rgba(0,0,0,.08); }
+.vW3 .stage .prod .no { background:#1c1c1e; border-radius:12px 0 12px 0; }
+.vW3 .stage .prod .in { outline-color:#b0b0b5; }
+.vW3 .tip { background:#fff; border-radius:14px; box-shadow:0 16px 48px rgba(0,0,0,.16); }
+.vW3 .tip .th { background:#1c1c1e; color:#fff; border-radius:14px 14px 0 0; }
+.vW3 .tip .tb2 { color:#6e6e73; border-bottom:1px solid #f0f0f1; } .vW3 .tip .tb2 b { color:#1c1c1e; }
+.vW3 .tip .ti { color:#1c1c1e; border-bottom:1px solid #f5f5f6; }
+.vW3 .tip .ti:last-child { border-bottom:none; }
+.vW3 .tip .ti svg { stroke:#1c1c1e; }
+.vW3 .pv { background:#fff; border-color:#ebebeb; }
+.vW3 .count { background:#f2f2f3; color:#1c1c1e; border-radius:999px; }
+.vW3 .pvh b { color:#1c1c1e; }
+.vW3 .pvh .pill { height:26px; font-size:11px; border-radius:8px; }
+.vW3 .pv th { color:#9b9ba1; border-bottom:1px solid #ebebeb; font-weight:500; }
+.vW3 .pv td { color:#1c1c1e; border-bottom:1px solid #f5f5f6; }
+
+/* ═══ W4 衬线文人：宋体标题 + 双线分隔，杂志感 ═══ */
+.vW4 { background:#fff; color:#1f1d1a; }
+.vW4 .tb { background:#fff; border-bottom:3px double #1f1d1a; }
+.vW4 .brand { color:#1f1d1a; font-family:Georgia, "宋体", serif; font-weight:700; font-size:14.5px; }
+.vW4 .brand .mark { border:1px solid #1f1d1a; color:#1f1d1a; border-radius:0; font-family:Georgia, serif; }
+.vW4 .ticon { color:#8a857c; border-radius:0; } .vW4 .ticon:hover { background:#f6f4ef; color:#1f1d1a; }
+.vW4 .url { background:#fbfaf7; border:1px solid #ddd8cc; color:#3a372f; border-radius:0; }
+.vW4 .gobtn { background:#1f1d1a; color:#fff; border-radius:0; font-family:Georgia, "宋体", serif; }
+.vW4 .pill { border:1px solid #ddd8cc; color:#6e6a5f; border-radius:0; }
+.vW4 .pill .dot { background:#b8b2a2; border-radius:0; }
+.vW4 .pill.on { border-color:#1f1d1a; color:#1f1d1a; }
+.vW4 .pill.on .dot { background:#1f1d1a; }
+.vW4 .stop { color:#8a857c; border-radius:0; }
+.vW4 .cta { background:#1f1d1a; color:#fff; border-radius:0; font-family:Georgia, "宋体", serif; letter-spacing:2px; }
+.vW4 .side { background:#fff; border-left:1px solid #e5e1d6; }
+.vW4 .step { border-bottom:1px solid #e5e1d6; color:#6e6a5f; border-radius:0; width:82%; font-size:12.5px; }
+.vW4 .step i { color:#a09a8b; font-family:Georgia, serif; background:none; }
+.vW4 .step.ok { color:#1f1d1a; font-weight:600; }
+.vW4 .step.ok i { color:#1f1d1a; background:none; }
+.vW4 .tabs { border-bottom:1px solid #e5e1d6; }
+.vW4 .tab { color:#a09a8b; font-family:Georgia, "宋体", serif; font-weight:600; }
+.vW4 .tab.on { color:#1f1d1a; box-shadow:inset 0 -3px 0 #1f1d1a; }
+.vW4 .card { border-top:1px solid #1f1d1a; border-radius:0; }
+.vW4 .ct { color:#1f1d1a; font-family:Georgia, "宋体", serif; font-size:13.5px; }
+.vW4 .ct::before { width:0; height:0; }
+.vW4 .detect { background:#1f1d1a; color:#fff; border-radius:0; font-family:Georgia, "宋体", serif; letter-spacing:1px; }
+.vW4 .fld { border-bottom:1px dashed #ddd8cc; border-radius:0; color:#3a372f; }
+.vW4 .fld .ft { border:1px solid #ddd8cc; color:#6e6a5f; border-radius:0; background:#fff; }
+.vW4 .stage .prod { border:1.5px solid #1f1d1a; border-radius:0; }
+.vW4 .stage .prod .no { background:#1f1d1a; border-radius:0; font-family:Georgia, serif; }
+.vW4 .stage .prod .in { outline-color:#a8a294; }
+.vW4 .tip { background:#fff; border:1px solid #1f1d1a; border-radius:0; box-shadow:8px 8px 0 rgba(31,29,26,.08); }
+.vW4 .tip .th { background:#1f1d1a; color:#fff; border-radius:0; font-family:Georgia, "宋体", serif; letter-spacing:2px; }
+.vW4 .tip .tb2 { color:#6e6a5f; border-bottom:1px dashed #ddd8cc; } .vW4 .tip .tb2 b { color:#1f1d1a; }
+.vW4 .tip .ti { color:#1f1d1a; border-bottom:1px dashed #ddd8cc; }
+.vW4 .tip .ti:last-child { border-bottom:none; }
+.vW4 .tip .ti svg { stroke:#1f1d1a; }
+.vW4 .pv { background:#fff; border-color:#1f1d1a; }
+.vW4 .count { border:1px solid #1f1d1a; color:#1f1d1a; border-radius:0; font-family:Georgia, serif; }
+.vW4 .pvh b { color:#1f1d1a; font-family:Georgia, "宋体", serif; font-size:14.5px; }
+.vW4 .pvh .pill { height:26px; font-size:11px; border-radius:0; }
+.vW4 .pv th { color:#8a857c; border-bottom:1px solid #1f1d1a; font-family:Georgia, "宋体", serif; font-weight:600; }
+.vW4 .pv td { color:#3a372f; border-bottom:1px solid #eee9de; }
+
+/* ═══ W5 极黑白：2px 粗黑边框，高对比，悬停反色 ═══ */
+.vW5 { background:#fff; color:#000; }
+.vW5 .tb { background:#fff; border-bottom:2px solid #000; }
+.vW5 .brand { font-weight:800; }
+.vW5 .brand .mark { background:#000; color:#fff; border-radius:0; }
+.vW5 .ticon { color:#000; border-radius:0; border:2px solid transparent; } .vW5 .ticon:hover { background:#000; color:#fff; }
+.vW5 .url { background:#fff; border:2px solid #000; color:#000; border-radius:0; font-family:Bahnschrift, sans-serif; font-weight:500; }
+.vW5 .gobtn { background:#000; color:#fff; border-radius:0; font-weight:700; }
+.vW5 .pill { border:2px solid #000; color:#000; border-radius:0; font-weight:600; }
+.vW5 .pill .dot { background:#fff; border:1.5px solid #000; border-radius:0; width:8px; height:8px; }
+.vW5 .pill.on { background:#000; color:#fff; }
+.vW5 .pill.on .dot { background:#fff; border-color:#fff; }
+.vW5 .stop { color:#000; border-radius:0; }
+.vW5 .cta { background:#000; color:#fff; border-radius:0; font-weight:800; letter-spacing:2px; box-shadow:4px 4px 0 rgba(0,0,0,.22); }
+.vW5 .side { background:#fff; border-left:2px solid #000; }
+.vW5 .step { border:2px solid #000; color:#000; border-radius:0; font-weight:600; }
+.vW5 .step i { border:2px solid #000; color:#000; border-radius:0; font-family:Bahnschrift, sans-serif; background:#fff; }
+.vW5 .step.ok { background:#000; color:#fff; }
+.vW5 .step.ok i { background:#fff; color:#000; border-color:#fff; }
+.vW5 .tabs { border-bottom:2px solid #000; }
+.vW5 .tab { color:#777; font-weight:700; } .vW5 .tab.on { color:#000; box-shadow:inset 0 -4px 0 #000; }
+.vW5 .card { border:2px solid #000; border-radius:0; }
+.vW5 .ct { color:#000; font-weight:800; letter-spacing:1px; }
+.vW5 .ct::before { width:10px; height:10px; background:#000; border-radius:0; }
+.vW5 .detect { background:#000; color:#fff; border-radius:0; font-weight:800; border:2px solid #000; }
+.vW5 .detect:hover { background:#fff; color:#000; }
+.vW5 .fld { border:2px solid #000; border-radius:0; color:#000; margin-bottom:6px; font-weight:500; }
+.vW5 .fld .ft { border:2px solid #000; color:#000; border-radius:0; background:#fff; font-weight:700; }
+.vW5 .stage .prod { border:3px solid #000; border-radius:0; }
+.vW5 .stage .prod .no { background:#000; border-radius:0; }
+.vW5 .stage .prod .in { outline-color:#777; }
+.vW5 .tip { background:#fff; border:2.5px solid #000; border-radius:0; box-shadow:8px 8px 0 #000; }
+.vW5 .tip .th { background:#000; color:#fff; border-radius:0; font-weight:800; letter-spacing:2px; }
+.vW5 .tip .tb2 { color:#333; border-bottom:2px solid #000; } .vW5 .tip .tb2 b { color:#000; }
+.vW5 .tip .ti { color:#000; border-bottom:2px solid #000; font-weight:600; }
+.vW5 .tip .ti:last-child { border-bottom:none; }
+.vW5 .tip .ti:hover { background:#000; color:#fff; }
+.vW5 .tip .ti svg { stroke:#000; }
+.vW5 .tip .ti:hover svg { stroke:#fff; }
+.vW5 .pv { background:#fff; border-color:#000; border-top-width:2px; }
+.vW5 .count { background:#000; color:#fff; border-radius:0; font-weight:700; }
+.vW5 .pvh b { color:#000; font-weight:800; letter-spacing:1px; }
+.vW5 .pvh .pill { height:26px; font-size:11px; border-radius:0; }
+.vW5 .pv th { color:#000; border-bottom:2px solid #000; font-weight:700; }
+.vW5 .pv td { color:#000; border-bottom:1px solid #ddd; font-weight:500; }
+</style>
+</head>
+<body>
+<script>
+const ICON = {
+  back:'<svg viewBox="0 0 24 24"><path d="M15 18l-6-6 6-6"/></svg>',
+  reload:'<svg viewBox="0 0 24 24"><path d="M21 12a9 9 0 1 1-2.6-6.4M21 4v5h-5"/></svg>',
+  wand:'<svg viewBox="0 0 24 24"><path d="M5 21l9-9M15 4V2M15 16v-2M8 9H6M22 9h-2M18.4 11.4L19.8 12.8M18.4 6.6L19.8 5.2M11.6 6.6L10.2 5.2M11.6 11.4L10.2 12.8"/></svg>',
+  play:'<svg viewBox="0 0 24 24"><path d="M8 5.5v13l11-6.5z"/></svg>',
+  dl:'<svg viewBox="0 0 24 24" style="width:12px;height:12px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>',
+  folder:'<svg viewBox="0 0 24 24" style="width:12px;height:12px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"/></svg>',
+  shield:'<svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>',
+  stop:'<svg viewBox="0 0 24 24"><rect x="7" y="7" width="10" height="10" rx="1.5"/></svg>',
+};
+function app(v) {
+  document.body.className = 'v' + v;
+  document.body.innerHTML = `
+  <div class="app">
+    <header class="tb">
+      <div class="brand"><span class="mark">采</span>采集助手 <span style="opacity:.55;font-weight:400">V6</span></div>
+      <div class="ticons"><button class="ticon">${ICON.back}</button><button class="ticon">${ICON.reload}</button></div>
+      <input class="url" value="https://example-mall.com/list" readonly>
+      <button class="gobtn">打开</button>
+      <span class="sp"></span>
+      <button class="pill on"><span class="dot"></span>高亮</button>
+      <button class="pill"><span class="dot"></span>点选微调</button>
+      <button class="stop">${ICON.stop}</button>
+      <button class="cta">${ICON.play}采集</button>
+    </header>
+    <aside class="side">
+      <div class="wf">
+        <div class="step ok"><i></i>打开网页</div>
+        <div class="step ok"><i></i>自动识别 · 12项3字段</div>
+        <div class="step"><i>3</i>滚动采集</div>
+      </div>
+      <div class="tabs"><button class="tab on">基础设置</button><button class="tab">高级设置</button></div>
+      <div class="card">
+        <div class="ct">识别配置</div>
+        <button class="detect">${ICON.wand}自动识别网页内容</button>
+        <div style="margin-top:10px">
+          <div class="fld"><input type="checkbox" checked><span class="fn">标题</span><span class="ft">文本</span><span class="fs">无线降噪耳机 Pro</span></div>
+          <div class="fld"><input type="checkbox" checked><span class="fn">价格</span><span class="ft">文本</span><span class="fs">¥299.00</span></div>
+          <div class="fld"><input type="checkbox" checked><span class="fn">链接</span><span class="ft">链接</span><span class="fs">/item/100293</span></div>
+        </div>
+      </div>
+    </aside>
+    <main class="stage">
+      <div class="site">
+        <h1>商品列表（共 40 件）</h1>
+        <div class="prod"><span class="no">1</span><div class="img"></div><div><h3 class="in">无线降噪耳机 Pro</h3><div class="desc in">主动降噪 · 40小时续航 · 蓝牙5.3</div><div class="pr in">¥299.00</div></div></div>
+        <div class="prod"><span class="no">2</span><div class="img"></div><div><h3 class="in">机械键盘 87键</h3><div class="desc in">RGB背光 · 热插拔轴体 · 三模连接</div><div class="pr in">¥349.00</div></div></div>
+        <div class="prod"><span class="no">3</span><div class="img"></div><div><h3 class="in">人体工学椅</h3><div class="desc in">腰部支撑 · 4D扶手 · 135°后仰</div><div class="pr in">¥899.00</div></div></div>
+      </div>
+      <div class="tip">
+        <div class="th">操作提示<span class="x">×</span><span style="margin-left:auto;font-size:10px">▲</span></div>
+        <div class="tb2">通过<b>鼠标点选</b>网页内容，或点击下方"自动识别"，识别后自动在页面框选数据。</div>
+        <div class="ti">${ICON.shield}登录网站<small>直接在页面登录</small></div>
+        <div class="ti">${ICON.wand}自动识别网页内容<small>推荐</small></div>
+      </div>
+    </main>
+    <section class="pv">
+      <div class="pvh"><b>数据预览</b><span class="count">共128条数据</span><span style="flex:1"></span>
+        <button class="pill">${ICON.dl}CSV</button>
+        <button class="pill">${ICON.dl}JSON</button>
+        <button class="pill">${ICON.dl}Excel</button>
+        <button class="pill">${ICON.folder}目录</button>
+      </div>
+      <table>
+        <thead><tr><th>标题</th><th>价格</th><th>链接</th></tr></thead>
+        <tbody>
+          <tr><td>无线降噪耳机 Pro</td><td>¥299.00</td><td>/item/100293</td></tr>
+          <tr><td>机械键盘 87键</td><td>¥349.00</td><td>/item/100294</td></tr>
+          <tr><td>人体工学椅</td><td>¥899.00</td><td>/item/100295</td></tr>
+        </tbody>
+      </table>
+    </section>
+  </div>`;
+  document.title = 'W' + v;
+}
+const v = new URLSearchParams(location.search).get('v') || 'W1';
+app(v);
+</script>
+</body>
+</html>

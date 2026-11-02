@@ -1,0 +1,3 @@
+
+PASS: 1000 records, optional price absent in first record, stock alignment, lazy images, icon links, JSON rule roundtrip (74ms)
+PASS: reordered fields and itemprop content attributes

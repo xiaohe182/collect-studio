@@ -1,0 +1,5 @@
+
+{"run":1,"rows":10000,"ms":8182,"mainRssMB":152}
+{"run":2,"rows":10000,"ms":7912,"mainRssMB":156}
+{"run":3,"rows":10000,"ms":7896,"mainRssMB":157}
+PASS: 3 x 10000 rows, exact IDs, CSV/JSON/XLSX readback, 100 mode switches

@@ -1,0 +1,2 @@
+
+PASS: custom window controls, menu removed, collapse/expand and both window sizes

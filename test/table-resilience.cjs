@@ -1,0 +1,50 @@
+const {app,BrowserWindow}=require('electron'),assert=require('node:assert/strict'),fs=require('node:fs'),os=require('node:os'),path=require('node:path');
+const {genericTable}=require('../engine/generic-table'),pc=require('../engine/pagecode'),{Scraper}=require('../engine/orchestrator');
+app.setPath('userData',fs.mkdtempSync(path.join(os.tmpdir(),'v6-table-resilience-')));
+app.whenReady().then(async()=>{const w=new BrowserWindow({show:false,width:1000,height:800,webPreferences:{backgroundThrottling:false}});try{
+ const exec=s=>w.webContents.executeJavaScript(s),load=html=>w.loadURL('data:text/html;charset=utf-8,'+encodeURIComponent(html));
+ const table='<table><thead><tr><th colid="c1">Name</th><th colid="c2">Code</th></tr></thead><tbody><tr rowid="one"><td colid="c1">A</td><td colid="c2">B</td></tr><tr rowid="two"><td colid="c1">A</td><td colid="c2">B</td></tr></tbody></table>';
+ const collect=(cfg,opts={})=>exec('('+pc.scrollCollectCode()+')('+JSON.stringify(cfg)+','+JSON.stringify({scrollWait:0,maxScrollSec:10,...opts})+')');
+ await load(table);const cfg=await exec('('+genericTable.toString()+')("td")');assert.equal(cfg.fields[0].tableHeader,'Name');
+ await exec('for(const el of document.querySelectorAll("[colid]"))el.setAttribute("colid",el.getAttribute("colid")==="c1"?"c2":"c3");true');
+ assert.deepEqual((await collect(cfg)).rows,[['A','B'],['A','B']]);
+ assert.deepEqual((await exec('('+pc.previewCode()+')('+JSON.stringify(cfg)+')')).rows,[['A','B'],['A','B']]);
+ const legacy=structuredClone(cfg);legacy.fields.forEach(f=>delete f.tableHeader);assert.deepEqual((await collect(legacy)).rows,[['A','B'],['A','B']]);
+ cfg.fields[0].name='Renamed field';assert.deepEqual((await collect(cfg)).rows,[['A','B'],['A','B']]);
+ await load(table);await exec('window.secondCells=[...document.querySelectorAll("tbody td[colid=c2]")];secondCells.forEach(el=>el.remove());window.addEventListener("scroll",()=>{if(!window.queued){window.queued=true;setTimeout(()=>{[...document.querySelectorAll("tbody tr")].forEach((row,i)=>row.append(secondCells[i]));},200);}},true);true');
+ // A missing column rendered after the initial stable DOM must be collected on repair.
+ const delayed=collect(cfg);await exec('window.dispatchEvent(new Event("scroll"));true');const repaired=await delayed;
+ assert.deepEqual(repaired.rows,[['A','B'],['A','B']]);assert.match(repaired.verification,/补扫/);
+ await exec('document.querySelectorAll("tbody td[colid=c2]").forEach(el=>el.remove());true');
+ const incomplete=await collect(cfg);assert.equal(incomplete.reason,'表格扫描不完整');assert.deepEqual(incomplete.incomplete.missingColumns,['Code']);assert.match(incomplete.error,/未采全/);assert.deepEqual(incomplete.rows,[['A',''],['A','']]);
+ await exec('document.querySelectorAll("tbody tr").forEach(row=>{const td=document.createElement("td");td.setAttribute("colid","c2");td.textContent="B";row.append(td);});true');
+ assert.deepEqual((await collect(cfg)).rows,[['A','B'],['A','B']]);
+ const visible=await collect({...cfg,list:{...cfg.list,scanHidden:false}});assert.match(visible.reason,/仅提取当前渲染/);
+ await load(table);await exec('document.querySelector("th[colid=c2]").textContent="Different business field";true');
+ const mismatched=await collect(cfg);assert.deepEqual(mismatched.incomplete.missingColumns,['Code']);assert.deepEqual(mismatched.rows,[['A',''],['A','']]);
+ assert.deepEqual((await exec('('+pc.previewCode()+')('+JSON.stringify(cfg)+')')).rows,mismatched.rows);
+ await load('<div class="vxe-table"><div class="vxe-table--main-wrapper"><table class="vxe-table--header"><tr><th colid="c1" style="visibility:hidden;width:100px">Name</th><th colid="c2">Code</th></tr></table><table class="vxe-table--body"><tr rowid="one"><td colid="c1" style="visibility:hidden;width:100px">A</td><td colid="c2">B</td></tr></table></div><div class="vxe-table--fixed-left-wrapper"><table class="vxe-table--header"><tr><th colid="c1">Name</th></tr></table><table class="vxe-table--body"><tr rowid="one"><td colid="c1">A</td></tr></table></div></div>');
+ const fixed=await exec('('+genericTable.toString()+')("td[colid=c2]")');assert.deepEqual(fixed.fields.map(f=>f.name),['Name','Code']);assert.deepEqual((await collect(fixed)).rows,[['A','B']]);
+ fixed.list={type:'xpath',genericGrid:true,tableRoot:'//*[@class="vxe-table--main-wrapper"]',selector:'//*[@class="vxe-table--main-wrapper"]//tr[@rowid]',headersPath:'//*[@class="vxe-table--main-wrapper"]//th'};fixed.fields.forEach(f=>delete f.tableHeader);
+ assert.deepEqual((await collect(fixed)).rows,[['A','B']]);
+ // Real VXE leaves td rectangles in layout while their children are empty.
+ // These copies must never overwrite the populated cell in the main body.
+ await load('<div class="vxe-table"><div class="vxe-table--main-wrapper"><table class="vxe-table--header"><tr><th colid="check" class="col--checkbox"></th><th colid="name">Name</th><th colid="code">Code</th></tr></table><table class="vxe-table--body"><tr rowid="one"><td colid="check" class="col--checkbox"><input type="checkbox"></td><td colid="name">A</td><td colid="code">B</td></tr><tr rowid="two"><td colid="check" class="col--checkbox"><input type="checkbox"></td><td colid="name"></td><td colid="code">D</td></tr></table></div><div class="vxe-table--fixed-right-wrapper"><table class="vxe-table--body"><tr rowid="one"><td colid="name" class="fixed--hidden"><div style="visibility:hidden"></div></td><td colid="code" class="is--progress"><div></div></td></tr><tr rowid="two"><td colid="name" class="fixed--hidden"></td><td colid="code" class="is--progress"></td></tr></table></div></div>');
+ const placeholders=await exec('('+genericTable.toString()+')("td[colid=name]")');
+ assert.deepEqual(placeholders.fields.map(f=>f.name),['Name','Code']);
+ assert.deepEqual((await collect(placeholders)).rows,[['A','B'],['','D']]);
+ const previewPlaceholders=await exec('('+pc.previewCode()+')('+JSON.stringify({...placeholders,list:{...placeholders.list,selector:'//div[@class="vxe-table--main-wrapper"]//tr[@rowid]'}})+')');
+ assert.deepEqual(previewPlaceholders.rows,[['A','B'],['','D']]);
+ const old=structuredClone(placeholders),bad={name:'字段10',tableHeader:'',tableColumn:'colid:check',type:'text'};
+ old.fields.unshift(bad);old.flow=[{type:'list',params:{list:old.list},children:[{type:'extract',params:{fields:structuredClone(old.fields)}}]}];
+ const repairedOld=await exec('('+pc.repairTableControlsCode()+')('+JSON.stringify(old)+')');
+ assert.deepEqual(repairedOld.removed,['字段10']);assert.equal(repairedOld.cfg.fields.length,2);assert.equal(repairedOld.cfg.flow[0].children[0].params.fields.length,2);
+ const business=structuredClone(old);business.fields[0].tableColumn='colid:name';
+ const kept=await exec('('+pc.repairTableControlsCode()+')('+JSON.stringify(business)+')');
+ assert.equal(kept.cfg.fields.length,3,'Never remove a business column based on its generated name');
+ await load('<div role="grid" aria-rowcount="13"><div role="row"><span role="columnheader" aria-colindex="1">Value</span></div><div id="sc" style="height:100px;width:200px;overflow:auto;position:relative"><div style="height:600px"></div><div id="rows" style="position:absolute;top:0"></div></div></div><script>const sc=document.getElementById("sc");function render(){const start=Math.min(10,Math.floor(sc.scrollTop/50)),rows=document.getElementById("rows");rows.style.top=start*50+"px";rows.innerHTML=[start,start+1].map(i=>`<div role="row" aria-rowindex="${i+2}" style="height:50px"><span role="gridcell" aria-colindex="1">R${i}</span></div>`).join("");}sc.onscroll=render;render();</script>');
+ const list={type:'xpath',selector:'//*[@role="row"][*[@role="gridcell"]]',genericGrid:true,tableRoot:'//*[@role="grid"]',headersPath:'//*[@role="columnheader"]'},fields=[{name:'Value',tableColumn:'aria-colindex:1',type:'text'}];let rows=[],error;
+ await new Scraper(w,{cfg:{list,fields,flow:[{id:'list',type:'list',name:'list',params:{list},children:[{id:'extract',type:'extract',name:'extract',params:{fields,dedupe:false,before:{enabled:true,mode:'fixed',seconds:0}}}]}]},opts:{scrollWait:0,maxScrollSec:20},onRows:r=>rows.push(...r),onError:e=>error=e}).run();
+ assert.equal(error,undefined);assert.equal(rows.length,12);assert.equal(new Set(rows.map(r=>r[0])).size,12);
+ console.log('PASS regenerated/overlapping column IDs, legacy fields, renamed headers, delayed repair, missing-column partial data and explicit failure, fixed-column copies with legacy main-body rules, visible-only option, pre-wait retains 12 virtual rows');app.exit(0);
+}catch(e){console.error(e);app.exit(1);}});

@@ -1,0 +1,37 @@
+const {app,BrowserWindow}=require('electron');
+const assert=require('node:assert/strict'),fs=require('node:fs'),os=require('node:os'),path=require('node:path'),Module=require('node:module');
+const root=fs.mkdtempSync(path.join(os.tmpdir(),'v6-no-pause-ui-'));
+app.setPath('userData',path.join(root,'profile'));
+const storage=require('../engine/storage'),isolated=new Module(path.join(root,'engine/storage.js'));
+isolated.filename=path.join(root,'engine/storage.js');
+isolated._compile(fs.readFileSync(path.join(__dirname,'../engine/storage.js'),'utf8'),isolated.filename);
+Object.assign(storage,isolated.exports);
+require('../main');
+app.whenReady().then(async()=>{let server;try{
+  server=require('node:http').createServer((_request,response)=>response.end('<p>UI fixture</p>'));
+  await new Promise(resolve=>server.listen(0,'127.0.0.1',resolve));
+  const url='http://127.0.0.1:'+server.address().port;
+  const w=BrowserWindow.getAllWindows()[0];
+  w.webContents.on('console-message',(_event,level,message)=>{if(level>=2)console.error('Renderer:',message);});
+  if(w.webContents.isLoading())await new Promise(resolve=>w.webContents.once('did-finish-load',resolve));
+  const run=code=>w.webContents.executeJavaScript(code);
+  await run("cmd('load-url',"+JSON.stringify({url,fresh:true})+")");
+  await run(`settingsDirty=false;cfg={name:'停止按钮回归',url:${JSON.stringify(url)},fields:[],flow:[{id:'wait-test',type:'wait',name:'等待',params:{seconds:30}}]};$('taskName').value=cfg.name;startScrape()`);
+  assert.equal(await run("$('startLabel').textContent"),'停止采集','running main action must stop collection');
+  assert.equal(await run("!!$('btnResultPause')||!!$('btnRecoverRun')||!!$('btnContinueRecovery')"),false,'pause and paused-run recovery controls must be removed');
+  assert.equal(await run("typeof toggleScrapePause"),'undefined','pause handlers must be removed');
+  assert.equal(await run("$('btnResultStop').hidden"),false);
+  assert.equal(await run("!!$('btnRestoreBackup').onclick"),true,'result backup restore must remain');
+  await run('new Promise(resolve=>requestAnimationFrame(()=>requestAnimationFrame(resolve)))');
+  const shots=path.join(__dirname,'../output/audit-20261020');fs.mkdirSync(shots,{recursive:true});
+  fs.writeFileSync(path.join(shots,'no-pause-ui.png'),(await w.webContents.capturePage()).toPNG());
+  await run("$('btnStart').onclick()");
+  const until=Date.now()+4000;
+  while(Date.now()<until){if(!(await run("cmd('run-results',{}).then(result=>result.summary.running)")))break;await new Promise(resolve=>setTimeout(resolve,25));}
+  const result=await run("cmd('run-results',{})");assert.equal(!!result.summary.running,false);assert.equal(result.summary.stopped,true);
+  assert.equal(await run("$('startLabel').textContent"),'采集');
+  await run("cfg.flow=[{id:'captcha-test',type:'captcha',name:'验证码',params:{timeout:120}}];selectNode('captcha-test')");
+  assert.ok(await run("$('settingsPanel').textContent.includes('验证码')"),'manual captcha step remains configurable');
+  console.log('PASS real Electron UI: no pause/recovery controls or handlers, main button stops, result Stop and backup restore retained, captcha configuration retained');
+  server.close();app.exit(0);
+}catch(error){console.error(error);server?.close();app.exit(1);}});

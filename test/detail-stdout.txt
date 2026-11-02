@@ -1,0 +1,2 @@
+
+PASS: two list pages, four detail pages, exact rows, return to list, target=_blank stays in same browser

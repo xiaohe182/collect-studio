@@ -1,0 +1,25 @@
+const {app,BrowserWindow}=require('electron'),assert=require('node:assert/strict');
+const {genericTable}=require('../engine/generic-table'),pagecode=require('../engine/pagecode');
+app.setPath('userData',require('node:fs').mkdtempSync(require('node:path').join(require('node:os').tmpdir(),'generic-grid-')));
+app.whenReady().then(async()=>{const w=new BrowserWindow({show:false,width:1000,height:800});try{
+const load=html=>w.loadURL('data:text/html;charset=utf-8,'+encodeURIComponent(html));
+const exec=s=>w.webContents.executeJavaScript(s);
+const discover=selector=>exec('('+genericTable.toString()+')('+JSON.stringify(selector)+')');
+const collect=cfg=>exec('('+pagecode.scrollCollectCode()+')('+JSON.stringify(cfg)+',{scrollWait:0,maxScrollSec:30})');
+await load('<table><thead><tr><th>Name</th><th>Photo</th></tr></thead><tbody><tr><td>A</td><td><img src="https://example.test/a.png"></td></tr><tr><td></td><td></td></tr></tbody></table>');
+let cfg=await discover('td');assert.equal(cfg.fields.length,2);assert.equal(cfg.fields[1].type,'img');
+await exec('window.progressEvents=[];window.__v6={send:(type,payload)=>progressEvents.push({type,payload})};true');
+let r=await collect(cfg);assert.deepEqual(r.rows,[['A','https://example.test/a.png'],['','']]);
+const events=(await exec('progressEvents')).filter(e=>e.type==='collect-progress');assert.ok(events.length);for(const {payload:p} of events){assert.ok(Number.isFinite(p.seconds)&&p.seconds>=0);assert.equal(typeof p.atEnd,'boolean');assert.equal(typeof p.stable,'number');}assert.equal(events.at(-1).payload.atEnd,true);
+const preview=await exec('('+pagecode.previewCode()+')('+JSON.stringify(cfg)+')');assert.deepEqual(preview.rows,r.rows);
+await exec(`document.body.innerHTML='<section>'+document.body.innerHTML+'<button aria-label="Next page">›</button></section>'`);cfg=await discover('td');assert.ok(cfg.nextSel?.selector);
+await load('<div id="data"><div style="display:flex"><span style="width:100px">A</span><span>B</span></div><div style="display:flex"><span style="width:100px">A</span><span>B</span></div></div>');
+cfg=await discover('span');r=await collect(cfg);assert.deepEqual(r.rows,[['A','B'],['A','B']]);
+await load('<div role="grid" aria-rowcount="13"><div id="head" role="row"></div><div id="sc" style="width:200px;height:160px;overflow:auto;position:relative"><div style="width:800px;height:480px"></div><div id="body" style="position:absolute;top:0;left:0"></div></div></div>');
+await exec(`(()=>{const sc=document.getElementById('sc');function render(){const start=Math.min(8,Math.floor(sc.scrollTop/40)),col=Math.min(2,Math.floor(sc.scrollLeft/200));document.getElementById('head').innerHTML=[col,col+1].map(c=>'<span role="columnheader" aria-colindex="'+(c+1)+'">Col'+c+'</span>').join('');const body=document.getElementById('body');body.style.top=start*40+'px';body.style.left=col*200+'px';body.innerHTML=Array.from({length:4},(_,i)=>'<div role="row" aria-rowindex="'+(start+i+2)+'" style="display:flex;height:40px">'+[col,col+1].map(c=>'<span role="gridcell" aria-colindex="'+(c+1)+'" style="width:200px">R'+(start+i)+'C'+c+'</span>').join('')+'</div>').join('');}sc.onscroll=render;render();})()`);
+cfg=await discover('[role="gridcell"]');assert.equal(cfg.fields.length,4);r=await collect(cfg);assert.equal(r.rows.length,12);r.rows.forEach((row,i)=>assert.deepEqual(row,Array.from({length:4},(_,c)=>'R'+i+'C'+c)));
+await exec('document.querySelector("[role=grid]").setAttribute("aria-rowcount","14")');assert.match((await collect(cfg)).error,/应有 13 行.*12 行/);
+await exec('document.querySelector("[role=grid]").setAttribute("aria-rowcount","13")');
+await load('<canvas width="500" height="200"></canvas>');await assert.rejects(discover('canvas'),/Canvas/);
+console.log('PASS generic: native table + images + empty rows; classless DIV duplicate rows; ARIA two-axis virtual 12x4; incomplete rowcount rejected');app.exit(0);
+}catch(e){console.error(e);app.exit(1);}});

@@ -1,0 +1,2 @@
+
+PASS: old CSS pagination without mode, two pages, long page reaches bottom, live execution dialog/logs, timeout keeps data and prevents next-page click

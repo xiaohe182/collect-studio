@@ -1,0 +1,2 @@
+
+PASS: 38 node/viewport combinations, controls within sidebar, all checkboxes aligned with input column

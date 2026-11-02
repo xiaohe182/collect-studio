@@ -1,0 +1,20 @@
+'use strict';
+const {app,BrowserWindow}=require('electron'),assert=require('node:assert/strict'),fs=require('node:fs'),os=require('node:os'),path=require('node:path'),Module=require('node:module');
+const root=fs.mkdtempSync(path.join(os.tmpdir(),'v6-start-cancel-'));app.setPath('userData',path.join(root,'profile'));
+const storage=require('../engine/storage'),isolated=new Module(path.join(root,'engine/storage.js'));isolated.filename=path.join(root,'engine/storage.js');isolated._compile(fs.readFileSync(path.join(__dirname,'../engine/storage.js'),'utf8'),isolated.filename);Object.assign(storage,isolated.exports);
+const journalModule=require('../engine/result-journal'),Original=journalModule.ResultJournal;let releaseStart;
+journalModule.ResultJournal=class extends Original{flush(){if(!this.held){this.held=true;return new Promise((resolve,reject)=>{releaseStart=()=>super.flush().then(resolve,reject);});}return super.flush();}};
+require('../main');
+app.whenReady().then(async()=>{let server;try{
+  server=require('node:http').createServer((_q,r)=>r.end('<p>local</p>'));await new Promise(r=>server.listen(0,'127.0.0.1',r));
+  const w=BrowserWindow.getAllWindows()[0];if(w.webContents.isLoading())await new Promise(r=>w.webContents.once('did-finish-load',r));
+  const invoke=(cmd,payload={})=>w.webContents.executeJavaScript('v6api.invoke('+JSON.stringify(cmd)+','+JSON.stringify(payload)+')');
+  const url='http://127.0.0.1:'+server.address().port;await w.contentView.children[0].webContents.loadURL(url);
+  const cfg={id:'cancel-start',name:'准备时取消',url,allowNoExtract:true,fields:[],opts:{},flow:[{id:'open',type:'open',name:'打开',params:{url}},{id:'wait',type:'wait',name:'等待',params:{seconds:30}}]};
+  const starting=invoke('scrape-start',cfg);while(!releaseStart)await new Promise(r=>setTimeout(r,5));
+  assert.equal((await invoke('scrape-start',cfg)).ok,false,'准备期间重复点击不能启动第二个任务');
+  assert.equal((await invoke('scrape-stop')).ok,true);releaseStart();
+  const result=await starting;assert.equal(result.cancelled,true,'准备时点击停止后不能再开始执行');
+  assert.equal(!!(await invoke('run-results')).summary.running,false);assert.equal(w.contentView.children.length,1);
+  console.log('PASS stop cancels asynchronous startup and duplicate start is rejected');server.close();app.exit(0);
+}catch(error){console.error(error);server?.closeAllConnections();server?.close();app.exit(1);}});

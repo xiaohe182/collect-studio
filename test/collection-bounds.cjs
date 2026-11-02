@@ -1,0 +1,24 @@
+const {app,BrowserWindow}=require('electron'),assert=require('node:assert/strict');
+const pc=require('../engine/pagecode'),{genericTable}=require('../engine/generic-table');
+app.setPath('userData',require('node:fs').mkdtempSync(require('node:path').join(require('node:os').tmpdir(),'v6-collection-bounds-')));
+app.whenReady().then(async()=>{const w=new BrowserWindow({show:false,webPreferences:{backgroundThrottling:false}});try{
+ const run=code=>w.webContents.executeJavaScript(code),load=html=>w.loadURL('data:text/html;charset=utf-8,'+encodeURIComponent(html));
+ await load('<body style="height:2200px"><aside id="menu" style="height:150px;width:200px;overflow:auto"><div style="height:1800px">menu</div></aside>'+Array.from({length:4},()=>'<article>same value</article>').join('')+'</body>');
+ const cfg={list:{type:'css',selector:'article'},fields:[{name:'value',rel:':scope',type:'text'}]};
+ const collect=(c,opts)=>run('('+pc.scrollCollectCode()+')('+JSON.stringify(c)+','+JSON.stringify(opts)+')');
+ const repeated=await collect(cfg,{dedupe:false,maxRows:10000,scrollWait:5,maxScrollSec:2});
+ assert.equal(repeated.rows.length,4,'identical actual rows are retained once per DOM item across scroll rounds');
+ assert.equal(await run('document.getElementById("menu").scrollTop'),0,'ordinary collection must not scroll an unrelated sidebar');
+ const plainLimit=await collect(cfg,{dedupe:false,scrollLoad:false,maxRows:2});
+ assert.equal(plainLimit.rows.length,2,'normal collector must enforce maxRows during harvest');assert.equal(plainLimit.reason,'达到数据条数上限');
+ await load('<table><thead><tr><th>value</th></tr></thead><tbody>'+Array.from({length:4},(_,i)=>'<tr><td>R'+i+'</td></tr>').join('')+'</tbody></table>');
+ const table=await run('('+genericTable.toString()+')("td")');
+ assert.equal((await collect(table,{maxRows:2,scrollWait:0})).rows.length,2,'generic collector must enforce maxRows during harvest');
+ const absentColumn={...table,fields:[...table.fields,{name:'missing',tableHeader:'missing',tableColumn:'not-present',type:'text'}]};
+ const incompleteLimit=await collect(absentColumn,{maxRows:2,scrollWait:0});
+ assert.match(incompleteLimit.error,/missing/,'a row cap cannot suppress a missing configured column');assert.equal(incompleteLimit.rows.length,2);
+ await load('<div class="vxe-table"><div class="vxe-table--main-wrapper"><table class="vxe-table--header"><tr><th colid="c"><span class="vxe-cell--title">Value</span></th></tr></table><div class="vxe-table--body-inner-wrapper" style="height:200px;overflow:auto"><table class="vxe-table--body">'+Array.from({length:4},(_,r)=>'<tr rowid="r'+r+'"><td colid="c">R'+r+'</td></tr>').join('')+'</table></div></div></div>');
+ const virtualLimit=await collect({list:{type:'xpath',selector:'//tr[@rowid]',virtualGrid:true},fields:[{name:'Value',virtualColumn:'Value',type:'text'}]},{maxRows:2,scrollWait:0,maxScrollSec:10});
+ assert.equal(virtualLimit.rows.length,2);assert.equal(virtualLimit.reason,'达到数据条数上限');assert.equal(virtualLimit.error,undefined);
+ console.log('PASS duplicate-value rows retained once across scroll rounds; plain and generic collectors enforce maxRows');app.exit(0);
+}catch(e){console.error(e);app.exit(1);}});

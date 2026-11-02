@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <title>采集助手 V6</title>
+  <link rel="stylesheet" href="panel.css" />
+  <link rel="stylesheet" href="control-theme.css" />
+  <link rel="stylesheet" href="layout.css" />
+</head>
+<body>
+  <!-- ═══ 顶部仪表条 ═══ -->
+  <header id="topbar">
+    <div class="tb-nav">
+      <button id="btnTasks" class="tb-icon" title="我的任务" aria-label="我的任务"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" stroke="none" d="M3 4a2 2 0 0 0-2 2v12a3 3 0 0 0 3 3h16a3 3 0 0 0 3-3V8a2 2 0 0 0-2-2h-9l-2-2H3Z"/><path d="M7 11h10M7 15h7" fill="none" stroke="white" stroke-width="1.7" stroke-linecap="round"/></svg></button>
+      <button id="btnBack" class="tb-icon" title="后退">
+        <svg viewBox="0 0 24 24"><path d="M15 18l-6-6 6-6"/></svg>
+      </button>
+      <button id="btnFwd" class="tb-icon" title="前进">
+        <svg viewBox="0 0 24 24"><path d="M9 6l6 6-6 6"/></svg>
+      </button>
+      <button id="btnReload" class="tb-icon" title="刷新">
+        <svg viewBox="0 0 24 24"><path d="M21 12a9 9 0 1 1-2.6-6.4M21 4v5h-5"/></svg>
+      </button>
+    </div>
+
+    <input id="urlInput" type="text" placeholder="输入网址，回车打开" spellcheck="false" />
+
+    <div class="tb-right">
+      <button id="btnBrowse" class="tb-toggle tb-symbol active" title="浏览模式：正常操作网页" aria-label="浏览模式" aria-pressed="true"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a17 17 0 0 1 0 18 17 17 0 0 1 0-18Z"/></svg></button>
+      <button id="btnPick" class="tb-toggle tb-symbol" title="元素选择：选取列表或字段" aria-label="元素选择" aria-pressed="false"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 3H3v5M16 3h5v5M3 16v5h5M11 10l3 11 2-5 5-2-10-4Z"/></svg></button>
+      <button id="btnGuide" class="tb-toggle tb-symbol" title="操作提示" aria-label="操作提示"><svg viewBox="0 0 24 24"><path d="M4 4h16v12H9l-5 4V4Z"/><path d="M8 8h8M8 12h5"/></svg></button>
+      <span class="tb-sep"></span>
+      <button id="btnRunResults" class="mini">采集结果</button>
+      <button id="btnSidebarStop" class="mini" hidden>停止执行</button>
+      <button id="btnSaveRule" class="tb-start">
+        <svg viewBox="0 0 24 24"><path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2zM17 21v-8H7v8M7 3v5h8"/></svg>
+        保存
+      </button>
+      <button id="btnStart" class="tb-start" title="开始采集">
+        <svg viewBox="0 0 24 24" class="ic-play"><path d="M8 5.5v13l11-6.5z"/></svg>
+        <svg viewBox="0 0 24 24" class="ic-busy" hidden><path class="spin" viewBox="0 0 24 24" d="M21 12a9 9 0 1 1-2.6-6.4"/></svg>
+        <span id="startLabel">采集</span>
+      </button>
+    </div>
+    <div class="window-controls">
+      <button id="btnWindowMinimize" class="window-button" title="最小化" aria-label="最小化"><svg viewBox="0 0 24 24"><path d="M6 12h12"/></svg></button>
+      <button id="btnWindowMaximize" class="window-button" title="最大化" aria-label="最大化"><svg class="maximize-icon" viewBox="0 0 24 24"><rect x="6" y="6" width="12" height="12" rx="0"/></svg><svg class="restore-icon" viewBox="0 0 24 24"><path d="M9 6V4h11v11h-2"/><rect x="4" y="9" width="11" height="11" rx="0"/></svg></button>
+      <button id="btnWindowClose" class="window-button" title="关闭" aria-label="关闭"><svg viewBox="0 0 24 24"><path d="m6 6 12 12M18 6 6 18"/></svg></button>
+    </div>
+  </header>
+
+  <!-- ═══ 右侧工作流面板 ═══ -->
+  <div id="sidebarResize" role="separator" aria-label="调整右侧面板宽度" aria-orientation="vertical" tabindex="0"></div>
+  <aside id="sidebar">
+
+    <div class="task-identity" hidden><input id="taskName" placeholder="任务名称" aria-label="任务名称" /><input id="taskGroup" placeholder="分组" aria-label="任务分组" /></div>
+    <div class="flow-toolbar"><span>采集流程</span><span id="flowTaskLabel"></span></div>
+    <div class="flow-tree" id="flowTree" aria-label="采集流程"></div>
+
+    <div id="settingsResize" role="separator" aria-label="调整流程图和配置区域高度" aria-orientation="horizontal" tabindex="0"></div>
+    <div class="side-scroll" id="settingsPanel">
+    <div id="nodeSettings" class="node-settings v6-controls">
+      <label>步骤名称<input id="nodeName" type="text" maxlength="40" /></label><label class="node-enabled">启用节点<input id="nodeEnabled" type="checkbox" checked /></label><div id="nodeExtra"></div>
+      <div data-settings="open"><label>网址<textarea id="nodeUrl" data-param="url" rows="2" placeholder="https://"></textarea></label><div id="openOptions"></div><button id="btnNodeOpen" class="mini">打开网页</button></div>
+      <div data-settings="list" hidden>
+        <label>定位方式<select id="listMode"><option value="xpath">XPath</option><option value="css">CSS</option><option value="auto">自动识别</option></select></label>
+        <label><span id="listSelectorLabel">列表 XPath</span><textarea id="listSelector" rows="2" placeholder="未设置 XPath"></textarea></label>
+        <div class="node-actions"><button id="btnInspectList" class="mini">检查定位</button><button id="btnSuggestList" class="mini">查找候选</button></div>
+        <p id="listCheckStatus" class="setting-hint" role="status" hidden></p>
+        <label class="check-row" title="开启后自动横向、纵向滚动补齐表格；关闭后通用表格只读取当前渲染行列"><input id="listVirtualGrid" type="checkbox"><span>滚动补齐隐藏行列</span></label>
+      </div>
+      <div data-settings="pages" hidden><p>通过下方采集选项设置启用状态及最大页数。</p><button class="mini" id="btnPageOptions">编辑翻页选项</button></div>
+      <div data-settings="next" hidden><label>定位方式<select id="nextMode"><option value="css">CSS</option><option value="xpath">XPath</option></select></label><label><span id="nextSelectorLabel">下一页 XPath</span><textarea id="nextSelector" rows="2" placeholder="留空自动识别"></textarea></label><div class="node-actions"><button id="btnClearNext" class="mini">清除定位</button></div><p class="setting-hint">清除后自动识别下一页按钮，在当前翻页循环中生效。</p></div>
+    </div>
+
+    <div class="tabs">
+      <button class="tab active" data-tab="basic">基础设置</button>
+      <button class="tab" data-tab="adv">高级设置</button>
+      <button class="tab" data-tab="retry">重试</button>
+    </div>
+
+      <div id="tab-retry" class="tabpane hidden"></div>
+      <div id="tab-basic" class="tabpane">
+        <section class="card" id="fieldsCard" hidden>
+          <h3 class="card-t">数据字段</h3>
+          <div id="detectResult">
+            <p id="fieldsEmpty" class="card-desc">尚未配置字段，可从网页点选或手动添加。</p>
+            <div id="fieldList" class="fields"></div><button id="btnAddField" class="mini">＋ 添加字段</button>
+          </div>
+        </section>
+        <button id="btnTaskLogs" class="mini task-log-shortcut">查看任务运行日志</button>
+      </div>
+
+      <div id="tab-adv" class="tabpane hidden">
+        <section class="card">
+          <h3 class="card-t">采集选项</h3>
+          <div class="opts">
+            <label><input type="checkbox" id="optScroll" checked /> 滚动加载</label>
+            <label><input type="checkbox" id="optFitTable" /> 缩小网页，减少横向滚动</label>
+            <label><input type="checkbox" id="optNext" checked /> 自动翻页</label>
+          </div>
+          <label class="setting-label">翻页页数<input type="number" id="optPages" value="5" min="1" max="999" /></label>
+          <label class="setting-label">滚动上限<span class="input-unit"><input type="number" id="optScrollSec" value="40" min="0" step="any" /><span class="input-unit-suffix">s</span></span></label>
+          <label class="setting-label">页面加载超时<span class="input-unit"><input id="optLoadTimeout" type="number" value="25" min="0" step="any" /><span class="input-unit-suffix">s</span></span></label>
+          <label class="setting-label">提取前等待<span class="input-unit"><input id="optBeforeWait" type="number" value="0" min="0" step="any" /><span class="input-unit-suffix">s</span></span></label>
+          <label class="setting-label">翻页后等待<span class="input-unit"><input id="optNextWait" type="number" value="1.2" min="0" step="any" /><span class="input-unit-suffix">s</span></span></label>
+          <label class="setting-label">滚动间隔<span class="input-unit"><input id="optScrollWait" type="number" value="700" min="0" step="any" /><span class="input-unit-suffix">ms</span></span></label>
+        </section>
+      </div>
+    </div>
+
+    <div id="progress" class="progress hidden">
+      <div class="progress-bar"><div id="progressFill"></div></div>
+      <div id="progressText" class="progress-text"></div>
+    </div>
+
+    <div class="side-foot">
+      <button id="btnApplySettings" class="mini">应用</button>
+
+
+
+    </div>
+  </aside>
+  <div hidden aria-hidden="true"><div id="log" class="log"></div><button id="btnClearLog">清空</button></div>
+
+  <!-- ═══ 底部数据预览 ═══ -->
+  <section id="preview" class="collapsed">
+    <div class="pv-head">
+      <span class="pv-name">数据预览</span>
+      <span id="rowCount" class="pv-count">共0条数据</span>
+      <span class="sp"></span>
+      <span id="exportPath" class="pv-path" title="点击打开所在位置"></span>
+      <button id="btnCsv" aria-label="导出 CSV" class="mini" title="导出 CSV">
+        <svg viewBox="0 0 24 24"><path d="M13 3H4v18h16v-8M4 8h8M4 13h8M4 17h8M8 8v13M17 2v8m-3-3 3 3 3-3"/></svg>
+      </button>
+      <button id="btnJson" aria-label="导出 JSON" class="mini" title="导出 JSON">
+        <svg viewBox="0 0 24 24"><path d="M9 4H7v6l-3 2 3 2v6h2M15 4h2v6l3 2-3 2v6h-2"/></svg>
+      </button>
+      <button id="btnXlsx" aria-label="导出 Excel" class="mini" title="导出 Excel">
+        <svg viewBox="0 0 24 24"><path d="M10 3h11v18H10M14 7h4m-4 5h4m-4 5h4"/><path d="M2 6l11-2v16L2 18Z"/><path d="m5 9 5 6m0-6-5 6"/></svg>
+      </button>
+      <button id="btnOpenResults" aria-label="打开导出目录" class="mini" title="打开导出目录">
+        <svg viewBox="0 0 24 24"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"/></svg>
+      </button>
+      <button id="btnTogglePreview" aria-label="展开数据预览" class="mini preview-toggle" aria-expanded="false" aria-controls="previewContent" title="展开数据预览">
+        <svg viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></svg>
+      </button>
+    </div>
+    <div class="table-wrap" id="previewContent">
+      <table id="dataTable"><thead></thead><tbody></tbody></table>
+      <div id="previewEmpty" class="preview-empty"><span class="empty-icon"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="16" rx="3"/><path d="M3 10h18M9 10v10"/></svg></span><strong>暂无数据</strong><p>识别字段后开始采集</p></div>
+    </div>
+  </section>
+
+  <div id="notice" role="status" aria-live="polite" hidden></div>
+  <div id="nodeContext" class="node-context" hidden></div>
+  <dialog id="triggerDialog"><form method="dialog"><h3>数据过滤触发器</h3><p>满足任意一组条件时丢弃本条数据；组内条件需全部满足。</p><input id="triggerName" placeholder="触发器名称" /><div id="triggerGroups"></div><button type="button" id="btnTriggerOr" class="mini">添加或条件</button><div class="dialog-actions"><button value="cancel" class="mini">取消</button><button type="button" id="btnTriggerSave" class="mini">确定</button></div></form></dialog>
+  <dialog id="resultsDialog" aria-label="采集执行与结果">
+    <div class="run-topline"><span>采集任务</span><div><button id="btnResultStop" class="mini" hidden>■ 停止采集</button> <button id="btnShowRunPage" class="mini">显示网页</button> <button id="btnResultClose" class="mini">关闭</button></div></div>
+    <div id="runPageSlot" hidden aria-label="本次任务执行网页"></div>
+    <button id="btnToggleRunBottom" aria-label="收起任务区" aria-expanded="true" title="收起任务区"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></button>
+    <div class="run-hero">
+      <div class="run-ring"><div><strong id="runCount">0</strong><span>已采集数据</span></div></div>
+      <div class="run-info"><h3>采集执行</h3><p id="runLiveStep"></p><div id="runSummary" role="status"></div></div>
+      <div class="run-actions"><button id="btnResultRerun" class="mini">↻ 重新采集</button></div>
+    </div>
+    <div class="run-toolbar"><div class="run-tabs"><button id="btnResultData" class="mini">数据列表</button><button id="btnResultLogTab" class="mini">任务日志</button><button id="btnResultHistory" class="mini">采集历史</button></div><div class="run-exports"><button id="btnRestoreBackup" class="mini">恢复备份</button><button id="btnResultCsv" class="mini">导出 CSV</button><button id="btnResultXlsx" class="mini">导出 Excel</button><button id="btnResultLogs" class="mini">导出日志</button></div></div>
+    <div id="runResultsBody"></div>
+    <div class="run-pagination">
+      <span id="resultTotal"></span><span class="run-page-size">100 条 / 页</span>
+      <button id="btnResultPrev" class="mini run-page-arrow" title="上一页" aria-label="上一页"><svg viewBox="0 0 20 20" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.6"><path d="m12 5-5 5 5 5"/></svg></button>
+      <span id="resultPage" aria-live="polite"></span>
+      <button id="btnResultNext" class="mini run-page-arrow" title="下一页" aria-label="下一页"><svg viewBox="0 0 20 20" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.6"><path d="m8 5 5 5-5 5"/></svg></button>
+      <label class="run-page-jump">前往 <input id="resultJump" type="text" inputmode="numeric" pattern="[0-9]*" aria-label="跳转页码" title="输入页码后按回车跳转" autocomplete="off"> 页</label>
+    </div>
+  </dialog>
+  <dialog id="messageDialog" aria-labelledby="messageTitle" aria-describedby="messageBody">
+    <div class="message-heading"><h3 id="messageTitle">操作提示</h3><button id="btnMessageClose" class="mini" aria-label="关闭提示">×</button></div>
+    <div id="messageBody"></div>
+    <div class="dialog-actions"><button id="btnMessageConfirm" class="mini" autofocus>知道了</button></div>
+  </dialog>
+      <dialog id="tasksDialog" class="task-manager"><div class="tasks-heading"><strong>我的任务</strong><button id="btnTasksClose" class="mini" aria-label="关闭我的任务">×</button></div>
+      <input id="taskSearch" placeholder="搜索名称、分组或网址" aria-label="搜索任务" />
+      <div class="task-actions"><button id="btnNewTask" class="mini">新建任务</button><button id="btnNewGroup" class="mini">新建分组</button></div>
+      <div id="taskGroupTabs" class="task-group-tabs"></div>
+      <form id="taskNameForm" hidden><strong id="taskFormTitle"></strong><input id="taskFormName" placeholder="请输入名称" required maxlength="80"><select id="taskFormGroup" aria-label="任务分组"></select><button class="mini" type="submit">确定</button><button class="mini" id="taskFormCancel" type="button">取消</button></form>
+      <div id="groupContext" hidden><button id="groupRename" class="mini">重命名</button><button id="groupDelete" class="mini">删除分组</button></div><div id="taskContext" hidden><button id="taskRename" class="mini">重命名</button><button id="taskExportPng" class="mini">导出流程 PNG</button><button id="taskDelete" class="mini">删除</button></div><div id="taskList"></div>
+      <div class="task-batch"><label><input id="taskSelectAll" type="checkbox" />全选当前筛选</label><span id="taskSelectedCount">已选 0 项</span><button id="btnBatchDelete" class="mini" disabled>批量删除</button></div>
+    </dialog>
+<dialog id="tableFieldsDialog"><h3>选择表格字段</h3><p id="tableScanStatus"></p><label><input type="checkbox" id="tableFieldsAll" checked>全选字段</label><div id="tableFieldsChoices"></div><label id="tableAutoNextLabel"><input type="checkbox" id="tableAutoNext">自动翻页</label><div class="dialog-actions"><button id="tableFieldsCancel" class="mini">取消</button><button id="tableFieldsApply" class="mini">应用</button></div></dialog>
+<dialog id="userAgentDialog" class="retry-config-dialog" aria-labelledby="uaTitle"><form method="dialog"><h3 id="uaTitle">重试时轮换 User-Agent</h3><p>仅更换 Chromium 的浏览器标识，执行引擎仍为 Chromium。</p><div id="uaPresets"></div><label for="uaCustom">自定义 User-Agent，每行一条</label><textarea id="uaCustom" rows="5" spellcheck="false"></textarea><p id="uaSummary" role="status" aria-live="polite"></p><p id="uaError" class="config-error" role="alert"></p><div class="dialog-actions"><button value="cancel" class="mini">取消</button><button type="button" id="uaApply" class="mini">确定</button></div></form></dialog>
+<dialog id="proxyPoolDialog" class="retry-config-dialog" aria-labelledby="proxyTitle"><form method="dialog"><h3 id="proxyTitle">重试代理池</h3><p>填写实际可用的代理网址，每行一条。支持 HTTP、HTTPS、SOCKS、SOCKS4、SOCKS5；暂不支持含用户名或密码的认证代理。</p><label for="proxyPoolInput">代理网址</label><textarea id="proxyPoolInput" rows="7" spellcheck="false"></textarea><p id="proxySummary" role="status" aria-live="polite"></p><p id="proxyError" class="config-error" role="alert"></p><div class="dialog-actions"><button value="cancel" class="mini">取消</button><button type="button" id="proxyApply" class="mini">确定</button></div></form></dialog>
+<script src="../engine/node-retry.js"></script>
+<script src="../engine/workflow.js"></script>
+  <script src="node-options.js"></script>
+  <script src="virtual-results.js"></script>
+  <script src="panel.js"></script>
+  <script src="splitters.js"></script>
+  <script src="task-groups.js"></script>
+<script src="table-picker.js"></script>
+</body>
+</html>
+

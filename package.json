@@ -1,0 +1,60 @@
+{
+  "name": "collect-plugin-v6",
+  "version": "6.0.13",
+  "description": "采集助手 V6",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "dist:win": "electron-builder --win --x64"
+  },
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "electron": "^33.0.0",
+    "electron-builder": "^26.15.3"
+  },
+  "dependencies": {
+    "xlsx": "^0.18.5"
+  },
+  "build": {
+    "appId": "cn.collect.assistant.v6",
+    "productName": "采集助手V6",
+    "asar": false,
+    "directories": {
+      "output": "dist"
+    },
+    "files": [
+      "main.js",
+      "preload.js",
+      "page-preload.js",
+      "engine/**/*",
+      "renderer/**/*",
+      "styles/**/*",
+      "package.json"
+    ],
+    "win": {
+      "icon": "styles/app.ico",
+      "target": [
+        "nsis",
+        "portable"
+      ],
+      "signAndEditExecutable": false
+    },
+    "portable": {
+      "artifactName": "采集助手V6-${version}-便携版.exe"
+    },
+    "nsis": {
+      "artifactName": "采集助手V6-${version}-安装版.exe",
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true,
+      "createDesktopShortcut": true,
+      "createStartMenuShortcut": true,
+      "shortcutName": "采集助手V6",
+      "installerLanguages": [
+        "zh_CN"
+      ],
+      "language": "2052",
+      "deleteAppDataOnUninstall": false
+    }
+  }
+}

@@ -1,0 +1,11 @@
+AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+
+3 !== 9
+
+    at E:\采集插件V6\test\parity-flow.cjs:19:255 {
+  generatedMessage: true,
+  code: 'ERR_ASSERTION',
+  actual: 3,
+  expected: 9,
+  operator: 'strictEqual'
+}

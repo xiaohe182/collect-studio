@@ -1,0 +1,24 @@
+'use strict';
+const {app,BrowserWindow}=require('electron'),assert=require('node:assert/strict'),fs=require('node:fs'),os=require('node:os'),path=require('node:path'),Module=require('node:module');
+const root=fs.mkdtempSync(path.join(os.tmpdir(),'v6-journal-restart-'));app.setPath('userData',path.join(root,'profile'));
+const storage=require('../engine/storage'),isolated=new Module(path.join(root,'engine/storage.js'));isolated.filename=path.join(root,'engine/storage.js');isolated._compile(fs.readFileSync(path.join(__dirname,'../engine/storage.js'),'utf8'),isolated.filename);Object.assign(storage,isolated.exports);
+const journalModule=require('../engine/result-journal'),Original=journalModule.ResultJournal,created=[];
+journalModule.ResultJournal=class extends Original{constructor(...args){super(...args);created.push(this);}};
+require('../main');
+app.whenReady().then(async()=>{let server;try{
+  server=require('node:http').createServer((_q,r)=>r.end('<p>local fixture</p>'));await new Promise(r=>server.listen(0,'127.0.0.1',r));
+  const w=BrowserWindow.getAllWindows()[0];if(w.webContents.isLoading())await new Promise(r=>w.webContents.once('did-finish-load',r));
+  const invoke=(cmd,payload={})=>w.webContents.executeJavaScript('v6api.invoke('+JSON.stringify(cmd)+','+JSON.stringify(payload)+')');
+  const url='http://127.0.0.1:'+server.address().port;await w.contentView.children[0].webContents.loadURL(url);
+  const cfg={id:'restart',name:'失败后重新采集',url,allowNoExtract:true,fields:[{name:'值'}],opts:{},flow:[{id:'open',type:'open',name:'打开',params:{url}},{id:'wait',type:'wait',name:'等待',params:{seconds:30}}]};
+  assert.equal((await invoke('scrape-start',cfg)).ok,true);
+  const page=w.contentView.children[1].webContents;await new Promise(r=>setTimeout(r,100));
+  await page.executeJavaScript("window.__v6.send('collect-preview',{id:'first',fields:[{name:'值'}],rows:[{id:'a',values:['已采结果']}]});true");
+  for(let i=0;i<50&&(await invoke('run-results')).total!==1;i++)await new Promise(r=>setTimeout(r,10));
+  await invoke('scrape-stop');for(let i=0;i<100&&(await invoke('run-results')).summary.running;i++)await new Promise(r=>setTimeout(r,20));
+  assert.equal((await invoke('get-state')).total,1);await created[0].worker.terminate();
+  while(!created[0].failure)await new Promise(r=>setTimeout(r,5));
+  const restarted=await invoke('scrape-start',cfg);assert.equal(restarted.ok,true,'旧备份线程失败不能永久锁死新采集：'+restarted.error);
+  await invoke('scrape-stop');for(let i=0;i<100&&(await invoke('run-results')).summary.running;i++)await new Promise(r=>setTimeout(r,20));
+  console.log('PASS failed backup worker cannot permanently block starting a fresh run');server.close();app.exit(0);
+}catch(error){console.error(error);server?.closeAllConnections();server?.close();app.exit(1);}});

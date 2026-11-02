@@ -1,0 +1,14 @@
+const {app,BrowserWindow,dialog}=require('electron'),assert=require('node:assert/strict'),fs=require('fs'),os=require('os'),path=require('path');const root=fs.mkdtempSync(path.join(os.tmpdir(),'v6-delete-'));app.setPath('userData',path.join(root,'profile'));const storage=require('../engine/storage'),Module=require('module'),m=new Module(path.join(root,'engine/storage.js'));m.filename=path.join(root,'engine/storage.js');m._compile(fs.readFileSync(path.join(__dirname,'../engine/storage.js'),'utf8'),m.filename);Object.assign(storage,m.exports);for(const id of ['active','old1','old2'])storage.saveTask({id,name:id,url:'https://example.com',flow:[],fields:[]});let answer=0;dialog.showMessageBox=async()=>({response:answer});require('../main');
+app.whenReady().then(async()=>{try{const w=BrowserWindow.getAllWindows()[0];await new Promise(r=>w.webContents.once('did-finish-load',r));const run=s=>w.webContents.executeJavaScript(s);await w.contentView.children[0].webContents.loadURL('about:blank');await run(`settingsDirty=false;cfg={fields:[{name:'name',index:0}],list:{type:'xpath',selector:'//table/tbody/tr'},flow:[Workflow.node('list')]};cfg.flow[0].params.list=cfg.list;selectNode(cfg.flow[0].id);markSettingsDirty();`);await run("$('btnApplySettings').onclick()");assert.equal(await run('settingsDirty'),false);assert.equal(await run("$('messageDialog').open"),false);
+for(const value of ['0','1','9','0.5','100000']){await run(`for(const id of ['optScrollSec','optLoadTimeout','optBeforeWait','optNextWait','optScrollWait'])$(id).value='${value}'`);assert.equal(await run('readOptions().scrollWait'),Number(value));}
+await run("restoreOptions({maxPages:3,scrollLoad:false,autoNext:false,fitTable:true,maxScrollSec:0,loadTimeoutSec:0,beforeWaitSec:.01,nextWaitSec:.02,scrollWait:10});markSettingsDirty();btnApplySettings.onclick()");
+assert.deepEqual(await run('cfg.opts'),{maxPages:3,scrollLoad:false,autoNext:false,fitTable:true,maxScrollSec:0,loadTimeoutSec:0,beforeWaitSec:.01,nextWaitSec:.02,scrollWait:10});
+assert.equal(await run("taskOptions.parentElement.id"),'tab-adv');
+assert.equal(await run('taskOptions.hidden'),false);
+await run("cfg.flow.push(Workflow.node('click'));selectNode(cfg.flow.at(-1).id)");assert.equal(await run('taskOptions.hidden'),true);
+await run('selectNode(cfg.flow[0].id)');assert.equal(await run('taskOptions.hidden'),false);
+assert.equal(await run('readOptions().scrollWait'),10);
+await run("$('optScrollWait').value='-1'");assert.equal(await run("$('optScrollWait').checkValidity()"),false);
+await run("markSettingsDirty();btnApplySettings.onclick()");assert.match(await run("notice.textContent"),/滚动间隔.*不能小于.*0/);assert.equal(await run("document.activeElement.id"),'optScrollWait');
+console.log('PASS apply list without webpage, timing 0/single digit/fraction/large number, reject negatives');app.exit(0);}catch(e){console.error(e);app.exit(1)}});
+

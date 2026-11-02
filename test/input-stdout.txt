@@ -1,0 +1,2 @@
+
+PASS: select input, combined draft, native Enter submits form and retains both values

@@ -1,0 +1,20 @@
+const {app,BrowserWindow,dialog}=require('electron'),assert=require('node:assert/strict'),fs=require('fs'),os=require('os'),path=require('path');const root=fs.mkdtempSync(path.join(os.tmpdir(),'v6-delete-'));app.setPath('userData',path.join(root,'profile'));const storage=require('../engine/storage'),Module=require('module'),m=new Module(path.join(root,'engine/storage.js'));m.filename=path.join(root,'engine/storage.js');m._compile(fs.readFileSync(path.join(__dirname,'../engine/storage.js'),'utf8'),m.filename);Object.assign(storage,m.exports);for(const id of ['active','old1','old2'])storage.saveTask({id,name:id,url:'https://example.com',flow:[],fields:[]});let answer=0;dialog.showMessageBox=async()=>({response:answer});require('../main');
+app.whenReady().then(async()=>{let server;try{
+  server=require('http').createServer((req,res)=>res.end('<p>ready</p>'));await new Promise(r=>server.listen(0,'127.0.0.1',r));
+  const w=BrowserWindow.getAllWindows()[0];await new Promise(r=>w.webContents.once('did-finish-load',r));const run=async s=>{try{return await w.webContents.executeJavaScript(s);}catch(e){console.error('Expression:',s);throw e;}};w.webContents.on('console-message',(_e,_l,m)=>console.log(m));
+  const url='http://127.0.0.1:'+server.address().port;
+  await run("cmd('load-url',"+JSON.stringify({url,fresh:true})+")");
+  const cfg={id:'active',url,name:'Running',allowNoExtract:true,fields:[],opts:{},flow:[{id:'open',type:'open',name:'Open',params:{url}},{id:'wait',type:'wait',name:'Wait',params:{seconds:30}}]};
+  assert.equal((await run("cmd('scrape-start',"+JSON.stringify(cfg)+")")).ok,true);
+  await run('btnTasks.onclick()');await run('activeTaskGroup=null;renderTasks();setStartBtn(true)');await new Promise(r=>setTimeout(r,100));
+  assert.equal(await run('taskExportPng.disabled'),false);
+  assert.equal(await run("document.querySelector('.task-entry').disabled"),false);
+  const file=path.join(root,'flow.png');dialog.showSaveDialog=async()=>({filePath:file,canceled:false});
+  await run("contextTask={id:'active'};taskExportPng.onclick()");assert.ok(fs.statSync(file).size>100);
+  assert.equal((await run("cmd('run-results',{})")).summary.running,true);
+  await run("resultTab='data';drawRunResults()");await run('window.oldTable=runResultsBody.firstChild;drawRunResults()');assert.equal(await run('oldTable===runResultsBody.firstChild'),true);
+  assert.equal(await run("$('startLabel').textContent"),'停止采集');
+  assert.equal(await run("!!$('btnResultPause')"),false);
+  await run("cmd('scrape-stop',{})");
+  console.log('PASS: PNG export while running, enabled task context, stable result DOM, stop control');server.close();app.exit(0);
+}catch(e){console.error(e);server?.close();app.exit(1);}});

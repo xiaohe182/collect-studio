@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>采集助手 V6 · 风格方案</title>
+<style>
+/* ═══ 公共骨架 ═══ */
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html, body { overflow: hidden; }
+body { width: 1440px; height: 900px; font-family: "Segoe UI", "Microsoft YaHei", sans-serif; }
+.app { display: block; width: 1440px; height: 900px; position: relative; }
+
+.tb { position: absolute; top:0; left:0; right:0; height:52px; display:flex; align-items:center; gap:10px; padding:0 14px; z-index:20; }
+.brand { display:flex; align-items:center; gap:9px; font-size:13.5px; font-weight:600; white-space:nowrap; }
+.brand .mark { width:22px; height:22px; border-radius:6px; display:grid; place-items:center; font-size:12px; font-weight:800; }
+.ticons { display:flex; gap:2px; }
+.ticon { width:30px; height:30px; border:none; background:transparent; border-radius:6px; display:grid; place-items:center; cursor:pointer; }
+.ticon svg { width:15px; height:15px; fill:none; stroke:currentColor; stroke-width:2; stroke-linecap:round; stroke-linejoin:round; }
+.url { flex:1; height:34px; padding:0 12px; border-radius:8px; outline:none; font-size:12.5px; }
+.gobtn { height:34px; padding:0 16px; border:none; border-radius:8px; font-size:12.5px; cursor:pointer; }
+.sp { flex:1 }
+.pill { height:32px; padding:0 14px; border-radius:999px; font-size:12px; cursor:pointer; display:inline-flex; align-items:center; gap:7px; }
+.pill .dot { width:6px; height:6px; border-radius:50%; }
+.stop { width:34px; height:34px; border:none; border-radius:8px; cursor:pointer; display:grid; place-items:center; }
+.stop svg { width:13px; height:13px; fill:currentColor; }
+.cta { height:36px; padding:0 20px; border:none; border-radius:8px; font-size:13px; font-weight:700; cursor:pointer; display:inline-flex; align-items:center; gap:8px; }
+.cta svg { width:13px; height:13px; fill:currentColor; }
+
+.side { position:absolute; top:52px; right:0; bottom:236px; width:324px; padding:0 16px; overflow:hidden; z-index:10; }
+.wf { padding:16px 0 12px; display:flex; flex-direction:column; gap:8px; align-items:center; }
+.step { display:flex; align-items:center; gap:9px; padding:6px 16px 6px 7px; font-size:12px; }
+.step i { width:21px; height:21px; border-radius:50%; display:grid; place-items:center; font-style:normal; font-size:11px; font-weight:700; }
+.step.ok i::before { content:"✓"; }
+.tabs { display:flex; gap:20px; padding:2px 0 0; }
+.tab { padding:8px 2px; font-size:13px; cursor:pointer; background:none; border:none; }
+.card { border-radius:10px; padding:13px; margin-top:12px; }
+.ct { font-size:12px; font-weight:700; margin-bottom:10px; display:flex; align-items:center; gap:8px; }
+.ct::before { content:""; width:3px; height:12px; border-radius:2px; }
+.detect { width:100%; height:38px; border:none; border-radius:8px; font-size:13px; font-weight:600; cursor:pointer; display:flex; align-items:center; justify-content:center; gap:8px; }
+.detect svg { width:15px; height:15px; fill:none; stroke:currentColor; stroke-width:2; stroke-linecap:round; }
+.fld { display:flex; align-items:center; gap:8px; padding:6px 9px; border-radius:7px; font-size:12px; }
+.fld input { width:13px; height:13px; }
+.fld .fn { width:78px; font-weight:500; }
+.fld .ft { font-size:10px; padding:1px 7px; border-radius:999px; }
+.fld .fs { flex:1; font-size:11px; opacity:.55; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+
+.stage { position:absolute; top:52px; left:0; right:324px; bottom:236px; background:#fff; overflow:hidden; }
+.site { padding:20px 30px; }
+.site h1 { font-size:19px; margin-bottom:16px; color:#222; }
+.prod { display:flex; gap:14px; border:2px solid; border-radius:10px; padding:12px; margin-bottom:12px; position:relative; background:#fff; }
+.prod .no { position:absolute; top:-1px; left:-1px; width:24px; height:20px; border-radius:8px 0 8px 0; color:#fff; font:700 12px/20px Bahnschrift, sans-serif; text-align:center; }
+.prod .img { width:58px; height:58px; border-radius:8px; background:linear-gradient(135deg,#dfe3ea,#cdd3de); }
+.prod h3 { font-size:14.5px; color:#1c2430; margin-bottom:5px; }
+.prod .in { outline:1px solid #9ec3f7; outline-offset:2px; }
+.prod .desc { font-size:12.5px; color:#7a8496; margin-bottom:6px; }
+.prod .pr { font-size:14px; font-weight:700; }
+.tip { position:absolute; top:16px; right:16px; width:270px; border-radius:10px; overflow:hidden; }
+.tip .th { display:flex; align-items:center; gap:8px; padding:9px 12px; color:#fff; font-size:13px; font-weight:600; }
+.tip .th .x { margin-left:auto; opacity:.9; font-size:14px; }
+.tip .tb2 { padding:11px 13px; font-size:12.5px; line-height:1.75; }
+.tip .ti { display:flex; align-items:center; gap:9px; padding:10px 13px; font-size:12.5px; cursor:pointer; }
+.tip .ti small { margin-left:auto; opacity:.5; font-size:10.5px; }
+.tip .ti svg { width:15px; height:15px; fill:none; stroke-width:2; stroke-linecap:round; }
+
+.pv { position:absolute; left:0; right:0; bottom:0; height:236px; border-top:1px solid; display:flex; flex-direction:column; }
+.pvh { display:flex; align-items:center; gap:10px; padding:9px 16px; }
+.pvh b { font-size:13px; }
+.count { font-size:11px; padding:2px 9px; border-radius:999px; font-family:Bahnschrift, sans-serif; }
+.pv table { border-collapse:collapse; width:100%; font-size:12.5px; }
+.pv th, .pv td { padding:6px 16px; text-align:left; }
+.pv thead tr { border-bottom:1px solid; }
+
+/* ═══ 方案 A 墨金工控 ═══ */
+.vA { background:#0d0f13; color:#ddd6c4; }
+.vA .tb { background:#101318; border-bottom:1px solid #262b35; }
+.vA .brand { color:#e6ddc6; font-family:Georgia, "宋体", serif; letter-spacing:.5px; }
+.vA .brand .mark { background:linear-gradient(135deg,#c9a962,#9a7b3c); color:#0d0f13; border-radius:4px; }
+.vA .ticon { color:#7d8494; } .vA .ticon:hover { background:#1c212b; color:#c9a962; }
+.vA .url { background:#171b22; border:1px solid #2a2f3a; color:#d8d2c0; font-family:Bahnschrift, sans-serif; }
+.vA .gobtn { background:#1f242e; color:#c9a962; border:1px solid #3a3f2a00; }
+.vA .pill { background:transparent; border:1px solid #2a2f3a; color:#8b92a3; }
+.vA .pill .dot { background:#4a5164; }
+.vA .pill.on { border-color:rgba(201,169,98,.5); color:#e2c98c; background:rgba(201,169,98,.08); }
+.vA .pill.on .dot { background:#c9a962; }
+.vA .stop { background:transparent; color:#6b7284; }
+.vA .cta { background:linear-gradient(135deg,#d8b56c,#b18f45); color:#14110a; letter-spacing:1px; }
+.vA .side { background:#101318; border-left:1px solid #262b35; }
+.vA .step { border:1px solid #2a2f3a; background:#141821; color:#a9b0c0; border-radius:4px; }
+.vA .step i { background:#1c212b; color:#8b92a3; border-radius:3px; }
+.vA .step.ok { color:#e6ddc6; border-color:#3d3deep; }
+.vA .step.ok { border-color:#4a4232; }
+.vA .step.ok i { background:#c9a962; color:#14110a; }
+.vA .tabs { border-bottom:1px solid #262b35; }
+.vA .tab { color:#6b7284; } .vA .tab.on { color:#c9a962; box-shadow:inset 0 -2px 0 #c9a962; }
+.vA .card { background:#141821; border:1px solid #262b35; border-radius:4px; }
+.vA .ct { color:#c9a962; } .vA .ct::before { background:#c9a962; }
+.vA .detect { background:#c9a962; color:#14110a; }
+.vA .fld { border:1px solid #222835; background:#10131a; color:#c5c9d4; }
+.vA .fld .ft { background:#2a2f3a; color:#c9a962; }
+.vA .stage .prod { border-color:#c9a962; border-radius:4px; }
+.vA .stage .prod .no { background:#c9a962; color:#14110a; border-radius:3px 0 0 0; }
+.vA .stage .prod .in { outline-color:#8fa8d8; }
+.vA .tip { background:#171b22; border:1px solid #3a3628; box-shadow:0 12px 32px rgba(0,0,0,.5); }
+.vA .tip .th { background:linear-gradient(135deg,#c9a962,#a3823f); color:#14110a; }
+.vA .tip .tb2 { color:#9aa2b5; border-bottom:1px solid #262b35; } .vA .tip .tb2 b { color:#e6ddc6; }
+.vA .tip .ti { color:#d8d2c0; border-bottom:1px solid #222835; }
+.vA .tip .ti:last-child { border-bottom:none; }
+.vA .tip .ti svg { stroke:#c9a962; }
+.vA .pv { background:#101318; border-color:#262b35; }
+.vA .count { background:rgba(201,169,98,.14); color:#c9a962; }
+.vA .pvh b { color:#e6ddc6; font-family:Georgia, "宋体", serif; }
+.vA .pv th { color:#7d8494; border-bottom:1px solid #2a2f3a; font-weight:500; }
+.vA .pv td { color:#c5c9d4; border-bottom:1px solid #1c212b; }
+
+/* ═══ 方案 B 晴空蓝白 ═══ */
+.vB { background:#eef2f8; color:#1a2233; }
+.vB .tb { background:#ffffff; border-bottom:1px solid #e4e9f2; box-shadow:0 1px 3px rgba(30,50,90,.04); }
+.vB .brand { color:#25314d; }
+.vB .brand .mark { background:linear-gradient(135deg,#5b7cfa,#4353e8); color:#fff; }
+.vB .ticon { color:#98a2b8; } .vB .ticon:hover { background:#f0f3f9; color:#4353e8; }
+.vB .url { background:#f4f6fb; border:1px solid #e4e9f2; color:#33415e; }
+.vB .gobtn { background:#eef1f8; color:#4353e8; }
+.vB .pill { background:#fff; border:1px solid #e4e9f2; color:#6c7a94; }
+.vB .pill .dot { background:#c3cbdc; }
+.vB .pill.on { border-color:#b9c4f5; color:#4353e8; background:#eef1fe; }
+.vB .pill.on .dot { background:#4353e8; }
+.vB .stop { background:#fdf1f3; color:#d2607a; }
+.vB .cta { background:linear-gradient(135deg,#5b7cfa,#4353e8); color:#fff; box-shadow:0 4px 14px rgba(67,83,232,.3); }
+.vB .side { background:#ffffff; border-left:1px solid #e4e9f2; }
+.vB .step { border:1px solid #e4e9f2; background:#fbfcfe; color:#54617c; border-radius:10px; }
+.vB .step i { background:#eef1f8; color:#8b97b0; }
+.vB .step.ok { background:#f2f8f4; border-color:#cde8d6; color:#1d7a46; }
+.vB .step.ok i { background:#2fa463; color:#fff; }
+.vB .tabs { border-bottom:1px solid #eef1f6; }
+.vB .tab { color:#98a2b8; } .vB .tab.on { color:#4353e8; box-shadow:inset 0 -2px 0 #4353e8; }
+.vB .card { background:#fbfcfe; border:1px solid #eaeef5; box-shadow:0 1px 2px rgba(30,50,90,.04); }
+.vB .ct { color:#25314d; } .vB .ct::before { background:#4353e8; }
+.vB .detect { background:linear-gradient(135deg,#5b7cfa,#4353e8); color:#fff; box-shadow:0 4px 12px rgba(67,83,232,.25); }
+.vB .fld { border:1px solid #eaeef5; background:#fff; color:#33415e; }
+.vB .fld .ft { background:#e8edfb; color:#4353e8; }
+.vB .stage .prod { border-color:#5b7cfa; }
+.vB .stage .prod .no { background:#5b7cfa; }
+.vB .stage .prod .in { outline-color:#f0a04a; }
+.vB .tip { background:#fff; box-shadow:0 14px 40px rgba(30,50,90,.18); }
+.vB .tip .th { background:linear-gradient(135deg,#ff9d4d,#f57f17); }
+.vB .tip .tb2 { color:#5c6880; border-bottom:1px solid #eef1f6; } .vB .tip .tb2 b { color:#25314d; }
+.vB .tip .ti { color:#33415e; border-bottom:1px solid #f2f4f9; }
+.vB .tip .ti:last-child { border-bottom:none; }
+.vB .tip .ti svg { stroke:#f57f17; }
+.vB .pv { background:#fff; border-color:#e4e9f2; }
+.vB .count { background:#e8edfb; color:#4353e8; }
+.vB .pvh b { color:#25314d; }
+.vB .pv th { color:#8b97b0; border-bottom:1px solid #eef1f6; font-weight:600; }
+.vB .pv td { color:#33415e; border-bottom:1px solid #f4f6fa; }
+
+/* ═══ 方案 C 暗夜极光 ═══ */
+.vC { background:#0a0d18; color:#c9d2ea; }
+.vC .tb { background:rgba(16,20,38,.9); border-bottom:1px solid #1d2440; }
+.vC .brand { color:#e6ebfa; }
+.vC .brand .mark { background:linear-gradient(135deg,#22d3ee,#818cf8 60%,#e879f9); color:#0a0d18; }
+.vC .ticon { color:#5b6788; } .vC .ticon:hover { background:#1a2138; color:#a5b4fc; }
+.vC .url { background:#131829; border:1px solid #232c4a; color:#c9d2ea; font-family:Bahnschrift, sans-serif; }
+.vC .gobtn { background:#1a2138; color:#a5b4fc; }
+.vC .pill { background:rgba(255,255,255,.03); border:1px solid #232c4a; color:#7c88ad; }
+.vC .pill .dot { background:#39456e; }
+.vC .pill.on { border-color:rgba(129,140,248,.6); color:#c7d2fe; background:rgba(129,140,248,.1); }
+.vC .pill.on .dot { background:#818cf8; box-shadow:0 0 8px #818cf8; }
+.vC .stop { background:transparent; color:#5b6788; }
+.vC .cta { background:linear-gradient(135deg,#22d3ee,#818cf8 55%,#c084fc); color:#071018; font-weight:800; box-shadow:0 0 24px rgba(129,140,248,.35); }
+.vC .side { background:#0e1222; border-left:1px solid #1d2440; }
+.vC .step { border:1px solid #232c4a; background:#111629; color:#93a0c4; border-radius:10px; }
+.vC .step i { background:#1a2138; color:#7c88ad; }
+.vC .step.ok { color:#d6e2ff; border-color:#2e4a6b; }
+.vC .step.ok i { background:linear-gradient(135deg,#22d3ee,#818cf8); color:#071018; }
+.vC .tabs { border-bottom:1px solid #1d2440; }
+.vC .tab { color:#5b6788; } .vC .tab.on { color:#e6ebfa; box-shadow:inset 0 -2px 0 #818cf8; }
+.vC .card { background:#10152a; border:1px solid #1d2440; }
+.vC .ct { color:#a5b4fc; } .vC .ct::before { background:linear-gradient(180deg,#22d3ee,#818cf8); }
+.vC .detect { background:linear-gradient(135deg,#22d3ee,#818cf8 55%,#c084fc); color:#071018; font-weight:700; }
+.vC .fld { border:1px solid #1d2440; background:#0d1120; color:#b6c1de; }
+.vC .fld .ft { background:rgba(129,140,248,.15); color:#a5b4fc; }
+.vC .stage .prod { border-color:#22d3ee; box-shadow:0 0 18px rgba(34,211,238,.12); }
+.vC .stage .prod .no { background:linear-gradient(135deg,#22d3ee,#818cf8); color:#071018; }
+.vC .stage .prod .in { outline-color:#e879f9; }
+.vC .tip { background:rgba(16,21,42,.97); border:1px solid #2e3a63; box-shadow:0 16px 44px rgba(0,0,0,.55), 0 0 24px rgba(129,140,248,.15); }
+.vC .tip .th { background:linear-gradient(135deg,#22d3ee,#818cf8 60%,#c084fc); color:#071018; font-weight:700; }
+.vC .tip .tb2 { color:#8b98bd; border-bottom:1px solid #1d2440; } .vC .tip .tb2 b { color:#d6e2ff; }
+.vC .tip .ti { color:#c9d2ea; border-bottom:1px solid #161d33; }
+.vC .tip .ti:last-child { border-bottom:none; }
+.vC .tip .ti svg { stroke:#22d3ee; }
+.vC .pv { background:#0e1222; border-color:#1d2440; }
+.vC .count { background:rgba(34,211,238,.12); color:#67e8f9; }
+.vC .pvh b { color:#e6ebfa; }
+.vC .pv th { color:#5b6788; border-bottom:1px solid #1d2440; }
+.vC .pv td { color:#93a0c4; border-bottom:1px solid #131829; }
+
+/* ═══ 方案 D 纸感编辑部 ═══ */
+.vD { background:#faf6ee; color:#2b2620; }
+.vD .tb { background:#faf6ee; border-bottom:2px solid #2b2620; }
+.vD .brand { color:#2b2620; font-family:Georgia, "宋体", serif; font-weight:700; font-size:14.5px; }
+.vD .brand .mark { background:#d4491f; color:#faf6ee; border-radius:2px; font-family:Georgia, serif; }
+.vD .ticon { color:#8a8071; } .vD .ticon:hover { background:#f0e9db; color:#d4491f; }
+.vD .url { background:#fffdf8; border:1px solid #ddd3bf; color:#4a4335; border-radius:2px; }
+.vD .gobtn { background:#2b2620; color:#faf6ee; border-radius:2px; }
+.vD .pill { background:transparent; border:1px solid #cfc4ac; color:#6e6553; border-radius:2px; }
+.vD .pill .dot { background:#b3a88f; }
+.vD .pill.on { border-color:#d4491f; color:#d4491f; background:#fdf0e8; }
+.vD .pill.on .dot { background:#d4491f; }
+.vD .stop { background:transparent; color:#8a8071; }
+.vD .cta { background:#d4491f; color:#fff; border-radius:2px; letter-spacing:2px; }
+.vD .side { background:#f4eee1; border-left:1px solid #ddd3bf; }
+.vD .step { border:1px solid #cfc4ac; background:#fffdf8; color:#5c5443; border-radius:2px; font-size:12.5px; }
+.vD .step i { background:transparent; color:#8a8071; font-family:Georgia, serif; }
+.vD .step.ok { border-color:#2b2620; color:#2b2620; }
+.vD .step.ok i { background:#2b2620; color:#faf6ee; }
+.vD .tabs { border-bottom:2px solid #2b2620; }
+.vD .tab { color:#8a8071; font-weight:600; } .vD .tab.on { color:#2b2620; box-shadow:inset 0 -3px 0 #d4491f; }
+.vD .card { background:#fffdf8; border:1px solid #ddd3bf; border-radius:2px; }
+.vD .ct { color:#2b2620; font-family:Georgia, "宋体", serif; font-size:13.5px; }
+.vD .ct::before { background:#d4491f; border-radius:0; }
+.vD .detect { background:#d4491f; color:#fff; border-radius:2px; font-weight:700; letter-spacing:1px; }
+.vD .fld { border:1px solid #e8e0cf; background:#fffdf8; color:#4a4335; border-radius:2px; }
+.vD .fld .ft { background:#f0e9db; color:#8a6a1f; }
+.vD .stage .prod { border-color:#d4491f; border-radius:2px; }
+.vD .stage .prod .no { background:#d4491f; border-radius:0; }
+.vD .stage .prod .in { outline-color:#3f6ac4; }
+.vD .tip { background:#fffdf8; border:1px solid #2b2620; border-radius:2px; box-shadow:6px 6px 0 rgba(43,38,32,.14); }
+.vD .tip .th { background:#d4491f; border-radius:0; }
+.vD .tip .tb2 { color:#5c5443; border-bottom:1px dashed #cfc4ac; } .vD .tip .tb2 b { color:#2b2620; }
+.vD .tip .ti { color:#2b2620; border-bottom:1px dashed #cfc4ac; }
+.vD .tip .ti:last-child { border-bottom:none; }
+.vD .tip .ti svg { stroke:#d4491f; }
+.vD .pv { background:#f4eee1; border-color:#2b2620; border-top-width:2px; }
+.vD .count { background:#d4491f; color:#fff; border-radius:2px; }
+.vD .pvh b { color:#2b2620; font-family:Georgia, "宋体", serif; font-size:14.5px; }
+.vD .pv th { color:#8a8071; border-bottom:1px solid #cfc4ac; font-family:Georgia, "宋体", serif; }
+.vD .pv td { color:#4a4335; border-bottom:1px solid #e8e0cf; }
+
+/* ═══ 方案 E 瑞士精密 ═══ */
+.vE { background:#ffffff; color:#111318; }
+.vE .tb { background:#fff; border-bottom:1px solid #111318; }
+.vE .brand { color:#111318; font-weight:700; letter-spacing:.3px; }
+.vE .brand .mark { background:#111318; color:#fff; border-radius:0; }
+.vE .ticon { color:#9aa0ab; border-radius:0; } .vE .ticon:hover { background:#f2f3f5; color:#111318; }
+.vE .url { background:#f5f6f7; border:1px solid #d9dce1; color:#111318; border-radius:0; font-family:Bahnschrift, sans-serif; }
+.vE .gobtn { background:#111318; color:#fff; border-radius:0; font-weight:600; }
+.vE .pill { background:#fff; border:1px solid #d9dce1; color:#565d68; border-radius:0; }
+.vE .pill .dot { background:#c2c7cf; border-radius:0; width:7px; height:7px; }
+.vE .pill.on { border-color:#111318; color:#111318; }
+.vE .pill.on .dot { background:#e63312; }
+.vE .stop { background:#fff; color:#9aa0ab; border-radius:0; }
+.vE .cta { background:#e63312; color:#fff; border-radius:0; font-weight:800; letter-spacing:1.5px; }
+.vE .side { background:#fafafa; border-left:1px solid #e2e4e8; }
+.vE .step { border:1px solid #d9dce1; background:#fff; color:#3c424c; border-radius:0; }
+.vE .step i { background:#f0f1f3; color:#565d68; border-radius:0; font-family:Bahnschrift, sans-serif; }
+.vE .step.ok { border-color:#111318; }
+.vE .step.ok i { background:#111318; color:#fff; }
+.vE .tabs { border-bottom:1px solid #e2e4e8; }
+.vE .tab { color:#9aa0ab; font-weight:600; } .vE .tab.on { color:#111318; box-shadow:inset 0 -2px 0 #111318; }
+.vE .card { background:#fff; border:1px solid #e2e4e8; border-radius:0; }
+.vE .ct { color:#111318; text-transform:uppercase; letter-spacing:1px; font-size:11px; }
+.vE .ct::before { width:10px; height:3px; background:#e63312; border-radius:0; }
+.vE .detect { background:#111318; color:#fff; border-radius:0; font-weight:700; letter-spacing:1px; }
+.vE .fld { border:1px solid #e2e4e8; background:#fff; color:#3c424c; border-radius:0; }
+.vE .fld .ft { background:#f0f1f3; color:#3c424c; border-radius:0; }
+.vE .stage .prod { border-color:#e63312; border-radius:0; }
+.vE .stage .prod .no { background:#e63312; border-radius:0; }
+.vE .stage .prod .in { outline-color:#111318; }
+.vE .tip { background:#fff; border:1px solid #111318; border-radius:0; box-shadow:8px 8px 0 rgba(17,19,24,.1); }
+.vE .tip .th { background:#111318; border-radius:0; letter-spacing:2px; }
+.vE .tip .tb2 { color:#565d68; border-bottom:1px solid #e2e4e8; } .vE .tip .tb2 b { color:#111318; }
+.vE .tip .ti { color:#111318; border-bottom:1px solid #e2e4e8; }
+.vE .tip .ti:last-child { border-bottom:none; }
+.vE .tip .ti svg { stroke:#e63312; }
+.vE .pv { background:#fff; border-color:#111318; }
+.vE .count { background:#e63312; color:#fff; border-radius:0; }
+.vE .pvh b { color:#111318; letter-spacing:.5px; }
+.vE .pv th { color:#9aa0ab; border-bottom:1px solid #111318; font-weight:600; }
+.vE .pv td { color:#3c424c; border-bottom:1px solid #eef0f2; }
+</style>
+</head>
+<body>
+<script>
+const ICON = {
+  back:'<svg viewBox="0 0 24 24"><path d="M15 18l-6-6 6-6"/></svg>',
+  reload:'<svg viewBox="0 0 24 24"><path d="M21 12a9 9 0 1 1-2.6-6.4M21 4v5h-5"/></svg>',
+  wand:'<svg viewBox="0 0 24 24"><path d="M5 21l9-9M15 4V2M15 16v-2M8 9H6M22 9h-2M18.4 11.4L19.8 12.8M18.4 6.6L19.8 5.2M11.6 6.6L10.2 5.2M11.6 11.4L10.2 12.8"/></svg>',
+  play:'<svg viewBox="0 0 24 24"><path d="M8 5.5v13l11-6.5z"/></svg>',
+  dl:'<svg viewBox="0 0 24 24" style="width:12px;height:12px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>',
+  folder:'<svg viewBox="0 0 24 24" style="width:12px;height:12px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"/></svg>',
+  shield:'<svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>',
+  stop:'<svg viewBox="0 0 24 24"><rect x="7" y="7" width="10" height="10" rx="1.5"/></svg>',
+};
+function app(v, name) {
+  document.body.className = 'v' + v;
+  document.body.innerHTML = `
+  <div class="app">
+    <header class="tb">
+      <div class="brand"><span class="mark">采</span>采集助手 <span style="opacity:.55;font-weight:400">V6</span></div>
+      <div class="ticons"><button class="ticon">${ICON.back}</button><button class="ticon">${ICON.reload}</button></div>
+      <input class="url" value="https://example-mall.com/list" readonly>
+      <button class="gobtn">打开</button>
+      <span class="sp"></span>
+      <button class="pill on"><span class="dot"></span>高亮</button>
+      <button class="pill"><span class="dot"></span>点选微调</button>
+      <button class="stop">${ICON.stop}</button>
+      <button class="cta">${ICON.play}采集</button>
+    </header>
+    <aside class="side">
+      <div class="wf">
+        <div class="step ok"><i></i>打开网页</div>
+        <div class="step ok"><i></i>自动识别 · 12项3字段</div>
+        <div class="step"><i>3</i>滚动采集</div>
+      </div>
+      <div class="tabs"><button class="tab on">基础设置</button><button class="tab">高级设置</button></div>
+      <div class="card">
+        <div class="ct">识别配置</div>
+        <button class="detect">${ICON.wand}自动识别网页内容</button>
+        <div style="margin-top:10px">
+          <div class="fld"><input type="checkbox" checked><span class="fn">标题</span><span class="ft">文本</span><span class="fs">无线降噪耳机 Pro</span></div>
+          <div class="fld"><input type="checkbox" checked><span class="fn">价格</span><span class="ft">文本</span><span class="fs">¥299.00</span></div>
+          <div class="fld"><input type="checkbox" checked><span class="fn">链接</span><span class="ft">链接</span><span class="fs">/item/100293</span></div>
+        </div>
+      </div>
+    </aside>
+    <main class="stage">
+      <div class="site">
+        <h1>商品列表（共 40 件）</h1>
+        <div class="prod"><span class="no">1</span><div class="img"></div><div><h3 class="in">无线降噪耳机 Pro</h3><div class="desc in">主动降噪 · 40小时续航 · 蓝牙5.3</div><div class="pr in">¥299.00</div></div></div>
+        <div class="prod"><span class="no">2</span><div class="img"></div><div><h3 class="in">机械键盘 87键</h3><div class="desc in">RGB背光 · 热插拔轴体 · 三模连接</div><div class="pr in">¥349.00</div></div></div>
+        <div class="prod"><span class="no">3</span><div class="img"></div><div><h3 class="in">人体工学椅</h3><div class="desc in">腰部支撑 · 4D扶手 · 135°后仰</div><div class="pr in">¥899.00</div></div></div>
+      </div>
+      <div class="tip">
+        <div class="th"><span class="dot2" style="width:7px;height:7px;background:#fff;border-radius:2px;display:inline-block"></span>操作提示<span class="x">×</span><span style="margin-left:auto;font-size:10px">▲</span></div>
+        <div class="tb2">通过<b>鼠标点选</b>网页内容，或点击下方"自动识别"，识别后自动在页面框选数据。</div>
+        <div class="ti">${ICON.shield}登录网站<small>直接在页面登录</small></div>
+        <div class="ti">${ICON.wand}自动识别网页内容<small>推荐</small></div>
+      </div>
+    </main>
+    <section class="pv">
+      <div class="pvh"><b>数据预览</b><span class="count">共128条数据</span><span style="flex:1"></span>
+        <button class="pill" style="height:26px;font-size:11px">${ICON.dl}CSV</button>
+        <button class="pill" style="height:26px;font-size:11px">${ICON.dl}JSON</button>
+        <button class="pill" style="height:26px;font-size:11px">${ICON.dl}Excel</button>
+        <button class="pill" style="height:26px;font-size:11px">${ICON.folder}目录</button>
+      </div>
+      <table>
+        <thead><tr><th>标题</th><th>价格</th><th>链接</th></tr></thead>
+        <tbody>
+          <tr><td>无线降噪耳机 Pro</td><td>¥299.00</td><td>/item/100293</td></tr>
+          <tr><td>机械键盘 87键</td><td>¥349.00</td><td>/item/100294</td></tr>
+          <tr><td>人体工学椅</td><td>¥899.00</td><td>/item/100295</td></tr>
+        </tbody>
+      </table>
+    </section>
+  </div>`;
+  document.title = name;
+}
+const v = new URLSearchParams(location.search).get('v') || 'A';
+const names = { A:'方案A 墨金工控', B:'方案B 晴空蓝白', C:'方案C 暗夜极光', D:'方案D 纸感编辑部', E:'方案E 瑞士精密' };
+app(v, names[v]);
+</script>
+</body>
+</html>

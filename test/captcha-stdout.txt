@@ -1,0 +1,2 @@
+
+PASS: captcha blocks extraction, explicit continue resumes, stop removes prompt without collecting

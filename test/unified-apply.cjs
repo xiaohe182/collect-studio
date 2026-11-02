@@ -1,0 +1,12 @@
+const {app,BrowserWindow}=require('electron'),assert=require('node:assert/strict'),fs=require('fs'),os=require('os'),path=require('path');const root=fs.mkdtempSync(path.join(os.tmpdir(),'v6-controls-'));app.setPath('userData',path.join(root,'profile'));const storage=require('../engine/storage'),Module=require('module'),m=new Module(path.join(root,'engine/storage.js'));m.filename=path.join(root,'engine/storage.js');m._compile(fs.readFileSync(path.join(__dirname,'../engine/storage.js'),'utf8'),m.filename);Object.assign(storage,m.exports);storage.saveTask({id:'fixture-trade',name:'贸易',url:'https://example.com',fields:[],flow:[]});require('../main');
+app.whenReady().then(async()=>{try{const w=BrowserWindow.getAllWindows()[0];await new Promise(r=>w.webContents.once('did-finish-load',r));const run=s=>w.webContents.executeJavaScript(s);await run("cfg.flow=[{id:'open-test',type:'open',name:'打开网页',params:{url:'https://example.com'}}];cfg.url='https://example.com';selectNode('open-test')");
+assert.equal(await run("$('btnSaveRule').parentElement.className"),'tb-right');
+assert.equal(await run("document.querySelectorAll('.side-foot button').length"),1);
+assert.equal(await run("!!$('tab-retry').querySelector('[data-param=retries]')"),true);
+await run("$('nodeName').value='修改';$('nodeName').dispatchEvent(new Event('change',{bubbles:true}))");assert.equal(await run("$('btnSaveRule').disabled"),true);
+assert.equal(await run('saveCurrentTask(true)'),false);
+await run("$('btnApplySettings').onclick()");assert.equal(await run('settingsDirty'),false);assert.equal(await run("$('btnSaveRule').disabled"),false);
+assert.equal(await run('saveCurrentTask(true)'),true);
+await run("document.querySelector('[data-tab=retry]').click()");assert.equal(await run("$('tab-retry').classList.contains('hidden')"),false);
+console.log('PASS save moved, single Apply, retry tab, dirty save guard and apply/save');
+fs.mkdirSync('output/playwright',{recursive:true});fs.writeFileSync('output/playwright/compact-controls.png',(await w.webContents.capturePage()).toPNG());console.log('PASS compact toolbar, task dialog, Apply and Save controls');app.exit(0);}catch(e){console.error(e);app.exit(1);}});

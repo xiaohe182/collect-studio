@@ -1,0 +1,19 @@
+# 依赖与构建产物（体积过大 / 可重新生成，不纳入版本库）
+node_modules/
+dist/
+
+# 系统/工具缓存
+.DS_Store
+Thumbs.db
+
+# 本地备份（含原始密钥，勿提交）
+*.bak
+
+# 运行时数据与本地产物
+output/
+results/
+tasks/
+.playwright-cli/
+test/shots/
+.playwright-mcp/
+docs/superpowers/

@@ -1,0 +1,17 @@
+
+执行：循环滚动网页
+执行：循环列表
+循环滚动网页 第 1 次
+执行：循环列表
+循环滚动网页 第 2 次
+执行：循环列表
+循环滚动网页 第 3 次
+执行：循环列表
+循环滚动网页 第 4 次
+执行：循环列表
+循环滚动网页 第 5 次
+执行：循环列表
+循环滚动网页 第 6 次
+内容连续三次未更新，结束循环
+SCROLL STATE {"top":788,"height":888,"count":9}
+PASS: load more 9 source rows, exact 7 filtered rows, duplicates/stats, dropdown, condition, retry/continue; inner scroll 9 exact rows including first and last
